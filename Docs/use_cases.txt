@@ -1,0 +1,47 @@
+Who?
+    Local programs on the ground
+        - School staff
+        - Farmers
+        - Community
+    Policy makers
+    State and regional planning folks like Ecotrust
+    Ecotrust Internal
+    Researchers/Academics
+
+What?
+    View data about F2S impact
+    View data by:
+        - statewide
+        - district
+        - county
+        - F2S Grantees
+            Cycle 1 vs. Cycle 2?
+            attribute of district
+        - Time period
+    Pull data out in useful formats
+    Generate readable/printable report
+    Compare data points over time
+    Contribute data - report inaccuracies
+        REPORT TO OUR SOURCES - WE DO NO AD HOC UPDATES
+    View data sources
+    About page - highlighting Ecotrust and Oregon Farm to School and School Garden Network and the project.
+    Highlight missing/incomplete data
+        - "recommendations for future research/ grant projects"
+        - Aligned to indicators
+    Content Management
+        - site blocks
+        - data points
+    Case Studies
+        - fill holes in the data
+        - keep with indicators page
+
+When and how?
+    For work, on a laptop
+    For presentations (screen shots and data)
+    For reports and grants (copy and paste)
+
+Why?
+    So that they can get grant money or other upstream impacts
+    Tools to help them show their own efforts' impacts
+    Encourage research
+    Bragging - advocacy
