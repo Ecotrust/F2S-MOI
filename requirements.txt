@@ -1,2 +1,3 @@
 wagtail
 django-appconf
+psycopg2
