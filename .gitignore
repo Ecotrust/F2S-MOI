@@ -1,3 +1,6 @@
 env
 moi/env
 moi/db.sqlite3
+*.pyc
+moi/media/images/*
+moi/media/original_images/*
