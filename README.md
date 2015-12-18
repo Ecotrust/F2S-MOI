@@ -5,12 +5,16 @@
 #### Vagrant (Dev)
  * Launch your box with `vagrant up`
  * Access your box with `vagrant ssh`
+ * In another terminal, keep local changes synced with `vagrant rsync-auto`
  * run the following commands
 ```
+ sudo ln -s /home/vagrant/sync/ /usr/local/apps
  sudo /usr/local/apps/deploy/install_vagrant_reqs.sh
- cd /usr/local/apps/moi
+ cd ~/
  virtualenv env
  source env/bin/activate
+ cd /usr/local/apps/moi
+ pip install --upgrade pip
  pip install -r /usr/local/apps/requirements.txt
  sudo su postgres
  createdb moi
