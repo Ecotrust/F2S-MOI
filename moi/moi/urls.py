@@ -12,6 +12,7 @@ urlpatterns = [
 
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'^rest/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^search/$', 'search.views.search', name='search'),
 

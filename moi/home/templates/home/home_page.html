@@ -10,4 +10,45 @@
     <p><a href="{% url 'wagtailadmin_home' %}">admin</a>
 
     <p>If you haven't already given the documentation a read, head over to <a href="http://wagtail.readthedocs.org/">http://wagtail.readthedocs.org</a> to start building on Wagtail</p>
+    <h3>Abouts</h3>
+    {% for about in self.get_children %}
+      {% if about.content_type.name == "about" %}
+       <p>{{ about.title }}</p>
+      {% endif %}
+    {% endfor %}
+    <ul>
+    {% for sector in self.get_children %}
+      {% if sector.content_type.name == "sector" %}
+      <li>{{ sector.title }}</li>
+      <ul>
+      {% for outcome in sector.get_children %}
+        <li>{{ outcome.title }}</li>
+        <ul>
+        {% for indicator in outcome.get_children %}
+          <li>{{ indicator.title }}</li>
+          <ul>
+            <li>MEASURES:</li>
+            <ul>
+            {% for measure in indicator.get_children %}
+              {% if measure.content_type.name == "Core Measure"  %}
+                <li>{{ measure.title}}</li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+            <li>RECOMMENDATIONS:</li>
+            <ul>
+            {% for recommendation in indicator.get_children %}
+              {% if recommendation.content_type.name == "Recommendation" %}
+              <li>{{ recommendation.title }}</li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </ul>
+        {% endfor %}
+        </ul>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% endfor %}
+    </ul>
 {% endblock %}

@@ -1,3 +1,6 @@
 wagtail
 django-appconf
 psycopg2
+djangorestframework
+markdown
+django-filter

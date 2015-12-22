@@ -9,12 +9,9 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
 class HomePage(Page):
     displayTitle = RichTextField(blank=True)
-    # parent_page_types = ['HomePage']
 
     content_panels = Page.content_panels + [
         FieldPanel('displayTitle', classname="full")
     ]
 
-
-
-# class
+    subpage_types = ['about.About', 'carousel.Carousel', 'sectors.Sector']
