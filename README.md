@@ -3,9 +3,11 @@
 
 ### Installation
 #### Vagrant (Dev)
+ * Install rsync_pull with `vagrant plugin install vagrant-rsync-pull`
  * Launch your box with `vagrant up`
  * Access your box with `vagrant ssh`
  * In another terminal, keep local changes synced with `vagrant rsync-auto`
+ * When you want to sync files FROM the VM to the host, use `vagrant rsync-pull`
  * run the following commands
 ```
  sudo ln -s /home/vagrant/sync/ /usr/local/apps
