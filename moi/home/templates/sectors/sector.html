@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-datapage{% endblock %}
+
+{% block content %}
+  <h1>Sector: {{ page.title }}</h1>
+
+  <h2>Priority Outcomes</h2>
+  <ul>
+  {% for outcome in self.get_children %}
+    <li><a href="{{ outcome.slug }}">{{ outcome.title }}</a></li>
+    <ul>
+    {% for indicator in outcome.get_children %}
+      <li><a href="{{ outcome.slug }}/{{ indicator.slug }}">{{ indicator.title }}</a></li>
+      <ul>
+        <li>MEASURES:</li>
+        <ul>
+        {% for measure in indicator.get_children %}
+          {% if measure.content_type.name == "Core Measure"  %}
+            <li><a href="{{ outcome.slug }}/{{ indicator.slug }}/{{ measure.slug }}">{{ measure.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+        <li>RECOMMENDATIONS:</li>
+        <ul>
+        {% for recommendation in indicator.get_children %}
+          {% if recommendation.content_type.name == "Recommendation" %}
+          <li><a href="{{ outcome.slug }}/{{ indicator.slug }}/{{ recommendation.slug }}">{{ recommendation.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      </ul>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+  </ul>
+
+{% endblock %}

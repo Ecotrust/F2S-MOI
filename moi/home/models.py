@@ -14,4 +14,4 @@ class HomePage(Page):
         FieldPanel('displayTitle', classname="full")
     ]
 
-    subpage_types = ['about.About', 'carousel.Carousel', 'sectors.Sector']
+    subpage_types = ['about.About', 'carousel.Carousel', 'data.Data']

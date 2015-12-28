@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-datapage{% endblock %}
+
+{% block content %}
+  <h1>Indicator: {{ page.title }}</h1>
+
+  <h2>MEASURES:</h2>
+  <ul>
+  {% for measure in self.get_children %}
+    {% if measure.content_type.name == "Core Measure"  %}
+      <li><a href="{{ measure.slug }}">{{ measure.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+  <h2>RECOMMENDATIONS:</h2>
+  <ul>
+  {% for recommendation in self.get_children %}
+    {% if recommendation.content_type.name == "Recommendation" %}
+    <li><a href="{{ recommendation.slug }}">{{ recommendation.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+
+{% endblock %}
