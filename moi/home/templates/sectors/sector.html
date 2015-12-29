@@ -5,6 +5,23 @@
 {% block body_class %}template-datapage{% endblock %}
 
 {% block content %}
+  <p>
+  {% for ancestor in self.get_ancestors %}
+    {% if not ancestor.title == 'Root' %}
+      <a href="{% for grandcestor in ancestor.get_ancestors %}{% if forloop.first %}/{% endif %}{% if not grandcestor.title == 'Root' %}{% if not grandcestor.content_type.name == 'home page' %}{{ grandcestor.slug }}/{% endif %}{% endif %}{% endfor %}{% if not ancestor.content_type.name == 'home page' %}{{ ancestor.slug }}{% endif %}">
+        {% if ancestor.content_type.name == 'home page'%}
+          Home
+        {% else %}
+          {{ ancestor.title }}
+        {% endif %}
+      </a>
+      {% if not forloop.last %}
+        >
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  </p>
+
   <h1>Sector: {{ page.title }}</h1>
 
   <h2>Priority Outcomes</h2>
