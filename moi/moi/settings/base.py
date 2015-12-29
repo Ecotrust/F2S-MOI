@@ -105,14 +105,16 @@ WSGI_APPLICATION = 'moi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'moi',
-        'USER': 'vagrant',
-        'PASSWORD': 'vagrant',
-    }
-}
+# SET IN DEV OR PRODUCTION SETTINGS
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'moi',
+#         'USER': 'vagrant',
+#         'PASSWORD': 'vagrant',
+#     }
+# }
 
 
 # Internationalization
