@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block body_class %}template-datapage{% endblock %}
 
@@ -9,11 +10,7 @@
   {% for ancestor in self.get_ancestors %}
     {% if not ancestor.title == 'Root' %}
       <a href="{% for grandcestor in ancestor.get_ancestors %}{% if forloop.first %}/{% endif %}{% if not grandcestor.title == 'Root' %}{% if not grandcestor.content_type.name == 'home page' %}{{ grandcestor.slug }}/{% endif %}{% endif %}{% endfor %}{% if not ancestor.content_type.name == 'home page' %}{{ ancestor.slug }}{% endif %}">
-        {% if ancestor.content_type.name == 'home page'%}
-          Home
-        {% else %}
-          {{ ancestor.title }}
-        {% endif %}
+        {% if ancestor.content_type.name == 'home page'%}Home{% else %}{{ ancestor.title }}{% endif %}
       </a>
       {% if not forloop.last %}
         >
@@ -22,7 +19,13 @@
   {% endfor %}
   </p>
 
-  <h1>{{ page.title }}</h1>
+  {{ page.displayTitle|richtext }}
+
+  {{ page.sub_title|richtext }}
+
+  {{ page.main_content|richtext }}
+
+  {% image page.image min-50x50 %}
 
   <h2>Sectors</h2>
   <ul>
