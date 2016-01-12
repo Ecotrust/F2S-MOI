@@ -158,6 +158,11 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Django compressor settings
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'), # for wagtail
+)
+
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "moi"

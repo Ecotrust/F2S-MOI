@@ -4,3 +4,10 @@ psycopg2
 djangorestframework
 markdown
 django-filter
+
+# Note: django-libsass needs libsass>0.4 
+# 0.5.1 is the latest version that we can install on WF
+# FWIW - this notification was pulled from MARCO requirements.txt
+libsass==0.5.1
+
+django-libsass
