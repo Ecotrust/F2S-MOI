@@ -163,6 +163,12 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'), # for wagtail
 )
 
+# Bower Configuration
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'core/static')
+
+BOWER_INSTALLED_APPS = (
+    'boostrap',
+)
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "moi"

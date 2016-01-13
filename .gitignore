@@ -4,3 +4,5 @@ moi/db.sqlite3
 *.pyc
 moi/media/images/*
 moi/media/original_images/*
+.vagrant
+bower_components

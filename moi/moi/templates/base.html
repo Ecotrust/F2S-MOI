@@ -20,9 +20,9 @@
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="{% block body_class %}{% endblock %}" data-spy="scroll" data-offset="0" data-target="#navbar-main">
         {% wagtailuserbar %}
-
+        {% include "navbar.html" %}
         {% block content %}{% endblock %}
 
         {# Global javascript #}
