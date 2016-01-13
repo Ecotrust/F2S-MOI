@@ -5,9 +5,9 @@
 #### Vagrant (Dev)
  * Make sure your vagrant and virtual box are up-to-date
  * Install rsync_pull with `vagrant plugin install vagrant-rsync-pull`
- ⋅⋅* Note: If rysnc seems to hang or appears progressively slow within vagrant, use  `vagrant plugin install vagrant-gatling-rsync` instead
+   * Note: If rysnc seems to hang or appears progressively slow within vagrant, use  `vagrant plugin install vagrant-gatling-rsync` instead
  * Launch your box with `vagrant up`
- ⋅⋅* Note: If vagrant appears sluggish, install `vagrant plugin install vagrant-faster` to help allocate more memory/CPU based on your machine's capacity
+   * Note: If vagrant appears sluggish, install `vagrant plugin install vagrant-faster` to help allocate more memory/CPU based on your machine's capacity
  * Access your box with `vagrant ssh`
  * In another terminal, keep local changes synced with `vagrant rsync-auto`
  * When you want to sync files FROM the VM to the host, use `vagrant rsync-pull`
