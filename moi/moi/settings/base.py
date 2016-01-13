@@ -63,6 +63,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # installs bower components
+    'djangobower',
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -138,6 +141,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
+    'djangobower.finders.BowerFinder',
 )
 
 STATICFILES_DIRS = (
@@ -164,10 +168,11 @@ COMPRESS_PRECOMPILERS = (
 )
 
 # Bower Configuration
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'core/static')
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
 
 BOWER_INSTALLED_APPS = (
-    'boostrap',
+    'jquery#2.2.0',
+    'bootstrap#3.3.6',
 )
 # Wagtail settings
 
