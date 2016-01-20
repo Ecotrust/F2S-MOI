@@ -5,4 +5,4 @@ moi/db.sqlite3
 moi/media/images/*
 moi/media/original_images/*
 .vagrant
-bower_components
+components

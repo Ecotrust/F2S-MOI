@@ -15,6 +15,9 @@
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/moi.css' %}">
 
+        {% load staticfiles %}
+        <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -27,7 +30,8 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/moi.js' %}"></script>
-
+        <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
