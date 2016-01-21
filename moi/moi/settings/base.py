@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'recommendations',
     'about',
     'dataviz',
+    'menu',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',

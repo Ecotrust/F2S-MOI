@@ -25,7 +25,7 @@ class HomePage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('display_title', classname="full"),
+        FieldPanel('display_title'),
         FieldPanel('sub_title', classname="subtitle or blurb"),
         FieldPanel('main_content', classname="content"),
         ImageChooserPanel('image'),
