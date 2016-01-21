@@ -1,0 +1,13 @@
+<div id="navbar-main">
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        {% for menu in menus %}
+          <li> <a href="{{ menu.url.url }}" class="smoothScroll">{{ menu.title }}</a></li>
+        {% endfor %}
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>

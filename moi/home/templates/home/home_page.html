@@ -2,7 +2,6 @@
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-{% load home_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -16,13 +15,5 @@
     {{ page.main_content|richtext }}
 
     {% include "home/top_stories.html" with top_stories=self.top_stories.all only %}
-
-    <!-- <p>If you haven't already given the documentation a read, head over to <a href="http://wagtail.readthedocs.org/">http://wagtail.readthedocs.org</a> to start building on Wagtail</p> -->
-    <h3>Abouts</h3>
-    {% for about in self.get_children %}
-      {% if about.content_type.name == "about" %}
-       <p>{{ about.title }}</p>
-      {% endif %}
-    {% endfor %}
 
 {% endblock %}
