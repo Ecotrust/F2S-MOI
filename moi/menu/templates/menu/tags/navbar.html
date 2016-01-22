@@ -7,6 +7,12 @@
         {% for menu in menus %}
           <li> <a href="{{ menu.url.url }}" class="smoothScroll">{{ menu.title }}</a></li>
         {% endfor %}
+        </ul>
+        <div class="pull-right">
+            <form class="navbar-form" role="search" action="{% url 'search' %}" method="get">
+                <input class="form-control" type="text" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
+            </form>
+        </div>
       </div><!--/.nav-collapse -->
     </div>
   </div>

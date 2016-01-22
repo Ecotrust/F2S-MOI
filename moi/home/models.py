@@ -9,6 +9,7 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
 from wagtail.wagtailimages.models import Image
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailsearch import index
 
 
 class HomePage(Page):
@@ -22,6 +23,12 @@ class HomePage(Page):
         default=None,
         on_delete=models.SET_NULL,
         related_name='+'
+    )
+
+    search_fileds = Page.search_fields + (
+        index.SearchField('display_title'),
+        index.SearchField('sub_title'),
+        index.SearchField('main_content'),
     )
 
     content_panels = Page.content_panels + [

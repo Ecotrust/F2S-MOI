@@ -5,7 +5,9 @@ from django.contrib import admin
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
+from wagtail.wagtailsearch.signal_handlers import register_signal_handlers
 
+import search.views
 
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
@@ -14,7 +16,7 @@ urlpatterns = [
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^rest/', include('rest_framework.urls', namespace='rest_framework')),
 
-    url(r'^search/$', 'search.views.search', name='search'),
+    url(r'^search/$', search.views.search, name='search'),
 
     url(r'', include(wagtail_urls)),
 ]
