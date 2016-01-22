@@ -10,9 +10,7 @@
 
     {{ page.display_title|richtext }}
 
-    {{ page.sub_title|richtext }}
-
-    {{ page.main_content|richtext }}
+    {{ page.body_content }}
 
     {% include "home/top_stories.html" with top_stories=self.top_stories.all only %}
 

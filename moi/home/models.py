@@ -5,37 +5,28 @@ from django.db import models
 from modelcluster.fields import ParentalKey
 
 from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
+from wagtail.wagtailcore.fields import RichTextField, StreamField
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, \
+     InlinePanel, PageChooserPanel, StreamFieldPanel
 from wagtail.wagtailimages.models import Image
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
+from core.models import CoreStreamBlock
+
 
 class HomePage(Page):
     display_title = RichTextField(blank=True)
-    sub_title = RichTextField(blank=True, null=True, default=None)
-    main_content = RichTextField(blank=True, null=True, default=None)
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        default=None,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
+    body_content = StreamField(CoreStreamBlock(), blank=True, null=True, default=None)
 
-    search_fileds = Page.search_fields + (
+    search_fields = Page.search_fields + (
         index.SearchField('display_title'),
-        index.SearchField('sub_title'),
-        index.SearchField('main_content'),
+        index.SearchField('body_content'),
     )
 
     content_panels = Page.content_panels + [
         FieldPanel('display_title'),
-        FieldPanel('sub_title', classname="subtitle or blurb"),
-        FieldPanel('main_content', classname="content"),
-        ImageChooserPanel('image'),
+        StreamFieldPanel('body_content'),
         InlinePanel('top_stories', label="Top Stories"),
     ]
 
@@ -54,7 +45,7 @@ class TopStories(models.Model):
         help_text="Internal path to specific sector",
     )
 
-    panels = [
+    content_panels = [
         FieldPanel('sector_name'),
         FieldPanel('top_stories_content'),
         FieldPanel('link_caption'),
