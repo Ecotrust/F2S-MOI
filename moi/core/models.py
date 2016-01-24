@@ -1,5 +1,6 @@
 from django.db import models
 from django import forms
+from django.template.loader import render_to_string
 
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import RichTextField
@@ -53,8 +54,26 @@ class AlignedHTMLBlock(StructBlock):
         icon = "code"
 
 class NumberCountUpBlock(StructBlock):
-    number = CharBlock()
-    inline = BooleanBlock(required=False, help_text=("If the number is inline with a sentence, check this box"))
+    content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
+    numbers = CharBlock(help_text="Enter the numbers you'd like to count up - seperated by semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
+
+    def render(self, value):
+        num = value['numbers']
+        current_context = value['content'].source
+
+        if num:
+            num_list = num.split("; ")
+            for num in num_list:
+                html_span = "<span id='count-%s'></span>" % (num)
+                current_context = current_context.replace(num, html_span)
+
+
+        return render_to_string(self.meta.template, {
+            'self': value,
+            'content': current_context,
+            'numbers': num_list
+
+        })
 
     class Meta:
         template = "blocks/number_count_up_block.html"
@@ -64,6 +83,7 @@ class TwoColumnBlock(StructBlock):
     left_column = StreamBlock([
             ('heading', CharBlock(icon="title", classname="full title")),
             ('paragraph', RichTextBlock(icon="pilcrow")),
+            ('number_count_up', NumberCountUpBlock(icon="collapse-up")),
             ('image', ImageChooserBlock(icon="image")),
             ('embedded_video', EmbedBlock(icon="media")),
         ], icon='arrow-left', label='Left content')
@@ -71,6 +91,7 @@ class TwoColumnBlock(StructBlock):
     right_column = StreamBlock([
             ('heading', CharBlock(icon="title", classname="full title")),
             ('paragraph', RichTextBlock(icon="pilcrow")),
+            ('number_count_up', NumberCountUpBlock(icon="collapse-up")),
             ('image', ImageChooserBlock(icon="image")),
             ('embedded_video', EmbedBlock(icon="media")),
         ], icon='arrow-right', label='Right content')
@@ -82,7 +103,7 @@ class TwoColumnBlock(StructBlock):
 
 class CoreStreamBlock(StreamBlock):
     paragraph = RichTextBlock(icon="pilcrow")
-    number_count_up = NumberCountUpBlock(icon="collapse-up", label="Number Count Up")
+    number_count_up = NumberCountUpBlock(icon="collapse-up", label="Content and Number Count Up")
     aligned_image = ImageBlock(label="Aligned image", icon="image")
     aligned_html = AlignedHTMLBlock(icon="code", label='Raw HTML')
     document = DocumentChooserBlock(icon="doc-full-inverse")
