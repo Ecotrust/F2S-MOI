@@ -1,25 +1,7 @@
-{% load wagtailcore_tags %}
+{% load static wagtailcore_tags %}
 
 {% if numbers %}
     {{ content | richtext }}
-{% else %}
-    <div id="count-{{ self.num }}"></div>
 {% endif %}
-
-<script src="https://cdn.jsdelivr.net/countupjs/1.6.0/countUp.min.js"></script>
-<script>
-    var options = {
-    useEasing : false,
-    useGrouping : true,
-    separator : ',',
-    decimal : '.',
-    prefix : '',
-    suffix : ''
-  };
-  {% for num in numbers %}
-  var count = new CountUp("count-{{ num }}", 0, {{ num }}, 0, 2.5, options);
-  count.start();
-  {% endfor %}
-</script>
 
 

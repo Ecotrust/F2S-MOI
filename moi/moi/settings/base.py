@@ -176,6 +176,8 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
 BOWER_INSTALLED_APPS = (
     'jquery#2.2.0',
     'bootstrap#3.3.6',
+    'countUp.js#1.6.0',
+    'isInViewport',
 )
 # Wagtail settings
 

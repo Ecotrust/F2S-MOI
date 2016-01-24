@@ -64,7 +64,7 @@ class NumberCountUpBlock(StructBlock):
         if num:
             num_list = num.split("; ")
             for num in num_list:
-                html_span = "<span id='count-%s'></span>" % (num)
+                html_span = "<span id='count-%s' class='count-up'></span>" % (num)
                 current_context = current_context.replace(num, html_span)
 
 
