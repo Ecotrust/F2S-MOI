@@ -11,7 +11,7 @@ from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
 from wagtail.wagtailsearch import index
 
 from wagtail.wagtailcore.blocks import TextBlock, StructBlock, StreamBlock, FieldBlock, CharBlock, \
-     ChoiceBlock, RichTextBlock, RawHTMLBlock
+     ChoiceBlock, RichTextBlock, RawHTMLBlock, BooleanBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -39,7 +39,6 @@ class HTMLAlignmentChoiceBlock(FieldBlock):
         ('normal', 'Normal'), ('full', 'Full width'),
     ))
 
-
 class ImageBlock(StructBlock):
     image = ImageChooserBlock()
     caption = RichTextBlock()
@@ -53,37 +52,40 @@ class AlignedHTMLBlock(StructBlock):
     class Meta:
         icon = "code"
 
+class NumberCountUpBlock(StructBlock):
+    number = CharBlock()
+    inline = BooleanBlock(required=False, help_text=("If the number is inline with a sentence, check this box"))
+
+    class Meta:
+        template = "blocks/number_count_up_block.html"
+
 class TwoColumnBlock(StructBlock):
-    
+
     left_column = StreamBlock([
             ('heading', CharBlock(icon="title", classname="full title")),
             ('paragraph', RichTextBlock(icon="pilcrow")),
             ('image', ImageChooserBlock(icon="image")),
             ('embedded_video', EmbedBlock(icon="media")),
         ], icon='arrow-left', label='Left content')
- 
+
     right_column = StreamBlock([
             ('heading', CharBlock(icon="title", classname="full title")),
             ('paragraph', RichTextBlock(icon="pilcrow")),
             ('image', ImageChooserBlock(icon="image")),
             ('embedded_video', EmbedBlock(icon="media")),
         ], icon='arrow-right', label='Right content')
- 
+
     class Meta:
         template = 'blocks/two_column_block.html'
         icon = 'placeholder'
         label = 'Two Columns'
 
 class CoreStreamBlock(StreamBlock):
-    h2 = CharBlock(icon="title", classname="title")
-    h3 = CharBlock(icon="title", classname="title")
-    h4 = CharBlock(icon="title", classname="title")
-    intro = RichTextBlock(icon="pilcrow")
     paragraph = RichTextBlock(icon="pilcrow")
+    number_count_up = NumberCountUpBlock(icon="collapse-up", label="Number Count Up")
     aligned_image = ImageBlock(label="Aligned image", icon="image")
-    pullquote = PullQuoteBlock()
     aligned_html = AlignedHTMLBlock(icon="code", label='Raw HTML')
     document = DocumentChooserBlock(icon="doc-full-inverse")
     embedded_video = EmbedBlock(icon="media")
-    two_column = TwoColumnBlock() 
+    two_column = TwoColumnBlock()
 

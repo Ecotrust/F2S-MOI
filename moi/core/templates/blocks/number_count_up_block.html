@@ -1,0 +1,21 @@
+{% if self.inline %}
+    <span id="count-{{ self.number }}"></span>
+{% else %}
+    <div id="count-{{ self.number }}"></div>
+{% endif %}
+
+<script src="https://cdn.jsdelivr.net/countupjs/1.6.0/countUp.min.js"></script>
+<script>
+  var options = {
+    useEasing : false,
+    useGrouping : true,
+    separator : ',',
+    decimal : '.',
+    prefix : '',
+    suffix : ''
+  };
+  var count = new CountUp("count-{{ self.number }}", 0, {{ self.number }}, 0, 2.5, options);
+  count.start();
+</script>
+
+
