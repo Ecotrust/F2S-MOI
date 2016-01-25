@@ -55,11 +55,13 @@ class AlignedHTMLBlock(StructBlock):
 
 class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
-    numbers = CharBlock(help_text="Enter the numbers you'd like to count up - seperated by semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
+    numbers = CharBlock(help_text="Enter the numbers you'd like to count up - seperated by a semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
+    inline = BooleanBlock(required=False, help_text="If this is not a standalone number, but apart of an actual sentence - check the box.")
 
     def render(self, value):
         num = value['numbers']
         current_context = value['content'].source
+        inline = value['inline']
 
         if num:
             num_list = num.split("; ")
@@ -71,7 +73,8 @@ class NumberCountUpBlock(StructBlock):
         return render_to_string(self.meta.template, {
             'self': value,
             'content': current_context,
-            'numbers': num_list
+            'numbers': num_list,
+            'inline': inline,
 
         })
 

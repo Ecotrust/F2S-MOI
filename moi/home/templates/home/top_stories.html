@@ -2,17 +2,19 @@
 {% load wagtailimages_tags %}
 
 {% for top_story in top_stories %}
-<div class="container" id="top-stories" name="top-stories">
-    <div class="row">
-    <br>
-        <h1 class="centered">{{ top_story.sector_name | richtext }}</h1>
-        <hr>
-        
-        <div class="col">
-            {{ top_story.top_stories_content | richtext }}
-            <p><a href="{{ top_story.url.url }}" class="icon icon-link">{{ top_story.link_caption }}</a></p>      
-        </div><!-- col-lg-6 -->
-        
-    </div><!-- row -->
-</div><!-- container -->
+<section>
+    <div class="container" id="top-stories" name="top-stories">
+        <div class="row">
+        <br>
+            <h1 class="centered">{{ top_story.sector_name | richtext }}</h1>
+            <hr>
+            
+            <div class="col">
+                {{ top_story.top_stories_content | richtext }}
+                <p><a href="{{ top_story.url.url }}" class="icon icon-link">{{ top_story.link_caption }}</a></p>      
+            </div><!-- col-lg-6 -->
+            
+        </div><!-- row -->
+    </div><!-- container -->
+</section>
 {% endfor %}

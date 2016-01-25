@@ -1,7 +1,13 @@
 {% load static wagtailcore_tags %}
 
 {% if numbers %}
-    {{ content | richtext }}
+    {% if inline %}
+    <div class="single-number">
+    {% else %}
+    <div class="container">
+    {% endif %}
+        {{ content | richtext }}
+    </div>
 {% endif %}
 
 
