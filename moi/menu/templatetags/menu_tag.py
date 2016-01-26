@@ -1,6 +1,7 @@
 from django import template
 from django.template.loader import get_template
 from menu.models import Menu
+from home.models import HomePage
 
 register = template.Library()
 
@@ -11,8 +12,10 @@ def menus(context, kind='header', menu_type='navbar'):
 
     footer = (kind == 'footer')
     menus = Menu.objects.filter(footer=footer)
+    nav_title = HomePage.objects.all()[0].display_title     
 
     return t.render(template.Context({
         'menus': menus,
+        'nav_title': nav_title,
         'request': context['request'],
 }))
