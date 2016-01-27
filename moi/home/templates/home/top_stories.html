@@ -3,7 +3,7 @@
 
 {% for top_story in top_stories %}
 <section>
-    <div class="container" id="top-stories" name="top-stories">
+    <div class="container-fluid" id="top-stories" name="top-stories">
         <div class="row">
         <br>
             <h1 class="centered">{{ top_story.sector_name | richtext }}</h1>
@@ -15,6 +15,6 @@
             </div><!-- col-lg-6 -->
             
         </div><!-- row -->
-    </div><!-- container -->
+    </div><!-- container-fluid -->
 </section>
 {% endfor %}

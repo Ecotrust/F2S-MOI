@@ -24,7 +24,7 @@
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}" data-spy="scroll" data-offset="0" data-target="#navbar-main">
+    <body class="{% block body_class %}{% endblock %}container-fluid" data-spy="scroll" data-offset="0" data-target="#navbar-main">
         {% wagtailuserbar %}
         {% menus %}
         {% block content %}{% endblock %}
