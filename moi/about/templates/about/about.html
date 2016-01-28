@@ -2,7 +2,11 @@
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load moi_tags %}
 
 {% block content %}
   {{ self.body_content }}
+
+  {% display_sectors %}
+
 {% endblock %}
