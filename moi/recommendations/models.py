@@ -1,29 +1,25 @@
 from django.db import models
+from django.db import models
 
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailimages.models import Image
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailcore.fields import RichTextField, StreamField
+from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel, FieldPanel
+from wagtail.wagtailsearch import index
+
+from core.models import CoreStreamBlock
 
 class Recommendation(Page):
-    displayTitle = RichTextField(blank=True)
-    sub_title = RichTextField(blank=True, null=True, default=None)
-    main_content = RichTextField(blank=True, null=True, default=None)
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        default=None,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
+    display_title = RichTextField(blank=True)
+    body_content = StreamField(CoreStreamBlock(), blank=True, null=True, default=None)
+
+    search_fields = Page.search_fields + (
+            index.SearchField('display_title'),
+            index.SearchField('body_content'),
+       )
 
     content_panels = Page.content_panels + [
-        FieldPanel('displayTitle', classname="full"),
-        FieldPanel('sub_title', classname="subtitle or blurb"),
-        FieldPanel('main_content', classname="content"),
-        ImageChooserPanel('image')
+        FieldPanel('display_title'),
+        StreamFieldPanel('body_content'),
     ]
 
     parent_page_types = ['indicators.Indicator']

@@ -30,7 +30,7 @@ class HomePage(Page):
         InlinePanel('top_stories', label="Top Stories"),
     ]
 
-    subpage_types = ['about.About', 'carousel.Carousel', 'data.Data']
+    subpage_types = ['about.About', 'carousel.Carousel', 'data.Data', 'sectors.Sector']
 
 #Top Stories
 class TopStories(models.Model):
