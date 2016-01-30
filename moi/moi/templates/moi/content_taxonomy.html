@@ -1,22 +1,31 @@
+{% load wagtailcore_tags %}
 <div class="row">
     {% for sector in sectors %}
     <div class="col-sm-6 col-lg-3">
-        <h3>{{ sector.title }}</h3>
+        {{ sector.display_title | richtext }}
+
         {% for outcome in outcomes %}
             {% if sector.pk == outcome.get_parent.pk %}
-                <h4>{{ outcome.title }}</h4>
+                {{ outcome.display_title | richtext }}
+
                 {% for indicator in indicators %}
                     {% if outcome.pk == indicator.get_parent.pk %}
-                        <h5>{{ indicator.title }}</h5>
+                        {{ indicator.display_title | richtext }}
+
+                        <ol>
                         {% for measure in measures %}
-                            {% if indicator.pk == measure.pk %}
-                                <li>{{ measure.title }}</li>
+                            {% if indicator.pk == measure.get_parent.pk %}
+                                <li>{{ measure.display_title | richtext }}</li>
                             {% endif %}
                         {% endfor %}
+                        </ol>
+
                     {% endif %}
                 {% endfor %}
+
             {% endif %}
         {% endfor %}
+
     </div>
     {% endfor %}
 </div>

@@ -48,8 +48,10 @@ class TopStories(models.Model):
     content_panels = [
         FieldPanel('sector_name'),
         FieldPanel('top_stories_content'),
-        FieldPanel('link_caption'),
-        PageChooserPanel('url'),
+        MultiFieldPanel([
+            FieldPanel('link_caption'),
+            PageChooserPanel('url'),
+        ]),
     ]
 
     class Meta:
