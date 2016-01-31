@@ -1,5 +1,5 @@
 {% load wagtailcore_tags %}
-<div class="row">
+<div class="row flex-row">
     {% for sector in sectors %}
     <div class="col-sm-6 col-lg-3">
         {{ sector.display_title | richtext }}

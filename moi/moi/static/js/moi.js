@@ -1,4 +1,15 @@
 (function($) {
+/** search toggle **/
+$('.fa-search').on('click', function() {
+    $('.main-nav').fadeToggle(200);
+    $('.search-nav').fadeToggle(600);
+    $('.search-form').focus();
+});
+
+$('.search-form').focusout(function() {
+    $('.search-nav').fadeToggle(200);
+    $('.main-nav').fadeToggle(400);
+});
 
 /** countUp.js **/
 

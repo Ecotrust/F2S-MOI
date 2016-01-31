@@ -1,0 +1,72 @@
+#header {
+    margin-bottom: 0;
+    padding: 30px 0 40px 0;
+    font-family: $arbutus-slab;
+    height: $navbar-height;
+
+    .navbar {
+        background: $white;
+        border-bottom: 1px solid;
+        margin-bottom: 0;
+        height: $navbar-height;
+    }
+
+    .navbar-inverse {
+        .container {
+            position: relative;
+        }
+
+        .navbar-brand { padding: 0 2px 0 0;}
+
+        .navbar-text {
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+
+        .navbar-nav {
+            > li > a {
+                &:hover,
+                &:focus {
+                    color: $blue;
+                }
+            }
+
+            > li > a.fa-search { color: $blue; }
+
+            .active {
+                a {
+                    color: $blue;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .collapse.navbar-collapse {
+            height: $navbar-height;
+        }
+
+        .navbar-toggle {
+            margin: 6px 10px 6px 0;
+        }
+    }
+
+    .search-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-nav.navbar-right {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 850px) {
+    .navbar-toggle {
+        display: block !important;
+        position: relative;
+        float: right;
+    }
+    .main-nav { display: none !important; }
+    .navbar-header { float: none !important; }
+}

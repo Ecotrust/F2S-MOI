@@ -1,0 +1,60 @@
+/*classes*/
+.red { color: $red; }
+.dark-red {color: $dark-red; }
+.orange { color: $orange; }
+.blue { color: $blue; }
+.white { color: $white; }
+.green { color: $green; }
+.turquoise { color: $turquoise; }
+.brown { color: $brown; }
+.off-brown { coofflor: $off-brown; }
+
+.med-reg { font-size: $med-reg; }
+
+.fa-one-half { font-size: 1.5em; }
+
+
+body {
+    background: $white;
+}
+
+.body-content {
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 1em;
+    img {
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+
+    img.full-width {
+        width: 100%;
+    }
+
+    img.left{
+        width: 45%;
+        margin-right: 5%;
+        float: left;
+    }
+
+    img.right{
+        width: 45%;
+        margin-left: 5%;
+        float: right;
+    }
+
+    h1, h2, h3, h4, h5 {
+        clear: both;
+    }
+}
+
+.row.flex-row {
+    display: flex;
+    display: flexbox;
+    flex-wrap: wrap;
+    > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+}

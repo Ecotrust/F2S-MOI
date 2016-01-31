@@ -177,6 +177,7 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
 BOWER_INSTALLED_APPS = (
     'jquery#2.2.0',
     'bootstrap-sass#3.3.6',
+    'font-awesome#4.5.0',
     'countUp.js#1.6.0',
     'isInViewport',
 )

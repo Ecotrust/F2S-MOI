@@ -1,32 +1,7 @@
+@import 'css/assets/variables.scss';
+@import 'css/assets/core.scss';
+@import 'css/assets/wagtail_overrides.scss';
+@import 'css/assets/header.scss';
+
+@import 'bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss';
 @import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
-
-.body-content {
-    width: 100%;
-    overflow: hidden;
-    clear: both;
-    margin-bottom: 1em;
-    img {
-        margin-bottom: 2%;
-        margin-top: 2%;
-    }
-
-    img.full-width {
-        width: 100%;
-    }
-
-    img.left{
-        width: 45%;
-        margin-right: 5%;
-        float: left;
-    }
-
-    img.right{
-        width: 45%;
-        margin-left: 5%;
-        float: right;
-    }
-
-    h1, h2, h3, h4, h5 {
-        clear: both;
-    }
-}
