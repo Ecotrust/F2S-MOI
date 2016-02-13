@@ -1,15 +1,29 @@
 (function($) {
 /** search toggle **/
-$('.fa-search').on('click', function() {
-    $('.main-nav').fadeToggle(200);
-    $('.search-nav').fadeToggle(600);
-    $('.search-form').focus();
+var $searchIcon = $('.fa-search');
+var $searchField = $('.search-nav');
+var $searchForm = $('.search-form');
+var $mainNav = $('.main-nav');
+var $mobileNav = $('button.navbar-toggle');
+var $searchItem = $('li.search');
+
+$searchIcon.on('click', function() {
+    $mainNav.toggleClass('no-view');
+    $searchField.toggleClass('nav-view');
+    $searchForm.focus();
 });
 
-$('.search-form').focusout(function() {
-    $('.search-nav').fadeToggle(200);
-    $('.main-nav').fadeToggle(400);
+// reshow menu on blur out
+$searchForm.focusout(function() {
+    $searchField.toggleClass('nav-view');
+    $mainNav.toggleClass('no-view');
 });
+
+//mobile menu
+// $mobileNav.on('click', function() {
+//     $searchItem.toggleClass('nav-view');
+//     $searchField.toggleClass('nav-view');
+// });
 
 /** countUp.js **/
 

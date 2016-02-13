@@ -8,10 +8,11 @@
         background: $white;
         border-bottom: 1px solid;
         margin-bottom: 0;
-        height: $navbar-height;
+        height: $navbar-height+1;
     }
 
-    .navbar-inverse {
+    .navbar-inverse,
+    .navbar-default {
         .container {
             position: relative;
         }
@@ -31,6 +32,8 @@
                 }
             }
 
+            li.main-view { display: inline-block; }
+            li.no-view { display: none; }
             > li > a.fa-search { color: $blue; }
 
             .active {
@@ -41,32 +44,50 @@
             }
         }
 
-        .collapse.navbar-collapse {
-            height: $navbar-height;
+        .collapse.navbar-collapse.in {
+            height: auto;
+            background-color: $white;
+            background: $white;
+            overflow-x: hidden;
+            border-bottom: 1px solid;
         }
 
         .navbar-toggle {
             margin: 6px 10px 6px 0;
+            border-color: $white;
+            &:hover,
+            &:focus,
+            &:active, {
+                background-color: transparent;
+                border-color: $blue;
+            };
+
+            i.fa { color: $red; }
+        }
+
+        .navbar-form { 
+            border: none;
+            padding-bottom: 5px;
+            margin-bottom: 0px;
         }
     }
+}
 
-    .search-nav {
-        display: none;
+/*grid-float-breakpoint is at 850px */
+@media (max-width: 850px) {
+    #header {
+        .navbar-inverse, 
+        .navbar-default {
+            .navbar-brand { padding-left: 10px; }
+            .navbar-form { margin-top: 0; }
+
+            .search-nav,
+            .nav > li.search { display: inline-block; }
+        }
     }
 }
 
-@media (max-width: 768px) {
-    .search-nav.navbar-right {
-        margin-right: 0;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 850px) {
-    .navbar-toggle {
-        display: block !important;
-        position: relative;
-        float: right;
-    }
-    .main-nav { display: none !important; }
-    .navbar-header { float: none !important; }
+@media (min-width: 851px) {
+    .search-nav { display: none; }
+    .search-nav.nav-view { display: inline-block;}
 }
