@@ -9,7 +9,7 @@ from wagtail.wagtailcore import urls as wagtail_urls
 
 
 urlpatterns = [
-    url(r'^(?!(django-admin|admin))$',TemplateView.as_view(template_name="moi/splash.html")),
+    url(r'^$',TemplateView.as_view(template_name="moi/splash.html")),
     url(r'^django-admin/', include(admin.site.urls)),
 
     url(r'^admin/', include(wagtailadmin_urls)),
