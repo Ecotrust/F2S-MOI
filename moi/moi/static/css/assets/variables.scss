@@ -1,11 +1,15 @@
 /*fonts*/
 @import url(https://fonts.googleapis.com/css?family=Arbutus+Slab);
+@import url(https://fonts.googleapis.com/css?family=Lato);
 $arbutus-slab: 'Arbutus Slab', serif;
+$lato: 'Lato', sans-serif;
 
 /*colors*/
 $white: #FFF;
 $grey: #58595B;
 $gray: $grey;
+$light-grey: #E7E6E5;
+$light-gray: $light-grey;
 $blue: #1DAFEC;
 $red: #EF1725;
 $dark-red: #99242A;
