@@ -1,4 +1,4 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 <header id="header">
     <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
         <div class="container-fluid">
@@ -9,15 +9,7 @@
                 </button>
 
                 <a class="navbar-brand" href="/">
-                    <div class="navbar-text">
-                        <div class="red med-reg"><strong>Oregon</strong></div>
-                        <div>
-                            <span class="blue">Farm</span>
-                            <span class="red"><strong>to</strong></span>
-                            <span class="blue">School</span>
-                            <span class="red"><strong><i>Counts</i></strong></span>
-                        </div>
-                    </div>
+                    <img class="img-responsive" src="{{ navbar_logo }}" />
                 </a>
 
             </div>
