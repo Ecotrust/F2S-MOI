@@ -8,6 +8,7 @@ $('.body-content').fullpage({
     css3: true,
     scrollingSpeed: 1200,
     fixedElements: '#header',
+    fitToSection: false,
 });
 
 $(document).on('click', '#moveDown', function() {
