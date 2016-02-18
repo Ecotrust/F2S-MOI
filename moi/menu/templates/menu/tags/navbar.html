@@ -1,44 +1,38 @@
-{% load wagtailcore_tags %}
-<header id="header">
-    <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="fa fa-bars fa-one-half"></i>
-                </button>
+{% load wagtailcore_tags wagtailimages_tags %}
+<div class="container-fluid">
+    <header id="header">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-bars fa-one-half"></i>
+                    </button>
 
-                <a class="navbar-brand" href="/">
-                    <div class="navbar-text">
-                        <div class="red med-reg"><strong>Oregon</strong></div>
-                        <div>
-                            <span class="blue">Farm</span>
-                            <span class="red"><strong>to</strong></span>
-                            <span class="blue">School</span>
-                            <span class="red"><strong><i>Counts</i></strong></span>
-                        </div>
-                    </div>
-                </a>
+                    <a class="navbar-brand" href="/">
+                        <img class="img-responsive" src="{{ navbar_logo }}" />
+                    </a>
 
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                {% for menu in menus %}
-                    <li class="main-nav{% if menu.url.url == request.path %}active{% endif %}"> <a href="{{ menu.url.url }}" class="smoothScroll">{{ menu.title }}</a></li>
-                {% endfor %}
-                <li class="main-nav search"><a href="#" class="fa fa-search fa-one-half"></a></li>
-                <!-- search form -->
-                <span class="search-nav">
-                    <form class="navbar-form" role="search" action="{% url 'search' %}" method="get">
-                        <div class="field-toggle">
-                            <input type="text" class="form-control search-form" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
-                        </div>
-                    </form>
-                </span>
-               <!--  end search form -->
-                </ul>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                    {% for menu in menus %}
+                        <li class="main-nav{% if menu.url.url == request.path %} active{% endif %}"> <a href="{{ menu.url.url }}" class="smoothScroll">{{ menu.title }}</a></li>
+                    {% endfor %}
+                    <li class="main-nav search"><a href="#" class="fa fa-search fa-one-half"></a></li>
+                    <!-- search form -->
+                    <span class="search-nav">
+                        <form class="navbar-form" role="search" action="{% url 'search' %}" method="get">
+                            <div class="field-toggle">
+                                <input type="text" class="form-control search-form" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
+                            </div>
+                        </form>
+                    </span>
+                   <!--  end search form -->
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 <!--/#header-->
+</div>

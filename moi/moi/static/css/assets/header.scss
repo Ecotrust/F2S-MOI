@@ -1,7 +1,8 @@
 #header {
     margin-bottom: 0;
-    padding: 30px 0 40px 0;
-    font-family: $arbutus-slab;
+    padding: 30px 0 0 0;
+    font-family: $lato;
+    font-weight: 400;
     height: $navbar-height;
 
     .navbar {
@@ -17,7 +18,10 @@
             position: relative;
         }
 
-        .navbar-brand { padding: 0 2px 0 0;}
+        .navbar-brand { 
+            padding: 0 2px 0 0;
+            img { max-height: 100%; }
+        }
 
         .navbar-text {
             margin-top: 8px;
@@ -26,6 +30,7 @@
 
         .navbar-nav {
             > li > a {
+                color: $darker-grey;
                 &:hover,
                 &:focus {
                     color: $blue;

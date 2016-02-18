@@ -18,6 +18,27 @@ body {
     background: $white;
 }
 
+/*hompage core styles*/
+body.template-homepage {
+    .body-content {
+        font-family: $arbutus-slab;
+        section { 
+            padding: 0 45px 0 35px;
+        }
+
+        /*sections are number delimited by a counting-loop and related to the order in wagtail*/
+        section.sec-1 {
+            background-color: $blue;
+            .container-fluid { text-align: left; }
+            h2 { 
+                font-size: calc(0.75em + 4vmin);
+                line-height: 1.4;
+            }
+            .count-up, .count-attr { color: $white; }
+        }
+    }
+}
+
 .body-content {
     width: 100%;
     overflow: hidden;

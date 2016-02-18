@@ -2,8 +2,10 @@
 
 {% if blocks %}
     {% for block in blocks %}
-    <section>
-        {{ block }}
+    <section class="sec-{{ forloop.counter }}">
+        <div class="container-fluid">
+            {{ block }}
+        </div>
     </section>
     {% endfor %}
 {% endif %}
