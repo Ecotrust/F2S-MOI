@@ -6,3 +6,4 @@ moi/media/images/*
 moi/media/original_images/*
 .vagrant
 components
+moi/static/CACHE/*

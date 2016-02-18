@@ -1,4 +1,20 @@
 (function($) {
+
+/** fullscreen scroll **/
+$('.body-content').fullpage({
+    navigation: true,
+    navigation: 'right',
+    scrollBar: true,
+    css3: true,
+    scrollingSpeed: 1200,
+    fixedElements: '#header',
+});
+
+$(document).on('click', '#moveDown', function() {
+    $.fn.fullpage.moveSectionDown();
+});
+
+
 /** search toggle **/
 var $searchIcon = $('.fa-search');
 var $searchField = $('.search-nav');
