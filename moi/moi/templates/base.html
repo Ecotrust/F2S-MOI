@@ -28,11 +28,10 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}" data-spy="scroll" data-offset="0" data-target="#navbar-main">
-        <div class="container-fluid">
             {% wagtailuserbar %}
             {% menus %}
             {% block content %}{% endblock %}
-        </div>
+
         {# Global javascript #}
         <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
         <script src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>

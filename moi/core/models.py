@@ -62,12 +62,19 @@ class NumberCountUpBlock(StructBlock):
         num = value['numbers']
         current_context = value['content'].source
         inline = value['inline']
+        num_attributes = ['$', '+']
 
         if num:
             num_list = num.split("; ")
+            # add count-up functionality to identified numbers
             for num in num_list:
                 html_span = "<span id='count-%s' class='count-up'></span>" % (num)
                 current_context = current_context.replace(num, html_span)
+            # add consistent styling to count-up attributes (dollar and plus signs)
+            for attr in num_attributes:
+                if attr in current_context[:-1]:
+                    html_attr = "<span class='count-attr'>%s</span>" % (attr)
+                    current_context = current_context.replace(attr, html_attr)
 
 
         return render_to_string(self.meta.template, {
