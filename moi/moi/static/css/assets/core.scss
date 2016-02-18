@@ -34,7 +34,8 @@ body.template-homepage {
         }
 
         section {
-            padding: 0 45px 0 35px;
+            /* extra right padding for nav dots */
+            padding: 0 60px 0 35px;
         }
 
         /* sections are number delimited by a counting-loop

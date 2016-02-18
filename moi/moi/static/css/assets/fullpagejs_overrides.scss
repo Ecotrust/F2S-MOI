@@ -1,0 +1,14 @@
+/* Navigation Dots overrides */
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span {
+    height: 12px;
+    width: 12px;
+    margin: -6px 0 0 -6px;
+    border: solid 1px $black;
+    background: transparent;
+}
+
+#fp-nav ul li a.active span, 
+.fp-slidesNav ul li a.active span {
+    background: $black;
+}

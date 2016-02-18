@@ -59,9 +59,27 @@ $searchForm.focusout(function() {
         var countUpArray = [];
         //add countUp functionality to each element
         $countNum.each(function(index, element) {
+            var start;
             var id = this.id;
             var number = id.match(/\d+/)[0];
-            var count = new CountUp(id, 0, number, 0, 2.75, options);
+
+            // starting from zero can set spans into a funk
+            // this helps with easing the starting point - a bit
+            if (number > 1 && number < 15) {
+                start = 0;
+            } else if (number.toString().length == 2 && number > 14 || number <= 110) {
+                start = 10;
+            } else if (number.toString().length == 3 && number > 110 || number <= 1100) {
+                start = 100;
+            } else if (number.toString().length == 4 && number > 1100 || number <= 10500) {
+                start = 1000;
+            } else if (number.toString().length == 5 && number > 10500 || number <= 102500) {
+                start = 10000;
+            } else {
+                start = 100000;
+            }
+
+            var count = new CountUp(id, start, number, 0, 3, options);
             countUpArray.push(count);
         });
 
