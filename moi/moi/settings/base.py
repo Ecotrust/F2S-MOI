@@ -180,6 +180,7 @@ BOWER_INSTALLED_APPS = (
     'font-awesome#4.5.0',
     'countUp.js#1.6.0',
     'isInViewport',
+    'fullpage.js#2.7.7',
 )
 # Wagtail settings
 

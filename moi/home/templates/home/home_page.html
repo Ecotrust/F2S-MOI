@@ -5,7 +5,7 @@
 
 {% block body_class %}template-homepage{% endblock %}
 
-{% block content %}   
+{% block content %}
     <div class="body-content">
         {% include "includes/streamfield_blocks.html" with blocks=page.body_content %}
         {% include "home/top_stories.html" with top_stories=self.top_stories.all only %}

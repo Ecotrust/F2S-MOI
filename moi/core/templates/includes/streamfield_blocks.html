@@ -2,10 +2,17 @@
 
 {% if blocks %}
     {% for block in blocks %}
-    <section class="sec-{{ forloop.counter }}">
+    <section class="section sec-{{ forloop.counter }}">
         <div class="container-fluid">
             {{ block }}
         </div>
+
+        <!-- a drop down arrow needs to be added
+             for the first item on the homepage -->
+        {% if forloop.first and request.path == "/"  %}
+            <i class="fa fa-arrow-down fa-two-half" id="moveDown"></i>
+        {% endif %}
+
     </section>
     {% endfor %}
 {% endif %}

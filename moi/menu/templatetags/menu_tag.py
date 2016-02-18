@@ -9,8 +9,11 @@ from home.models import HomePage
 register = template.Library()
 
 def logo():
-    image = Image.objects.filter(tags__name__in=["navbar"])
-    return image[0].file.url
+    image = Image.objects.filter(tags__name__in=["navbar"]).first()
+    if image:
+        return image.file.url
+    else:
+        return None
 
 @register.simple_tag(takes_context=True)
 def menus(context, kind='header', menu_type='navbar'):
@@ -19,7 +22,7 @@ def menus(context, kind='header', menu_type='navbar'):
 
     footer = (kind == 'footer')
     menus = Menu.objects.filter(footer=footer)
-    navbar_logo = logo()     
+    navbar_logo = logo()
 
     return t.render(template.Context({
         'menus': menus,
