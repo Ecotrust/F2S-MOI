@@ -31,6 +31,10 @@ body.template-homepage {
             left: 50%;
             color: $white;
             cursor: pointer;
+            -webkit-animation: bounce 2.75s 2.5s ease-out;
+            -moz-animation: bounce 2.75s 2.5s ease-out;
+            -o-animation: bounce 2.75s 2.5s ease-out;
+            animation: bounce 2.75s 2.5s ease-out;
         }
 
         section {
