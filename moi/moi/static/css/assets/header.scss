@@ -96,6 +96,8 @@
 
             .search-nav,
             .nav > li.search { display: inline-block; }
+
+            .fa-search {pointer-events: none; }
         }
     }
 }

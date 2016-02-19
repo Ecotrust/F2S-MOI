@@ -24,16 +24,35 @@ var $mainNav = $('.main-nav');
 var $mobileNav = $('button.navbar-toggle');
 var $searchItem = $('li.search');
 
+// ridiculous hack to prevent .focus() 
+// from scrolling on a fixed nav input field
+$.fn.focusWithoutScrolling = function() {
+    var x = $(document).scrollLeft();
+    var y = $(document).scrollTop();
+    this.select();
+    setTimeout(function() {
+        window.scrollTo(x, y);
+    }, 0);
+    return this;    
+}
+
 $searchIcon.on('click', function() {
     $mainNav.toggleClass('no-view');
     $searchField.toggleClass('nav-view');
-    $searchForm.focus();
+    $searchForm.focusWithoutScrolling();
 });
 
 // reshow menu on blur out
 $searchForm.focusout(function() {
-    $searchField.toggleClass('nav-view');
-    $mainNav.toggleClass('no-view');
+    if ($('.navbar-collapse.collapse.in').length) {
+        setTimeout(function() {
+            $mobileNav.click();
+        }, 50);
+    } else {
+        $searchField.toggleClass('nav-view');
+        $mainNav.toggleClass('no-view');
+    }
+
 });
 
 //mobile menu
