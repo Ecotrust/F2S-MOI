@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.conf import settings
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
@@ -10,6 +11,7 @@ from wagtail.wagtailsearch.signal_handlers import register_signal_handlers
 import search.views
 
 urlpatterns = [
+    url(r'^$',TemplateView.as_view(template_name="moi/splash.html")),
     url(r'^django-admin/', include(admin.site.urls)),
 
     url(r'^admin/', include(wagtailadmin_urls)),
