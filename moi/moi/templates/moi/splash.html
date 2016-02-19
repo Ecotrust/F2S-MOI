@@ -1,0 +1,39 @@
+{% load static compress %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Oregon Farm to School</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+           {% load staticfiles %}
+
+           {% compress css %}
+               {# Custom stylesheets #}
+               {# SCSS compilation relies on django compressor #}
+               <link rel="stylesheet" type="text/x-scss" href="{% static "css/moi.scss" %}" />
+           {% endcompress %}
+    </head>
+
+    <body class="splash">
+        <div class="container-fluid">
+            <div class="row centered">
+                <div class="font-large">
+                    <span class="blue">Farm</span> <span class="red"><strong>to</strong></span> <span class="blue">School</span> <span class="red"><strong><i>Counts</i></strong></span>
+                </div>
+                <div class="eco-text">
+                    We are <strong><i>currently</i></strong> in the process of building this website for the <i>Oregon Farm to School and School Garden Network</i> <span class="under">to build understanding around Oregon’s Farm to School needs, opportunities, and successes.</span><br><br>
+
+                    <strong>Check back soon...</strong>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
+    </body>
+</html>
