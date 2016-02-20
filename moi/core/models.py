@@ -12,7 +12,7 @@ from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
 from wagtail.wagtailsearch import index
 
 from wagtail.wagtailcore.blocks import TextBlock, StructBlock, StreamBlock, FieldBlock, CharBlock, \
-     ChoiceBlock, RichTextBlock, RawHTMLBlock, BooleanBlock
+     ChoiceBlock, RichTextBlock, RawHTMLBlock, BooleanBlock, PageChooserBlock, URLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -27,7 +27,6 @@ class PullQuoteBlock(StructBlock):
 
     class Meta:
         icon = "openquote"
-
 
 class ImageFormatChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
@@ -52,6 +51,23 @@ class AlignedHTMLBlock(StructBlock):
 
     class Meta:
         icon = "code"
+
+class BasicContentBlock(StructBlock):
+    content = RichTextBlock(help_text="Add your text and/or image content above", label="Content Area")
+
+    class Meta:
+        template = "blocks/basic_content_block.html"
+
+
+class TopStoryBlock(StructBlock):
+    content = RichTextBlock(help_text="Add your main top story text and image content above", label="Content Area")
+    link_caption = CharBlock(help_text="Add the text you would like to display that will link to the sector page", label="Link text")
+    link_image = ImageChooserBlock(help_text="Choose/upload the image you want to display along with your sector link", label="Sector link image")
+    link_url = PageChooserBlock(help_text="Select the sector page you would like to link to", label="Sector page")
+
+    class Meta:
+        template = "blocks/top_story_block.html"
+
 
 class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
@@ -95,7 +111,7 @@ class TwoColumnBlock(StructBlock):
             ('paragraph', RichTextBlock(icon="pilcrow")),
             ('number_count_up', NumberCountUpBlock(icon="collapse-up")),
             ('image', ImageChooserBlock(icon="image")),
-            ('embedded_video', EmbedBlock(icon="media")),
+            # ('embedded_video', EmbedBlock(icon="media")),
         ], icon='arrow-left', label='Left content')
 
     right_column = StreamBlock([
@@ -103,7 +119,7 @@ class TwoColumnBlock(StructBlock):
             ('paragraph', RichTextBlock(icon="pilcrow")),
             ('number_count_up', NumberCountUpBlock(icon="collapse-up")),
             ('image', ImageChooserBlock(icon="image")),
-            ('embedded_video', EmbedBlock(icon="media")),
+            # ('embedded_video', EmbedBlock(icon="media")),
         ], icon='arrow-right', label='Right content')
 
     class Meta:
@@ -112,11 +128,12 @@ class TwoColumnBlock(StructBlock):
         label = 'Two Columns'
 
 class CoreStreamBlock(StreamBlock):
-    paragraph = RichTextBlock(icon="pilcrow")
-    number_count_up = NumberCountUpBlock(icon="collapse-up", label="Content and Number Count Up")
-    aligned_image = ImageBlock(label="Aligned image", icon="image")
-    aligned_html = AlignedHTMLBlock(icon="code", label='Raw HTML')
-    document = DocumentChooserBlock(icon="doc-full-inverse")
-    embedded_video = EmbedBlock(icon="media")
+    number_count_up = NumberCountUpBlock(icon="order", label="Content and Number Counter Block")
+    top_story = TopStoryBlock(icon='title', label="Top Story Content Block")
+    basic_content = BasicContentBlock(icon="pilcrow", label="Basic Content Block")
+    # aligned_image = ImageBlock(label="Aligned image", icon="image")
+    # aligned_html = AlignedHTMLBlock(icon="code", label='Raw HTML')
+    # document = DocumentChooserBlock(icon="doc-full-inverse")
+    # embedded_video = EmbedBlock(icon="media")
     two_column = TwoColumnBlock()
 
