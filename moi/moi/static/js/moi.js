@@ -24,7 +24,7 @@ var $mainNav = $('.main-nav');
 var $mobileNav = $('button.navbar-toggle');
 var $searchItem = $('li.search');
 
-// ridiculous hack to prevent .focus() 
+// ridiculous hack to prevent .focus()
 // from scrolling on a fixed nav input field
 $.fn.focusWithoutScrolling = function() {
     var x = $(document).scrollLeft();
@@ -33,7 +33,7 @@ $.fn.focusWithoutScrolling = function() {
     setTimeout(function() {
         window.scrollTo(x, y);
     }, 0);
-    return this;    
+    return this;
 }
 
 $searchIcon.on('click', function() {
@@ -123,4 +123,17 @@ $searchForm.focusout(function() {
             })
     }
 
+
+/** jquery overrides **/
+var $basicContentImg = $('.rich-text > p > img');
+if ($basicContentImg.length >= 2) {
+    $basicContentImg.parent().addClass('row no-text-row');
+    if ($basicContentImg.length == 2) {
+        $basicContentImg.addClass('col-md-6 col-sm-6 col-xs-6')
+    } else if ($basicContentImg.length == 3) {
+        $basicContentImg.addClass('col-md-4 col-sm-4 col-xs-4')
+    } else if ($basicContentImg.length == 4) {
+        $basicContentImg.addClass('col-md-3 col-sm-3 col-xs-6')
+    }
+}
 })(jQuery);

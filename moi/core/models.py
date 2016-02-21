@@ -58,17 +58,6 @@ class BasicContentBlock(StructBlock):
     class Meta:
         template = "blocks/basic_content_block.html"
 
-
-class TopStoryBlock(StructBlock):
-    content = RichTextBlock(help_text="Add your main top story text and image content above", label="Content Area")
-    link_caption = CharBlock(help_text="Add the text you would like to display that will link to the sector page", label="Link text")
-    link_image = ImageChooserBlock(help_text="Choose/upload the image you want to display along with your sector link", label="Sector link image")
-    link_url = PageChooserBlock(help_text="Select the sector page you would like to link to", label="Sector page")
-
-    class Meta:
-        template = "blocks/top_story_block.html"
-
-
 class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
     numbers = CharBlock(help_text="Enter the numbers you'd like to count up - seperated by a semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
@@ -78,7 +67,7 @@ class NumberCountUpBlock(StructBlock):
         num = value['numbers']
         current_context = value['content'].source
         inline = value['inline']
-        num_attributes = ['$', '+']
+        num_attributes = ['$', '+', '%']
 
         if num:
             num_list = num.split("; ")
@@ -103,6 +92,17 @@ class NumberCountUpBlock(StructBlock):
 
     class Meta:
         template = "blocks/number_count_up_block.html"
+
+
+class TopStoryBlock(StructBlock):
+    content = NumberCountUpBlock(help_text="Add your main top story text content here", label="Content Area")
+    link_caption = CharBlock(help_text="Add the text you would like to display that will link to the sector page", label="Link text")
+    link_image = ImageChooserBlock(help_text="Choose/upload the image you want to display along with your sector link", label="Sector link image")
+    link_url = PageChooserBlock(help_text="Select the sector page you would like to link to", label="Sector page")
+
+    class Meta:
+        template = "blocks/top_story_block.html"
+
 
 class TwoColumnBlock(StructBlock):
 
