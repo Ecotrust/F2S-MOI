@@ -12,11 +12,11 @@ from wagtail.wagtailimages.models import Image
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
-from core.models import CoreStreamBlock
+from core.models import HomeStreamBlock
 
 
 class HomePage(Page):
-    body_content = StreamField(CoreStreamBlock(), blank=True, null=True, default=None)
+    body_content = StreamField(HomeStreamBlock(), blank=True, null=True, default=None)
 
     search_fields = Page.search_fields + (
         index.SearchField('body_content'),

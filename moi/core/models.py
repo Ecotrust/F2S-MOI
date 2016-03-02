@@ -136,11 +136,15 @@ class TwoColumnBlock(StructBlock):
 
 class CoreStreamBlock(StreamBlock):
     number_count_up = NumberCountUpBlock(icon="order", label="Content and Number Counter Block")
-    top_story = TopStoryBlock(icon='title', label="Top Story Content Block")
     basic_content = BasicContentBlock(icon="pilcrow", label="Basic Content Block")
     # aligned_image = ImageBlock(label="Aligned image", icon="image")
     # aligned_html = AlignedHTMLBlock(icon="code", label='Raw HTML')
     # document = DocumentChooserBlock(icon="doc-full-inverse")
     # embedded_video = EmbedBlock(icon="media")
     two_column = TwoColumnBlock()
+
+class HomeStreamBlock(StreamBlock):
+    number_count_up = NumberCountUpBlock(icon="order", label="Content and Number Counter Block")
+    top_story = TopStoryBlock(icon='title', label="Top Story Content Block")
+    basic_content = BasicContentBlock(icon="pilcrow", label="Basic Content Block")
 
