@@ -78,7 +78,7 @@ body.template-homepage {
         and related to the order in wagtail */
         section.sec-1 {
             background-color: $blue;
-            .count-up, .count-attr { color: $white; }
+            .color-text { color: $white; }
         }
     }
 }

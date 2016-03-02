@@ -28,6 +28,11 @@ class PullQuoteBlock(StructBlock):
     class Meta:
         icon = "openquote"
 
+class SectorChoiceBlock(FieldBlock):
+    field = forms.ChoiceField(choices=(
+        ('education', 'Education'), ('health', 'Health'), ('economy', 'Economy'), ('environment', 'Environment'),
+    ))
+
 class ImageFormatChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
         ('left', 'Wrap left'), ('right', 'Wrap right'), ('mid', 'Mid width'), ('full', 'Full width'),
@@ -62,13 +67,21 @@ class BasicContentBlock(StructBlock):
 class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
     numbers = CharBlock(help_text="Enter the numbers you'd like to count up - seperated by a semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
+    colored_text = CharBlock(required=False, help_text="Enter the content you'd like to be a different color - each set of content is seperated by a semicolon")
     inline = BooleanBlock(required=False, help_text="If this is not a standalone number, but apart of an actual sentence - check the box.")
 
     def render(self, value):
         num = value['numbers']
         current_context = value['content'].source
         inline = value['inline']
-        num_attributes = ['$', '+', '%']
+        colored = value['colored_text']
+
+        if colored:
+            colored_list = colored.split("; ")
+            #add color wrapper to identified content
+            for color in colored_list:
+                color_span = "<span class='color-text'>%s</span>" % (color)
+                current_context = current_context.replace(color, color_span)
 
         if num:
             num_list = num.split("; ")
@@ -76,12 +89,6 @@ class NumberCountUpBlock(StructBlock):
             for num in num_list:
                 html_span = "<span id='count-%s' class='count-up'></span>" % (num)
                 current_context = current_context.replace(num, html_span)
-            # add consistent styling to count-up attributes (dollar and plus signs)
-            for attr in num_attributes:
-                if attr in current_context[:-1]:
-                    html_attr = "<span class='count-attr'>%s</span>" % (attr)
-                    current_context = current_context.replace(attr, html_attr)
-
 
         return render_to_string(self.meta.template, {
             'self': value,
@@ -96,10 +103,9 @@ class NumberCountUpBlock(StructBlock):
 
 
 class TopStoryBlock(StructBlock):
-    content = NumberCountUpBlock(help_text="Add your main top story text content here", label="Content Area")
+    sector = SectorChoiceBlock(help_text="Select the sector/top-story this aligns with")
+    content = NumberCountUpBlock()
     link_caption = CharBlock(help_text="Add the text you would like to display that will link to the sector page", label="Link text")
-    link_image = ImageChooserBlock(help_text="Choose/upload the image you want to display along with your sector link", label="Sector link image")
-    link_url = PageChooserBlock(help_text="Select the sector page you would like to link to", label="Sector page")
 
     class Meta:
         template = "blocks/top_story_block.html"
