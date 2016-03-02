@@ -7,12 +7,22 @@
             {{ block }}
         </div>
 
-        <!-- a drop down arrow needs to be added
-             for the first item on the homepage -->
         {% if forloop.first and request.path == "/"  %}
             <i class="fa fa-arrow-down fa-two-half" id="moveDown"></i>
         {% endif %}
-
+        {% if forloop.counter == 2 and request.path == "/" %}
+            <div class="row ">
+                {% with 'health education economy environment' as sectors %}
+                 {% for sector in sectors.split %}
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <a href="#{{ sector }}">
+                            <img class="img-responsive margin-auto" src="media/original_images/{{ sector }}_circle.png">
+                        </a>
+                    </div>
+                 {% endfor %}
+                {% endwith %}
+            </div>
+        {% endif %}
     </section>
     {% endfor %}
 {% endif %}
