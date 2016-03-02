@@ -1,0 +1,126 @@
+/*homepage core styles*/
+body.template-homepage {
+    .body-content {
+        font-family: $arbutus-slab;
+
+        #moveDown {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            color: $white;
+            cursor: pointer;
+            -webkit-animation: bounce 2.75s 2.5s ease-out;
+            -moz-animation: bounce 2.75s 2.5s ease-out;
+            -o-animation: bounce 2.75s 2.5s ease-out;
+            animation: bounce 2.75s 2.5s ease-out;
+        }
+
+        section {
+            /* extra right padding for nav dots */
+            padding: 0 60px 0 35px;
+
+            h2 {
+                font-size: calc(0.75em + 4vmin);
+                line-height: 1.4;
+            }
+
+            a { color: $blue; }
+
+            .container-fluid { text-align: left; }
+
+            .rich-text {
+                p {
+                    font-size: calc(0.5em + 1.25vmin);
+
+                    -webkit-column-count: 2;
+                    -moz-column-count: 2;
+                    column-count: 2;
+                    -webkit-column-gap: 35px;
+                    -moz-column-gap: 35px;
+                    column-gap: 35px;
+                }
+            }
+
+            .basic-content {
+                .rich-text {
+                    p.no-text-row {
+                        -webkit-column-count: auto;
+                        -moz-column-count: auto;
+                        column-count: auto;
+
+                        padding-top: 20px;
+                    }
+                }
+            }
+        }
+
+        .outer { height: 300px; }
+
+        .sector-link {
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+
+            a > .link-text { 
+                font-size: calc(0.7em + 1.25vmin); 
+            }
+
+            i.fa { color: $black; }
+
+            .sector-circle {
+                height: auto;
+                width: 25%;
+                max-width: 190px;
+                min-width: 150px;
+            }
+        }
+
+        /* sections are number delimited by a counting-loop
+        and related to the order in wagtail */
+        section.sec-1 {
+            background-color: $blue;
+            .color-text { color: $white; }
+        }
+        section.sec-3 {
+            background-color: $yellow;
+            p, .color-text, .sector-link a { color: $white; }
+        }
+        section.sec-4 {
+            background-color: $darker-grey;
+            .color-text { color: $blue; }
+        }
+        section.sec-5 {
+            background-color: $green;
+            p, .color-text, .sector-link a { color: $white; }
+        }
+        section.sec-6 {
+            background-color: $tan;
+            p, .color-text, .sector-link a { color: $blue; }
+        }
+    }
+
+    @media (max-width: 800px) {
+        .body-content {
+            .sector-link {
+                bottom: 15px;
+                a > .link-text { 
+                    display: block;
+                    font-size: 2.2vw; 
+                }
+            }
+
+            .outer { height: 200px; }
+        }
+    }
+
+    @media (max-width: 650px) {
+        .body-content {
+            .sector-link {
+                a > .link-text { font-size: 15px; }
+            }
+        }
+    }
+}
