@@ -19,6 +19,41 @@ body {
     background: $white;
 }
 
+.body-content {
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 1em;
+    img {
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+
+    img.full-width {
+        width: 100%;
+    }
+
+    img.left{
+        width: 45%;
+        margin-right: 5%;
+        float: left;
+    }
+
+    img.right{
+        width: 45%;
+        margin-left: 5%;
+        float: right;
+    }
+
+    img.margin-auto {
+        margin: auto;
+    }
+
+    h1, h2, h3, h4, h5 {
+        clear: both;
+    }
+}
+
 
 /*homepage core styles*/
 body.template-homepage {
@@ -74,49 +109,66 @@ body.template-homepage {
             }
         }
 
+        .outer { height: 300px; }
+
+        .sector-link {
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+
+            a > .link-text { 
+                font-size: calc(0.7em + 1.25vmin); 
+            }
+
+            i.fa { color: $black; }
+
+            .sector-circle {
+                height: auto;
+                width: 25%;
+                max-width: 190px;
+                min-width: 150px;
+            }
+        }
+
         /* sections are number delimited by a counting-loop
         and related to the order in wagtail */
         section.sec-1 {
             background-color: $blue;
             .color-text { color: $white; }
         }
+        section.sec-3 {
+            background-color: $yellow;
+            .color-text { color: $white; }
+            p, .sector-link a { color: $white; }
+        }
+    }
+
+    @media (max-width: 800px) {
+        .body-content {
+            .sector-link {
+                bottom: 15px;
+                a > .link-text { 
+                    display: block;
+                    font-size: 2.25vw; 
+                }
+            }
+
+            .outer { height: 200px; }
+        }
+    }
+
+    @media (max-width: 650px) {
+        .body-content {
+            .sector-link {
+                a > .link-text { font-size: 15px; }
+            }
+        }
     }
 }
 
-.body-content {
-    width: 100%;
-    overflow: hidden;
-    clear: both;
-    margin-bottom: 1em;
-    img {
-        margin-bottom: 2%;
-        margin-top: 2%;
-    }
-
-    img.full-width {
-        width: 100%;
-    }
-
-    img.left{
-        width: 45%;
-        margin-right: 5%;
-        float: left;
-    }
-
-    img.right{
-        width: 45%;
-        margin-left: 5%;
-        float: right;
-    }
-
-    img.margin-auto {
-        margin: auto;
-    }
-
-    h1, h2, h3, h4, h5 {
-        clear: both;
-    }
-}
 
 .row.flex-row {
     display: flex;
@@ -127,3 +179,5 @@ body.template-homepage {
         flex-direction: column;
     }
 }
+
+

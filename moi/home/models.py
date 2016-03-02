@@ -23,8 +23,8 @@ class HomePage(Page):
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body_content'),
-        InlinePanel('top_stories', label="Top Stories"),
+        StreamFieldPanel('body_content')
+        #InlinePanel('top_stories', label="Top Stories"),
     ]
 
     subpage_types = ['about.About', 'carousel.Carousel', 'data.Data', 'sectors.Sector']
