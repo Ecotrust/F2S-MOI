@@ -7,8 +7,9 @@ $('.body-content').fullpage({
     scrollBar: true,
     css3: true,
     scrollingSpeed: 1200,
-    fixedElements: '#header',
     fitToSection: false,
+    fixedElements: '#header',
+    paddingTop: '65px',
 });
 
 $(document).on('click', '#moveDown', function() {

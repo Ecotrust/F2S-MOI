@@ -112,7 +112,7 @@ body.template-homepage {
                 }
             }
 
-            .outer { height: 200px; }
+            .outer { height: 225px; }
         }
     }
 
@@ -122,5 +122,9 @@ body.template-homepage {
                 a > .link-text { font-size: 15px; }
             }
         }
+    }
+
+    @media (min-width: 400px) {
+        #moveDown { font-size: 2em; }
     }
 }
