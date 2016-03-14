@@ -30,8 +30,8 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="main-nav"><a href="/recommendations">Success Stories</a></li>
-                        <li class="main-nav"><a href="/about">About</a></li>
+                        <li class="main-nav{% if '/recommendations/' == request.path %} active{% endif %}"><a href="/recommendations"><span>Success Stories</span></a></li>
+                        <li class="main-nav{% if '/about/' == request.path %} active{% endif %}"><a href="/about"><span>About</span></a></li>
                         <li class="main-nav search"><a href="#" class="fa fa-search fa-one-half"></a></li>
                     <!-- search form -->
                     <span class="search-nav">
