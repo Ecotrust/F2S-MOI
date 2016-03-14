@@ -11,12 +11,13 @@
             <i class="fa fa-arrow-down fa-two-half" id="moveDown"></i>
         {% endif %}
         {% if forloop.counter == 2 and request.path == "/" %}
-            <div class="row ">
+            <div class="row four-circle">
                 {% with 'health education economy environment' as sectors %}
                  {% for sector in sectors.split %}
                     <div class="col-lg-3 col-md-3 col-sm-3">
                         <a href="#{{ sector }}">
                             <img class="img-responsive margin-auto" src="media/original_images/{{ sector }}_circle.png">
+                            <div class="text-center"> {{ sector|upper }} </div>
                         </a>
                     </div>
                  {% endfor %}

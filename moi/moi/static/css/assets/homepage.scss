@@ -26,13 +26,13 @@ body.template-homepage {
 
             &:not(:first-child) {
                 h2 {
-                    font-size: 42px;
-                    line-height: 50px;
+                    font-size: 42pt;
+                    line-height: 50pt;
                 }
                 .color-text {
                     font-family: $lato;
-                    font-size: 42px;
-                    letter-spacing: 50px;
+                    font-size: 42pt;
+                    letter-spacing: 5pt;
                 }
             }
 
@@ -44,8 +44,8 @@ body.template-homepage {
                 p {
 /*                    font-size: calc(0.5em + 1.25vmin);*/
                     font-family: $lato;
-                    font-size: 15px;
-                    line-height: 23px;
+                    font-size: 15pt;
+                    line-height: 23pt;
                     -webkit-column-count: 2;
                     -moz-column-count: 2;
                     column-count: 2;
@@ -114,25 +114,43 @@ body.template-homepage {
             .color-text {
                 color: $white;
                 font-family: $lato;
-                font-size: 45px;
-                letter-spacing: 50px;
+                font-size: 45pt;
+                letter-spacing: 5pt;
             }
 
             h2 {
-                font-size: 54px;
-                line-height: 64px;
+                font-size: 54pt;
+                line-height: 64pt;
             }
         }
         section.sec-2 {
             background-image: url("grid_wht.png");
             h2 {
-                font-size: 42px;
-                line-height: 50px;
+                font-size: 42pt;
+                line-height: 50pt;
             }
 
             p {
-                font-size: 15px;
-                line-spacing: 23px;
+                font-family: $arbutus-slab;
+                font-size: 15pt;
+                line-spacing: 2pt;
+            }
+
+            .four-circle { 
+                padding-top: 50px;
+
+                a {
+                    &:hover, &:active { 
+                        div.text-center { color: $blue; }
+                    }
+
+                    div.text-center { 
+                        font-family: $lato;
+                        font-size: 10pt;
+                        font-weight: 600;
+                        color: $black;
+                    }
+                }
             }
         }
         section.sec-3 {
@@ -141,7 +159,7 @@ body.template-homepage {
         }
         section.sec-4 {
             background-color: $darker-grey;
-            .color-text { color: $blue; }
+            .color-text { color: $dark-blue; }
         }
         section.sec-5 {
             background-color: $green;
@@ -149,7 +167,7 @@ body.template-homepage {
         }
         section.sec-6 {
             background-color: $tan;
-            p, .color-text, .sector-link a { color: $blue; }
+            .color-text, { color: $dark-red; }
         }
     }
 
