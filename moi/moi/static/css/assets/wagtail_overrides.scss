@@ -1,4 +1,4 @@
-iframe.wagtail-userbar {
+iframe#wagtail-userbar {
     height: 140px !important;
     bottom: 0;
     top: auto;
@@ -6,4 +6,8 @@ iframe.wagtail-userbar {
 
 ul.sequence {
     li.sequence-member { border: 1px dashed #5AA1A1; }
+}
+
+@media (max-width: 768px) {
+    iframe#wagtail-userbar { display: none; }
 }

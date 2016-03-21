@@ -75,8 +75,7 @@ body.template-homepage {
         .outer { 
             height: 300px; 
 
-            .ts-source, .ts-source-full {
-                position: absolute;
+            .ts-source > span, .ts-source-full {
                 border: 1px solid $light-grey;
                 padding: 5px;
                 background-color: $light-grey;
@@ -90,6 +89,7 @@ body.template-homepage {
             }
         
             .ts-source {
+                position: absolute;
                 bottom: 20px;
                 font-size: pt-px(9);
                 cursor: pointer;
@@ -103,7 +103,6 @@ body.template-homepage {
                 max-width: 325px;
                 p { 
                     font-size: pt-px(11);
-                    margin: auto; 
                 }
             }
 
@@ -265,16 +264,14 @@ body.template-homepage {
 
     @media (max-width: 875px) {
         .body-content {
-            .sector-link {
-               /* a > .link-text {
-                    display: block;
-                    font-size: 2.2vw;
-                }*/
-            }
-
             .outer { 
                 height: 225px;
+
                 .ts-source-full { max-width: 185px; } 
+
+                .sector-link {
+                    a > .link-text { font-size: 13px; }
+                }
             }
         }
     }
@@ -282,8 +279,18 @@ body.template-homepage {
     @media (max-width: 768px) {
         .body-content {
             .outer {
-                .sector-link {
-                    a > .link-text { font-size: 14px; }
+                
+                .ts-source, .ts-source-full {
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 0;
+                    right: 0;
+                }
+
+                .ts-source { font-size: 10px; }
+
+                .ts-source-full {
+                    
                 }
             }
         }
@@ -293,25 +300,22 @@ body.template-homepage {
         .body-content {
             section.sec-1 {
                 .rich-text {
-                    h2 { font-size: 26px; }
-                    .color-text { font-size: 27px; }
+                    h2 { font-size: 27px; }
+                    .color-text { font-size: 28px; }
                 }
             }
-
             section {
                 &:not(:first-child) {
-                   h2 { 
-                        font-size: 25px;
-                    }
 
-                    .color-text { font-size: 26px; }
+                    h2 { font-size: 26px; }
 
-                    p { font-size: 10px; }
+                    .color-text { font-size: 27px; }
 
-                    .main-content {
-                        p { font-size: 14px; }
-                    }
+                    .main-content p, p { font-size: 15px; }
                 }
+            }
+            section.sec-2 {
+                .four-circle a div.text-center { font-size: 12px; }
             }
         }
     }
