@@ -30,6 +30,19 @@ $yellow: #E7AB30;
 /*sizes*/
 $med-reg: 22px;
 
+@function pt-px($pt-size) {
+    @return ($pt-size/0.75)+px;
+}
+
+@function line-spacing($pt-size, $line-size) {
+    @return ($line-size/$pt-size);
+}
+
+@function letter-spacing($pt-size) {
+    @return ($pt-size/1000)+em;
+}
+
 /*core*/
 $navbar-height: 60px;
 $grid-float-breakpoint: 768px;
+

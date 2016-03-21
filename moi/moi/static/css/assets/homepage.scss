@@ -22,17 +22,20 @@ body.template-homepage {
 /*                font-size: calc(0.75em + 4vmin);
                 line-height: 1.4;*/
                 font-family: $arbutus-slab;
+                color: $black;
             }
+
+            .color-text { font-weight: 600; }
 
             &:not(:first-child) {
                 h2 {
-                    font-size: 42pt;
-                    line-height: 50pt;
+                    font-size: pt-px(42);
+                    line-height: line-spacing(42, 50);
                 }
                 .color-text {
                     font-family: $lato;
-                    font-size: 42pt;
-                    letter-spacing: 5pt;
+                    font-size: pt-px(42);
+                    letter-spacing: letter-spacing(50);
                 }
             }
 
@@ -43,15 +46,19 @@ body.template-homepage {
             .rich-text {
                 p {
 /*                    font-size: calc(0.5em + 1.25vmin);*/
-                    font-family: $lato;
-                    font-size: 15pt;
-                    line-height: 23pt;
+                    font-family: $arbutus-slab;
+                    font-size: pt-px(15);
+                    line-height: line-spacing(15, 23);
                     -webkit-column-count: 2;
                     -moz-column-count: 2;
                     column-count: 2;
                     -webkit-column-gap: 35px;
                     -moz-column-gap: 35px;
                     column-gap: 35px;
+                }
+
+                h2 > b {
+                    font-weight: 400;
                 }
             }
 
@@ -76,19 +83,19 @@ body.template-homepage {
             margin-right: auto;
             left: 0;
             right: 0;
-            bottom: 45px;
+            bottom: 65px;
 
             a {
-                border: 1px solid $white;
-                padding: 10px;
+                border: 2px solid $white;
+                padding: 20px;
 
                 &:hover, &:active { text-decoration: none; }
             }
 
             a > .link-text {
                 font-family: $lato;
-                font-size: 14px;
-                letter-spacing: 2px;
+                font-size: pt-px(14);
+                letter-spacing: letter-spacing(50);
                 font-weight: 600;
 
                 &:hover, &:active { color: $blue; }
@@ -114,26 +121,22 @@ body.template-homepage {
             .color-text {
                 color: $white;
                 font-family: $lato;
-                font-size: 45pt;
-                letter-spacing: 5pt;
+                font-size: pt-px(45);
+                letter-spacing: letter-spacing(50);
             }
 
             h2 {
-                font-size: 54pt;
-                line-height: 64pt;
+                font-size: pt-px(54);
+                line-height: line-spacing(54, 64);
             }
         }
         section.sec-2 {
             background-image: url("grid_wht.png");
-            h2 {
-                font-size: 42pt;
-                line-height: 50pt;
-            }
 
             p {
                 font-family: $arbutus-slab;
-                font-size: 15pt;
-                line-spacing: 2pt;
+                font-size: pt-px(15);
+                line-spacing: line-spacing(15, 23);
             }
 
             .four-circle { 
@@ -146,7 +149,8 @@ body.template-homepage {
 
                     div.text-center { 
                         font-family: $lato;
-                        font-size: 10pt;
+                        font-size: pt-px(14);
+                        letter-spacing: letter-spacing(100);
                         font-weight: 600;
                         color: $black;
                     }
