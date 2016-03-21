@@ -106,6 +106,7 @@ class TopStoryBlock(StructBlock):
     sector = SectorChoiceBlock(help_text="Select the sector/top-story this aligns with")
     content = NumberCountUpBlock()
     link_caption = CharBlock(help_text="Add the text you would like to display that will link to the sector page", label="Link text")
+    source = RichTextBlock(required=False, help_text="Display your source here")
 
     class Meta:
         template = "blocks/top_story_block.html"

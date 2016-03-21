@@ -17,6 +17,11 @@ $(document).on('click', '#moveDown', function() {
 });
 
 
+/** top story source toggle **/
+$('.ts-source').click(function() {
+    $('.ts-source-full').toggleClass('table');
+});
+
 /** search toggle **/
 var $searchIcon = $('.fa-search');
 var $searchField = $('.search-nav');
