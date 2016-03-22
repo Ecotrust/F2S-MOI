@@ -4,9 +4,14 @@
 {% load wagtailimages_tags %}
 {% load moi_tags %}
 
+{% block body_class %}template-about{% endblock %}
+
 {% block content %}
+<div class="about-content">
   {{ self.body_content }}
 
-  {% display_sectors %}
-
+  <div class="taxonomy">
+    {% display_sectors %}
+  </div>
+</div>
 {% endblock %}

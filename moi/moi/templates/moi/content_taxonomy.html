@@ -1,24 +1,37 @@
 {% load wagtailcore_tags %}
-<div class="row flex-row">
+<div class="row">
     {% for sector in sectors %}
-    <div class="col-sm-6 col-lg-3">
+    <div class="text-center">
         {{ sector.display_title | richtext }}
 
         {% for outcome in outcomes %}
             {% if sector.pk == outcome.get_parent.pk %}
-                {{ outcome.display_title | richtext }}
+            <div class="outcome-wrapper">
+                <div class="outcome-border">
+                    <span class="tax-title {{ sector.slug }}">PRIORITY OUTCOME</span>
+                    {{ outcome.display_title | richtext }}
+                </div>
+            </div>
+            
 
                 {% for indicator in indicators %}
                     {% if outcome.pk == indicator.get_parent.pk %}
-                        {{ indicator.display_title | richtext }}
-
-                        <ol>
+                    <div class="indicator-wrapper">
+                        <span class="tax-title {{ sector.slug }}">INDICATOR</span>
+                            {{ indicator.display_title | richtext }}
+                    </div>
+                        
+                        <div class="measures-wrapper">
                         {% for measure in measures %}
                             {% if indicator.pk == measure.get_parent.pk %}
-                                <li>{{ measure.display_title | richtext }}</li>
+                            <div class="measure-wrapper">
+                                <span class="tax-title {{ sector.slug }}">MEASURE</span>
+                                {{ measure.display_title | richtext }}
+                                <hr class="vertical-line" width="2" size="550">
+                            </div>
                             {% endif %}
                         {% endfor %}
-                        </ol>
+                        </div>
 
                     {% endif %}
                 {% endfor %}

@@ -16,13 +16,6 @@ $(document).on('click', '#moveDown', function() {
     $.fn.fullpage.moveSectionDown();
 });
 
-
-/** top story source toggle **/
-$('.ts-source').click(function() {
-    $('.ts-source-full').toggleClass('table');
-});
-
-
 /** retina images **/
 $('img.img-responsive').each(function(index, elm) {
     var sourcePath = $(this).attr('src');
@@ -38,6 +31,18 @@ $('img.img-responsive').each(function(index, elm) {
     }
 })
 
+/** content taxonomy vertical line **/
+if ($('.template-about').length > 0) {
+    $('.measures-wrapper').each(function(k) {
+        $(this).children().last().children('.vertical-line').hide()
+    })
+}
+
+
+/** top story source toggle **/
+$('.ts-source').click(function() {
+    $('.ts-source-full').toggleClass('table');
+});
 
 
 /** search toggle **/

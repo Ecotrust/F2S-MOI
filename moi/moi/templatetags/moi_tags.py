@@ -27,7 +27,7 @@ def display_sectors():
         else:
             eco_sector = sector
 
-    sectors = [eco_sector, ed_sector, health_sector, env_sector]        
+    sectors = [health_sector, ed_sector, eco_sector, env_sector]        
 
 
     return {
