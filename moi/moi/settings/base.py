@@ -182,6 +182,7 @@ BOWER_INSTALLED_APPS = (
     'font-awesome#4.5.0',
     'countUp.js',
     'isInViewport',
+    'retina.js',
 )
 # Wagtail settings
 

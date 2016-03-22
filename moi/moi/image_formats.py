@@ -9,7 +9,7 @@ register_image_format(Format('left', 'Left-aligned', 'richtext-image left img-re
 unregister_image_format('right')
 register_image_format(Format('right', 'Right-aligned', 'richtext-image right img-responsive', 'width-500'))
 
-register_image_format(Format('center', 'Centered', 'richtext-image img-responsive center-block', 'max-225x225'))
+register_image_format(Format('center', 'Centered', 'richtext-image img-responsive center-block', 'original'))
 
 register_image_format(Format('multiple', 'Multiple Images', 'richtext-image img-responsive', 'max-165x165'))
 

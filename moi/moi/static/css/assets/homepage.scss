@@ -4,8 +4,8 @@ body.template-homepage {
 
         #moveDown {
             position: absolute;
-            bottom: 5px;
-            left: 50%;
+            bottom: 3%;
+            left: 47%;
             color: $white;
             cursor: pointer;
             -webkit-animation: bounce 2.75s 2.5s ease-out;
@@ -322,5 +322,13 @@ body.template-homepage {
 
     @media (min-width: 400px) {
         #moveDown { font-size: 2em; }
+    }
+
+    @media all and (-webkit-min-device-pixel-ratio: 1.5) {
+        .body-content {
+            section.sec-2 {
+                background-image: url('grid_wht@2x.png');
+            }
+        }
     }
 }

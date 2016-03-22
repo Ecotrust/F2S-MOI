@@ -22,6 +22,24 @@ $('.ts-source').click(function() {
     $('.ts-source-full').toggleClass('table');
 });
 
+
+/** retina images **/
+$('img.img-responsive').each(function(index, elm) {
+    var sourcePath = $(this).attr('src');
+    if (sourcePath.includes('original.png')) {
+        var imgSlug = sourcePath.match('/images(.*).original')[1];
+        var imgPath = '/media/original_images' + imgSlug + '@2x.png';
+        $(this).attr('data-at2x', imgPath);
+    }
+
+    if ($( window ).width() >= 1025) {
+        var retina2x = $(this).attr('data-at2x');
+        $(this).attr('src', retina2x);   
+    }
+})
+
+
+
 /** search toggle **/
 var $searchIcon = $('.fa-search');
 var $searchField = $('.search-nav');

@@ -53,6 +53,12 @@ body {
     h1, h2, h3, h4, h5 {
         clear: both;
     }
+
+    .rich-text {
+        p {
+            .img-responsive.center-block { width: 40%; }
+        }
+    }
 }
 
 .row.flex-row {
