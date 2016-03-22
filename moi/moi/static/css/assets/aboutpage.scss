@@ -7,7 +7,6 @@ body.template-about {
         .rich-text {
             h2, h3 {
                 font-family: $arbutus-slab;
-                color: $black;
                 font-size: pt-px(35);
                 line-height: line-spacing(35, 40);
                 margin-bottom: 30px;
@@ -120,7 +119,45 @@ body.template-about {
                 }
             }
         }
-        
     }
+
+    @media screen and (max-width: 768px) {
+        .basic-content {
+            .rich-text {
+                h2 {
+                    font-size: 4.5vw;
+                    margin-bottom: 25px;
+                }
+
+                h3 { font-size: 3.5vw; }
+
+                p { font-size: 2vw; }
+            }
+        }
+
+        .taxonomy {
+            .rich-text { 
+                h2, h3 { font-size: 3.5vw; }
+            }
+
+            .indicator-wrapper {
+                .rich-text {
+                    h4 { font-size: 3.2vw; }
+                }
+            }
+
+            .measure-wrapper {
+                .rich-text {
+                    h5 { font-size: 2.8vw; }
+                }
+            }
+
+            .tax-title { 
+                font-size: 12px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+        
 }
 
