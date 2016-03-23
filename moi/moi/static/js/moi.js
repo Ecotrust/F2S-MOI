@@ -44,7 +44,6 @@ $('.ts-source').click(function() {
     $('.ts-source-full').toggleClass('table');
 });
 
-
 /** search toggle **/
 var $searchIcon = $('.fa-search');
 var $searchField = $('.search-nav');
@@ -92,65 +91,65 @@ $searchForm.focusout(function() {
 
 /** countUp.js **/
 
-    var $countNum = $('.count-up');
+var $countNum = $('.count-up');
 
-    //check if countUp element exits on page
-    if ($countNum.length) {
-        var options = {
-            useEasing : false,
-            useGrouping : true,
-            separator : ',',
-            decimal : '.',
-            prefix : '',
-            suffix : ''
-        };
+//check if countUp element exits on page
+if ($countNum.length) {
+    var options = {
+        useEasing : false,
+        useGrouping : true,
+        separator : ',',
+        decimal : '.',
+        prefix : '',
+        suffix : ''
+    };
 
-        var countUpArray = [];
-        //add countUp functionality to each element
-        $countNum.each(function(index, element) {
-            var start;
-            var id = this.id;
-            var number = id.match(/\d+/)[0];
+    var countUpArray = [];
+    //add countUp functionality to each element
+    $countNum.each(function(index, element) {
+        var start;
+        var id = this.id;
+        var number = id.match(/\d+/)[0];
 
-            // starting from zero can set spans into a funk
-            // this helps with easing the starting point - a bit
-            if (number > 1 && number < 15) {
-                start = 0;
-            } else if (number.toString().length == 2 && number > 14 || number <= 110) {
-                start = 10;
-            } else if (number.toString().length == 3 && number > 110 || number <= 1100) {
-                start = 100;
-            } else if (number.toString().length == 4 && number > 1100 || number <= 10500) {
-                start = 1000;
-            } else if (number.toString().length == 5 && number > 10500 || number <= 102500) {
-                start = 10000;
-            } else {
-                start = 100000;
-            }
+        // starting from zero can set spans into a funk
+        // this helps with easing the starting point - a bit
+        if (number > 1 && number < 15) {
+            start = 0;
+        } else if (number.toString().length == 2 && number > 14 || number <= 110) {
+            start = 10;
+        } else if (number.toString().length == 3 && number > 110 || number <= 1100) {
+            start = 100;
+        } else if (number.toString().length == 4 && number > 1100 || number <= 10500) {
+            start = 1000;
+        } else if (number.toString().length == 5 && number > 10500 || number <= 102500) {
+            start = 10000;
+        } else {
+            start = 100000;
+        }
 
-            var count = new CountUp(id, start, number, 0, 3, options);
-            countUpArray.push(count);
-        });
+        var count = new CountUp(id, start, number, 0, 3, options);
+        countUpArray.push(count);
+    });
 
-        //count-up if in view on load
-        fireCountWhenInView();
-    }
+    //count-up if in view on load
+    fireCountWhenInView();
+}
 
-    //check scroll event and count-up
-    $(window).scroll(function() {
-        fireCountWhenInView()
-    })
+//check scroll event and count-up
+$(window).scroll(function() {
+    fireCountWhenInView()
+})
 
-    function fireCountWhenInView() {
-        $countNum.isInViewport()
-            .each(function(index, elm) {
-                $.each(countUpArray, function(index, val) {
-                    if (elm === val.d) {
-                        val.start();
-                    }
-                })
+function fireCountWhenInView() {
+    $countNum.isInViewport()
+        .each(function(index, elm) {
+            $.each(countUpArray, function(index, val) {
+                if (elm === val.d) {
+                    val.start();
+                }
             })
-    }
+        })
+}
 
 
 /** jquery overrides **/

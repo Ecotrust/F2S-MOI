@@ -22,15 +22,15 @@
                                data-toggle="dropdown"
                                aria-haspopup="true" 
                                aria-expanded="false">
-                               <span class="{% for menu in menus %}{% if menu.url.url == request.path %}active-parent{% endif %}{% endfor %}">The Data <i class="fa fa-caret-down"></i></span>
+                               <span class="{% for menu in menus %}{% if menu.url.url == request.path %}active-parent{% endif %}{% endfor %}">The Data <i class="arrow-toggle fa fa-caret-down"></i></span>
                            </a>
                            <ul class="dropdown-menu">
                                 {% for menu in menus %}
-                                    <li class="main-nav text-center{% if menu.url.url == request.path %} active{% endif %}"> <a href="{{ menu.url.url }}" class="smoothScroll"><span>{{ menu.title|upper }}</span></a></li>
+                                    <li class="main-nav{% if menu.url.url == request.path %} active{% endif %}"> <a href="{{ menu.url.url }}" class="smoothScroll"><span>{{ menu.title|upper }}</span></a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="main-nav{% if '/recommendations/' == request.path %} active{% endif %}"><a href="/recommendations"><span>Success Stories</span></a></li>
+                        <li class="main-nav{% if '/recommendations/' == request.path %} active{% endif %}"><a href="/recommendations"><span>Spotlight Stories</span></a></li>
                         <li class="main-nav{% if '/about/' == request.path %} active{% endif %}"><a href="/about"><span>About</span></a></li>
                         <li class="main-nav search"><a href="#" class="fa fa-search fa-one-half"></a></li>
                     <!-- search form -->

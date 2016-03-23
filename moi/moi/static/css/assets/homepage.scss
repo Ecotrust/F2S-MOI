@@ -93,6 +93,7 @@ body.template-homepage {
                 bottom: 20px;
                 font-size: pt-px(9);
                 cursor: pointer;
+                text-align: left;
             }
 
             .ts-source-full {
@@ -103,6 +104,7 @@ body.template-homepage {
                 max-width: 325px;
                 p { 
                     font-size: pt-px(11);
+                    text-align: left;
                 }
             }
 
@@ -169,6 +171,12 @@ body.template-homepage {
                 font-family: $arbutus-slab;
                 font-size: pt-px(15);
                 line-spacing: line-spacing(15, 23);
+                -webkit-column-count: 2;
+                -moz-column-count: 2;
+                column-count: 2;
+                -webkit-column-gap: 35px;
+                -moz-column-gap: 35px;
+                column-gap: 35px;
             }
 
             .four-circle { 
@@ -237,7 +245,7 @@ body.template-homepage {
             }
             section.sec-1 {
                 .rich-text {
-                    h2 { font-size: 4.7vw; }
+                    h2 { font-size: 4.9vw; }
                     .color-text { font-size: 4.8vw; }
                 }
             }
@@ -279,15 +287,21 @@ body.template-homepage {
     @media (max-width: 768px) {
         .body-content {
             .outer {
-                
+
+                .sector-link { bottom: 30px; }
+
                 .ts-source, .ts-source-full {
                     margin-left: auto;
                     margin-right: auto;
                     left: 0;
                     right: 0;
+                    bottom: 80px;
                 }
 
-                .ts-source { font-size: 10px; }
+                .ts-source { 
+                    font-size: 10px; 
+                    text-align: center;
+                }
 
                 .ts-source-full {
                     
@@ -311,7 +325,12 @@ body.template-homepage {
 
                     .color-text { font-size: 27px; }
 
-                    .main-content p, p { font-size: 15px; }
+                    .main-content p, p { 
+                        font-size: 15px;
+                        -webkit-column-count: auto;
+                        -moz-column-count: auto;
+                        column-count: auto;
+                    }
                 }
             }
             section.sec-2 {

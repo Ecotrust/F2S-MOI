@@ -1,6 +1,7 @@
 /* about-page core styles */
 body.template-about {
     .about-content {
+        margin-top: 30px;
         background-color: $light-grey;
         color: $black;
 
@@ -26,6 +27,16 @@ body.template-about {
                 -webkit-column-gap: 35px;
                 -moz-column-gap: 35px;
                 column-gap: 35px;
+
+                a { 
+                    font-family: $lato;
+                    font-size: px-pt(14);
+                    font-weight: 600;
+                    line-height: line-spacing(14, 21);
+                    letter-spacing: letter-spacing(50);
+                    color: $blue;
+                
+                }
             }
         }
     }
@@ -69,9 +80,9 @@ body.template-about {
 
             &.public-health { color: $yellow; }
 
-            &.education { color: $green; }
+            &.education { color: $blue; }
 
-            &.community-economic-development { color: $blue; }
+            &.community-economic-development { color: $green; }
 
             &.environmental-quality { color: $dark-red; }
         }
@@ -94,10 +105,12 @@ body.template-about {
         .indicator-wrapper {
             .rich-text {
                 h4 { 
+                    display: inline-block;
                     font-family: $lato;
                     font-weight: 600;
                     font-size: pt-px(14);
                     line-height: line-spacing(14, 19);
+                    border-bottom: 0.5em solid $white;
                 }
             }
 
@@ -108,7 +121,7 @@ body.template-about {
             .vertical-line { 
                 margin-top: 10px;
                 margin-bottom: 10px;
-                border-top: 25px solid $grey;  
+                border-top: 20px solid $darker-grey;  
             }
 
             .rich-text {

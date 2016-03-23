@@ -1,10 +1,9 @@
 #header {
     margin-bottom: 0;
-    padding: 30px 0 0 0;
     font-family: $arbutus-slab;
-    font-size: 12pt;
+    color: $black;
+    font-size: pt-px(12);
     font-weight: 500;
-    height: $navbar-height;
 
     .navbar {
         background: $white;
@@ -45,7 +44,7 @@
 
             .main-nav.dropdown { 
 
-                &:hover, &:focus {
+                &:hover, &.open:focus {
                     a.dropdown-toggle > span { border-bottom: 2px solid $blue; }
                 };
 
@@ -56,11 +55,20 @@
 
                 ul.dropdown-menu {
                     font-family: $lato;
-                    min-width: 225px;
+                    font-size: pt-px(11);
+                    color: $black;
+                    letter-spacing: letter-spacing(95);
+                    min-width: 265px;
                     min-height: 40px;
 
+                    li { 
+                        border-bottom: 1px solid $light-grey;
+                        &:last-child { border: none }; 
+                    }
+
                     li > a { 
-                        padding: 10px 0 10px 0;
+                        font-weight: 600;
+                        padding: 20px 0 20px 40px;
                         &:hover, &:focus { color: $blue; }
                     }
 
