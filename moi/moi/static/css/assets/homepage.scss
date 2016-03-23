@@ -70,6 +70,36 @@ body.template-homepage {
                     }
                 }
             }
+
+            .economic-calculator {
+                margin-top: 30px;
+
+                .calc-title {
+                    font-family: $lato;
+                    color: $black;
+                    font-size: pt-px(12);
+                    line-height: line-spacing(12, 18);
+                    font-weight: 600;
+                    margin-bottom: 15px;
+                }
+
+                table {
+                    margin-left: auto;
+                    margin-right: auto;
+                    input, .equal-sign {
+                        font-size: pt-px(30);
+                        font-weight: 600;
+                        color: $black; 
+                    }
+
+                    input {
+                        height: 75px;
+                        width: 300px;
+                        padding-left: 10px;
+                    }
+                }
+
+            }
         }
 
         .outer { 
@@ -203,7 +233,8 @@ body.template-homepage {
             p, .color-text, .link-text { color: $white; }
         }
         section.sec-4 {
-            background-color: $darker-grey;
+            background-color: $grey;
+            .link-text { color: $white; }
             .color-text { color: $dark-blue; }
         }
         section.sec-5 {

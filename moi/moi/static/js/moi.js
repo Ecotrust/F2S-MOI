@@ -38,6 +38,23 @@ if ($('.template-about').length > 0) {
     })
 }
 
+/** economic calculator **/
+var $num = $('input#inputCalc')[0]
+
+$num.oninput = function() {
+    var inputField = $num.value; 
+    var resultField = inputField * 2;
+    if (inputField === '') {
+      result.value = '';
+    } else {
+      result.value = '$' + numberWithCommas(resultField);
+    }   
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 
 /** top story source toggle **/
 $('.ts-source').click(function() {

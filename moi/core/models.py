@@ -30,7 +30,7 @@ class PullQuoteBlock(StructBlock):
 
 class SectorChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
-        ('education', 'Education'), ('health', 'Health'), ('economy', 'Economy'), ('environment', 'Environment'),
+        ('education', 'Education'), ('health', 'Health'), ('economy', 'Economy'), ('environment', 'Environment'), ('data gaps', 'Data Gaps'),
     ))
 
 class ImageFormatChoiceBlock(FieldBlock):
@@ -66,7 +66,7 @@ class BasicContentBlock(StructBlock):
 
 class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
-    numbers = CharBlock(help_text="Enter the numbers you'd like to count up - seperated by a semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
+    numbers = CharBlock(required=False, help_text="Enter the numbers you'd like to count up - seperated by a semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
     colored_text = CharBlock(required=False, help_text="Enter the content you'd like to be a different color - each set of content is seperated by a semicolon")
     inline = BooleanBlock(required=False, help_text="If this is not a standalone number, but apart of an actual sentence - check the box.")
 
@@ -89,6 +89,8 @@ class NumberCountUpBlock(StructBlock):
             for num in num_list:
                 html_span = "<span id='count-%s' class='count-up'></span>" % (num)
                 current_context = current_context.replace(num, html_span)
+        else:
+            num_list = None
 
         return render_to_string(self.meta.template, {
             'self': value,

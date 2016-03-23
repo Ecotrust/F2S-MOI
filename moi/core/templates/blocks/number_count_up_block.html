@@ -8,6 +8,8 @@
     {% endif %}
         {{ content | richtext }}
     </div>
+{% else %}
+    {{ content | richtext }}
 {% endif %}
 
 
