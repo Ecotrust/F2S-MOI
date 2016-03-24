@@ -1,10 +1,15 @@
 <div class="text-center economic-calculator">
   <div class="calc-title">Calculate the economic impact of your own local spending</div>
-  <table width="75%" border="0">
+  <table border="0">
     <tr>
-      <td><input id="inputCalc" type="number" /></td>
+      <td id="inputCol"><input id="inputCalc" type="number" /></td>
       <td><div class="equal-sign"> = </div></td>
-      <td><input id="result" readonly="readonly"/></td>
+      <td id="resultCol"><input id="result" readonly="readonly"/></td>
+    </tr>
+    <tr>
+      <td><div id="input-caption">Enter your spending on local food here</div></td>
+      <td><div class="equal-sign"> </div></td>
+      <td><div id="result-caption">Your contribution to the local Oregon economy</div></td>
     </tr>
   </table>
 </div>
