@@ -62,8 +62,9 @@ body.template-about {
 
         .rich-text {
             h2, h3 {
-                font-size: pt-px(20);
-                line-height: line-spacing(20, 26); 
+                font-size: pt-px(21);
+                line-height: line-spacing(21, 25); 
+                letter-spacing: letter-spacing(25);
             }
 
             h2 { margin-bottom: 20px; }
@@ -108,8 +109,9 @@ body.template-about {
                     display: inline-block;
                     font-family: $lato;
                     font-weight: 600;
-                    font-size: pt-px(14);
-                    line-height: line-spacing(14, 19);
+                    font-size: pt-px(15);
+                    line-height: line-spacing(15, 23);
+                    letter-spacing: letter-spacing(50);
                     border-bottom: 0.5em solid $white;
                 }
             }
@@ -127,41 +129,87 @@ body.template-about {
             .rich-text {
                 h5 {
                     font-family: $arbutus-slab;
-                    font-size: pt-px(13);
-                    line-height: line-spacing(13, 20);
+                    font-size: pt-px(15);
+                    line-height: line-spacing(15, 23);
                 }
             }
         }
     }
 
-    @media screen and (max-width: 768px) {
+    @media all and (-webkit-min-device-pixel-ratio: 1.5) {
+        .block-basic_content {
+            &:first-child { background-image: url('grid_wht@2x.png'); }
+        }
+    }
+
+    @media screen and (max-width: 825px) {
         .basic-content {
             .rich-text {
                 h2 {
-                    font-size: 4.5vw;
+                    font-size: 4.2vw;
                     margin-bottom: 25px;
                 }
 
-                h3 { font-size: 3.5vw; }
+                h3 { font-size: 3.3vw; }
 
-                p { font-size: 2vw; }
+                p { font-size: 1.9vw; }
             }
         }
 
         .taxonomy {
             .rich-text { 
-                h2, h3 { font-size: 3.5vw; }
+                h2, h3 { font-size: 3.3vw; }
             }
+
+            .outcome-wrapper { margin: 0 5em 3em 5em; }
 
             .indicator-wrapper {
                 .rich-text {
-                    h4 { font-size: 3.2vw; }
+                    h4 { font-size: 3vw; }
                 }
             }
 
             .measure-wrapper {
                 .rich-text {
-                    h5 { font-size: 2.8vw; }
+                    h5 { font-size: 2.6vw; }
+                }
+            }
+
+            .tax-title { 
+                font-size: 14px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .basic-content {
+            .rich-text {
+                p { 
+                    font-size: 14px;
+                    -webkit-column-count: auto;
+                    -moz-column-count: auto;
+                    column-count: auto;
+                }
+            }
+        }
+
+        .taxonomy {
+            .rich-text { 
+                h2, h3 { font-size: 3.3vw; }
+            }
+
+            .outcome-wrapper { margin: 0 3em 3em 3em; }
+
+            .indicator-wrapper {
+                .rich-text {
+                    h4 { font-size: 3vw; }
+                }
+            }
+
+            .measure-wrapper {
+                .rich-text {
+                    h5 { font-size: 2.6vw; }
                 }
             }
 
