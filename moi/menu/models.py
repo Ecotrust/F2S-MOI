@@ -55,5 +55,9 @@ class MainFooterText(models.Model):
         ]),
     ]
 
+    def __unicode__(self):
+        s = 'Main Footer Text: <b>%s</b>' % (self.header)
+        return mark_safe(s)
+
 register_snippet(Menu)
 register_snippet(MainFooterText)

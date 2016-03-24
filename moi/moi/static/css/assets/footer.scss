@@ -1,0 +1,55 @@
+footer#footer {
+    background-image: url("grid_wht.png");
+    color: $black;
+    font-weight: 600;
+
+    .row {
+        margin-top: 20px;
+
+        .header-title {
+            font-family: $lato;
+            font-size: pt-px(12);
+            letter-spacing: letter-spacing(100);
+            text-transform: uppercase;
+            padding-bottom: 10px;
+        }
+
+        .rich-text {
+            p {
+                font-family: $arbutus-slab;
+                font-size: pt-px(10);
+                line-height: line-spacing(10, 15);
+
+
+                a {
+                    font-family: $lato;
+                    color: $blue;
+                    letter-spacing: letter-spacing(50)
+                }
+            }
+        }
+
+        .logos { 
+            max-width: 225px;
+            border-right: 1px solid $black; 
+        }
+
+        .menus {
+            .header-title { padding: 0; }
+            .menu {
+                font-family: $arbutus-slab;
+                font-size: pt-px(10);
+                line-height: line-spacing(10, 25);
+                letter-spacing: letter-spacing(100);
+                a {
+                    color: $black;
+                    &:hover { color: $blue; }
+                }
+            }
+        }
+    }
+
+    @media all and (-webkit-min-device-pixel-ratio: 1.5) {
+        background-image: url('grid_wht@2x.png');
+    }
+}

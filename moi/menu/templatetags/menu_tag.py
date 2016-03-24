@@ -3,7 +3,7 @@ from django.template.loader import get_template
 
 from wagtail.wagtailimages.models import Image
 
-from menu.models import Menu
+from menu.models import Menu, MainFooterText
 from home.models import HomePage
 
 register = template.Library()
@@ -29,3 +29,11 @@ def menus(context, kind='header', menu_type='navbar'):
         'navbar_logo': navbar_logo,
         'request': context['request'],
 }))
+
+@register.assignment_tag
+def footer_menus():
+    return Menu.objects.exclude(footer=False)
+
+@register.assignment_tag
+def footer_text():
+    return MainFooterText.objects.all()[0]

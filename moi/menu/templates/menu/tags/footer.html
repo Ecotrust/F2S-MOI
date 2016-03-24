@@ -1,2 +1,24 @@
+{% load wagtailcore_tags wagtailimages_tags menu_tag %}
+{% footer_text as text %}
+{% footer_menus as menus %}
+
 <footer id="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logos col-md-3">
+                <img class="img-responsive" src="/media/original_images/ecotrust_logo_color.png" />
+                
+            </div>
+            <div class="info col-md-6">
+                <div class="header-title">{{ text.header }}</div>
+                {{ text.content | richtext }}
+            </div>
+            <div class="menus col-md-3">
+                <div class="header-title">THE DATA</div>
+                {% for menu in menus %}
+                   <div class="menu"><a href="{{ menu.url.url }}"> {{ menu.title }}</a></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </footer>
