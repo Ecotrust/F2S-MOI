@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.safestring import mark_safe
-
+from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Orderable
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
@@ -44,4 +44,16 @@ class Menu(models.Model):
         s = '%s %d. <b>%s</b>' % (position, self.order, self.title)
         return mark_safe(s)
 
+class MainFooterText(models.Model):
+    header = models.CharField(max_length=100, help_text="Header text to display above text. Ex. 'Welcome'")
+    content = RichTextField(blank=True)
+
+    panels = [
+        MultiFieldPanel([
+            FieldPanel('header'),
+            FieldPanel('content'),
+        ]),
+    ]
+
 register_snippet(Menu)
+register_snippet(MainFooterText)
