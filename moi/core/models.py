@@ -80,15 +80,15 @@ class NumberCountUpBlock(StructBlock):
             colored_list = colored.split("; ")
             #add color wrapper to identified content
             for color in colored_list:
-                color_span = "<span class='color-text'>%s</span>" % (color)
-                current_context = current_context.replace(color, color_span)
+                color_span = "<span class='color-text'>%s</span>" % (color)  
+                current_context = current_context.replace(color, color_span, 1)
 
         if num:
             num_list = num.split("; ")
             # add count-up functionality to identified numbers
-            for num in num_list:
-                html_span = "<span id='count-%s' class='count-up'></span>" % (num)
-                current_context = current_context.replace(num, html_span)
+            for num in num_list:                    
+                html_span = "<span id='count-%s' class='count-up'></span>" % (num)                                                          
+                current_context = current_context.replace(num, html_span, 1)
         else:
             num_list = None
 

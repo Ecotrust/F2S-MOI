@@ -199,6 +199,10 @@ body.template-homepage {
                 font-size: pt-px(54);
                 line-height: line-spacing(54, 64);
             }
+
+            .no-text-row {
+                img.img-responsive { width: 35%;}
+            }
         }
         section.sec-2 {
             background-image: url("grid_wht.png");

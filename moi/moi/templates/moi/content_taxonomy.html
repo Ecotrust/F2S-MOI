@@ -1,8 +1,9 @@
 {% load wagtailcore_tags %}
 <div class="row">
     {% for sector in sectors %}
-    <div class="text-center">
-        {{ sector.display_title | richtext }}
+    <div class="text-center title">
+        {{ sector.title | richtext }}
+        <img class="img-responsive center-block" src="/media/original_images/about_{{ sector.display_title | striptags | lower }}.png" />
 
         {% for outcome in outcomes %}
             {% if sector.pk == outcome.get_parent.pk %}
