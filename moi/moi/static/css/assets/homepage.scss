@@ -130,6 +130,7 @@ body.template-homepage {
                 font-size: pt-px(9);
                 cursor: pointer;
                 text-align: left;
+                span { max-width: 30px; }
             }
 
             .ts-source-full {
@@ -141,6 +142,7 @@ body.template-homepage {
                 p { 
                     font-size: pt-px(11);
                     text-align: left;
+                    color: $black;
                 }
             }
 

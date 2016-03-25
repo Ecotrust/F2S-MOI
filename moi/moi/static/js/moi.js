@@ -62,7 +62,7 @@ function numberWithCommas(x) {
 
 /** top story source toggle **/
 $('.ts-source').click(function() {
-    $('.ts-source-full').toggleClass('table');
+    $(this).children().first().toggleClass('table');
 });
 
 /** search toggle **/
