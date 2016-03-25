@@ -15,16 +15,18 @@
 .fa-one-half { font-size: 1.5em; }
 .fa-two-half { font-size: 2.5em; }
 
+html { height: 100% }
 
 body {
     background: $white;
+    color: $black;
 }
 
 .body-content {
     width: 100%;
     overflow: hidden;
     clear: both;
-    
+
     img {
         margin-bottom: 2%;
         margin-top: 2%;

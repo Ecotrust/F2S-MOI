@@ -6,7 +6,10 @@
 {% block body_class %}template-datapage{% endblock %}
 
 {% block content %}
-  <p>
+<div class="body-content {{ page.slug }}">
+    {% include "includes/streamfield_blocks.html" with blocks=page.body_content section_title=page.display_title %}
+</div>
+ <!--  <p>
   {% for ancestor in self.get_ancestors %}
     {% if not ancestor.title == 'Root' %}
       <a href="{% for grandcestor in ancestor.get_ancestors %}{% if forloop.first %}/{% endif %}{% if not grandcestor.title == 'Root' %}{% if not grandcestor.content_type.name == 'home page' %}{{ grandcestor.slug }}/{% endif %}{% endif %}{% endfor %}{% if not ancestor.content_type.name == 'home page' %}{{ ancestor.slug }}{% endif %}">
@@ -61,6 +64,6 @@
     {% endfor %}
     </ul>
   {% endfor %}
-  </ul>
+  </ul> -->
 
 {% endblock %}

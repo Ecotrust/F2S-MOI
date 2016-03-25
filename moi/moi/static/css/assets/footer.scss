@@ -4,12 +4,12 @@ footer#footer {
     font-weight: 600;
 
     .row {
-        margin-top: 20px;
+        margin: 20px 0 10px 0px;
 
         .header-title {
             font-family: $lato;
-            font-size: pt-px(12);
-            letter-spacing: letter-spacing(100);
+            font-size: pt-px(11);
+            letter-spacing: letter-spacing(98);
             text-transform: uppercase;
             padding-bottom: 10px;
         }
@@ -17,20 +17,20 @@ footer#footer {
         .rich-text {
             p {
                 font-family: $arbutus-slab;
-                font-size: pt-px(10);
-                line-height: line-spacing(10, 15);
+                font-size: pt-px(9);
+                line-height: line-spacing(9, 14);
 
 
                 a {
                     font-family: $lato;
                     color: $blue;
-                    letter-spacing: letter-spacing(50)
+                    letter-spacing: letter-spacing(48)
                 }
             }
         }
 
         .logos { 
-            max-width: 225px;
+            max-width: 200px;
             border-right: 1px solid $black; 
         }
 
@@ -38,8 +38,8 @@ footer#footer {
             .header-title { padding: 0; }
             .menu {
                 font-family: $arbutus-slab;
-                font-size: pt-px(10);
-                line-height: line-spacing(10, 25);
+                font-size: pt-px(9);
+                line-height: line-spacing(9, 22);
                 letter-spacing: letter-spacing(100);
                 a {
                     color: $black;

@@ -4,6 +4,9 @@
     {% for block in blocks %}
     <section class="section sec-{{ forloop.counter }}">
         <div class="container-fluid">
+            {% if section_title %}
+                <div class="sector-title">{{ section_title | richtext }}</div>
+            {% endif %}
             {{ block }}
         </div>
 
