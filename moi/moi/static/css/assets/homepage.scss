@@ -254,6 +254,10 @@ body.template-homepage {
             background-color: $tan;
             .color-text, { color: $dark-red; }
         }
+        section.sec-7 {
+            background-color: $turquoise;
+            .color-text, .link-text { color: $white; }
+        }
     }
     
     @media (max-width: 1235px) {

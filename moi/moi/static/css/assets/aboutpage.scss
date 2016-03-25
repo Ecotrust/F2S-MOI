@@ -87,13 +87,13 @@ body.template-about {
             line-height: line-spacing(11, 16);
             font-weight: 600;
 
-            &.public-health { color: $yellow; }
+            &.health { color: $yellow; }
 
             &.education { color: $blue; }
 
-            &.community-economic-development { color: $green; }
+            &.economy { color: $green; }
 
-            &.environmental-quality { color: $dark-red; }
+            &.environment { color: $dark-red; }
         }
 
         .outcome-wrapper {

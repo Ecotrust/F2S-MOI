@@ -30,7 +30,7 @@ class PullQuoteBlock(StructBlock):
 
 class SectorChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
-        ('education', 'Education'), ('health', 'Health'), ('economy', 'Economy'), ('environment', 'Environment'), ('data gaps', 'Data Gaps'),
+        ('education', 'Education'), ('health', 'Health'), ('economy', 'Economy'), ('environment', 'Environment'), ('data_gaps', 'Data Gaps'),
     ))
 
 class ImageFormatChoiceBlock(FieldBlock):
