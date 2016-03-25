@@ -6,7 +6,7 @@ body.template-datapage {
         color: $black;
         
 
-        &.public-health {
+        &.health {
             section.sec-1 {
                 background-color: $yellow;
                 p, .sector-title { color: $white; }
@@ -20,14 +20,14 @@ body.template-datapage {
             }
         }
 
-        &.community-economic-development {
+        &.economy {
             section.sec-1 {
                 background-color: $green;
                 p, .sector-title { color: $white; }
             }
         }
 
-        &.environmental-quality {
+        &.environment {
             section.sec-1 {
                 background-color: $tan;
                 .sector-title { color: $dark-red; }
