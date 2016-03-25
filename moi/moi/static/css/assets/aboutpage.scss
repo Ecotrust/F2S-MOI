@@ -133,6 +133,10 @@ body.template-about {
                     line-height: line-spacing(15, 23);
                 }
             }
+
+            a, a:hover, a:active { color: $black; }
+
+            
         }
     }
 
