@@ -1,6 +1,5 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
-<div class="top-story">
-    <a name="{{ self.sector }}"></a>
+<div class="top-story {{  self.sector }}">
     <div class="main-content">{{ value.content }}</div>
     <div class="outer text-center">
         {% if self.sector == 'economy' %}
@@ -15,6 +14,6 @@
             <div class="ts-source-full"> {{ self.source }}</div>
             <span>SOURCE</span>
         </div>
-        
+
     </div>
 </div>

@@ -7,30 +7,46 @@ $('.body-content').fullpage({
     scrollBar: true,
     css3: true,
     scrollingSpeed: 1200,
+    autoScrolling: false,
+    scrollOverflow: false,
     fitToSection: false,
     fixedElements: '#header',
     paddingTop: '65px',
+    anchors: ['sec1', 'sec2', 'sec3', 'sec4', 'sec5', 'sec6', 'sec7']
 });
 
 $(document).on('click', '#moveDown', function() {
     $.fn.fullpage.moveSectionDown();
 });
 
+// add anchors
+var sectorArrays = ['health', 'education', 'economy', 'environment'];
+sectorArrays.forEach(function(i) {
+    var topStory = '.top-story.' + i;
+    var anchorValue = "#" + $(topStory).closest('section').attr('data-anchor');
+    var circleSector = ".circle-" + i;
+    $('.four-circle').find(circleSector).attr('href', anchorValue);
+})
+
+
+
 /** retina images **/
 $('img.img-responsive').each(function(index, elm) {
     var sourcePath = $(this).attr('src');
-    if (sourcePath.includes('original.png')) {
-        var imgSlug = sourcePath.match('/images(.*).original')[1];
-        var retinaPath = '/media/original_images' + imgSlug + '2x.png';
-        $(this).attr('data-at2x', retinaPath);
-    } else if (sourcePath.includes('original_images') && !$(this).hasClass('no-retina')) {
-        var retinaPath = sourcePath.slice(0, -4) + '2x.png';
-        $(this).attr('data-at2x', retinaPath);
-    }
+    if (!$(this).hasClass('no-retina')) {
+        if (sourcePath.includes('original.png')) {
+           var imgSlug = sourcePath.match('/images(.*).original')[1];
+           var retinaPath = '/media/original_images' + imgSlug + '2x.png';
+           $(this).attr('data-at2x', retinaPath);
+        } else if (sourcePath.includes('original_images')) {
+           var retinaPath = sourcePath.slice(0, -4) + '2x.png';
+           $(this).attr('data-at2x', retinaPath);
+        }
 
-    if ($( window ).width() >= 1025) {
-        var retina2x = $(this).attr('data-at2x');
-        $(this).attr('src', retina2x);   
+        if ($( window ).width() >= 1025) {
+           var retina2x = $(this).attr('data-at2x');
+           $(this).attr('src', retina2x);
+        }
     }
 })
 
@@ -45,13 +61,13 @@ if ($('.template-about').length > 0) {
 var $num = $('input#inputCalc')[0]
 if ($num !== undefined) {
     $num.oninput = function() {
-        var inputField = $num.value; 
+        var inputField = $num.value;
         var resultField = inputField * 2;
         if (inputField === '') {
           result.value = '';
         } else {
           result.value = '$' + numberWithCommas(resultField);
-        }   
+        }
     }
 }
 
@@ -176,7 +192,7 @@ function fireCountWhenInView() {
 /** jquery overrides **/
 var $basicContentImg = $('.rich-text > p > img');
 if ($basicContentImg.length > 0) {
-    $basicContentImg.parent().addClass('row no-text-row');  
-} 
+    $basicContentImg.parent().addClass('row no-text-row');
+}
 
 })(jQuery);

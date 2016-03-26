@@ -10,17 +10,17 @@
                     </button>
 
                     <a class="navbar-brand" href="/">
-                        <img class="img-responsive no-retina" src="{{ navbar_logo }}" />
+                        <img class="img-responsive no-retina" src="{{ navbar_logo }}" data-no-retina />
                     </a>
 
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="main-nav dropdown">
-                            <a href="#" 
-                               class="dropdown-toggle" 
+                            <a href="#"
+                               class="dropdown-toggle"
                                data-toggle="dropdown"
-                               aria-haspopup="true" 
+                               aria-haspopup="true"
                                aria-expanded="false">
                                <span class="{% for menu in menus %}{% if menu.url.url == request.path %}active-parent{% endif %}{% endfor %}">The Data <i class="arrow-toggle fa fa-caret-down"></i></span>
                            </a>

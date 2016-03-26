@@ -18,7 +18,7 @@
                 {% with 'health education economy environment' as sectors %}
                  {% for sector in sectors.split %}
                     <div class="col-lg-3 col-md-3 col-sm-3">
-                        <a href="#{{ sector }}">
+                        <a class="circle-{{ sector }}">
                             <img class="img-responsive margin-auto" src="media/original_images/{{ sector }}_circle.png">
                             <div class="text-center"> {{ sector|upper }} </div>
                         </a>
