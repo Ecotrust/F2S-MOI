@@ -17,6 +17,12 @@ body.template-about {
                 font-weight: 400;
             }
 
+            p.no-text-row {
+                -webkit-column-count: auto;
+                -moz-column-count: auto;
+                column-count: auto;
+            }
+
             p {
                 font-family: $arbutus-slab;
                 font-size: pt-px(13);
@@ -38,6 +44,8 @@ body.template-about {
                 
                 }
             }
+
+            .richtext-image.img-responsive.center-block { width: 45%; } 
         }
     }
     
