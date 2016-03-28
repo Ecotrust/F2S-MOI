@@ -11,7 +11,7 @@
         </div>
 
         {% if forloop.first and request.path == "/"  %}
-            <i class="fa fa-arrow-down fa-two-half" id="moveDown"></i>
+            <img id="moveDown" class="img-responsive" src="/static/css/about_arrow.png"></i>
         {% endif %}
         {% if forloop.counter == 2 and request.path == "/" %}
             <div class="row four-circle">
