@@ -31,7 +31,7 @@ footer#footer {
 
         .logos {
             border-right: 1px solid $black;
-
+            max-width: 225px;
             img { 
                 &:first-of-type { padding-bottom: 15px };
             }
@@ -61,6 +61,7 @@ footer#footer {
             .logos {
                 border: none;
                 padding-bottom: 10px;
+                max-width: none;
 
                 img { 
                     width: 200px;
