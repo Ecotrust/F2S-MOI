@@ -16,7 +16,7 @@ $('.body-content').fullpage({
 });
 
 $(document).on('click', '#moveDown', function() {
-    $.fn.fullpage.moveSectionDown();
+    $.fn.fullpage.moveTo(2);
 });
 
 // add anchors
@@ -28,6 +28,31 @@ sectorArrays.forEach(function(i) {
     $('.four-circle').find(circleSector).attr('href', anchorValue);
 })
 
+/** switch evaluation image **/
+function rotate() {
+    var frameworkImg = '/media/images/about_evaluation_framework.original.png';
+    var frameworkImgRet = '/media/original_images/about_evaluation_framework2x.png';
+    var frameworkImgVert = '/media/original_images/about_evaluation_framework_vertical.png';
+    var frameworkImgVertRet = '/media/original_images/about_evaluation_framework_vertical2x.png';
+
+    $('img.img-responsive').each(function(index, elm) {
+        var $imgSrc = $(this).attr('src');
+
+        if ($imgSrc === frameworkImg || $imgSrc === frameworkImgRet) {
+            if ($(window).width() < 768) { 
+                var src = $(this).attr('src').replace($imgSrc, frameworkImgVert);
+                $(this).attr('src', src);
+            } 
+        } else if ($imgSrc === frameworkImgVert || $imgSrc === frameworkImgVertRet) {
+            if ($(window).width() >= 768) {
+                var src = $(this).attr('src').replace($imgSrc, frameworkImg);
+                $(this).attr('src', src);
+            }
+        }
+    })
+}
+rotate();
+$(window).on('resize', rotate);
 
 
 /** retina images **/
