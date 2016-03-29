@@ -74,6 +74,8 @@ body.template-about {
             font-weight: 600;
             line-height: line-spacing(21, 25); 
             letter-spacing: letter-spacing(25);
+
+            .img-responsive { width: 40%; }
         }
 
         .rich-text {
@@ -185,7 +187,10 @@ body.template-about {
                 h2, h3 { font-size: 3vw; }
             }
 
-            .text-center { margin: 0 4em 0 4em;}
+            .text-center { 
+                margin: 0 4em 0 4em;
+                &:not(:first-child) { margin-top: 2.75em; }
+            }
 
             .outcome-wrapper { margin: 0 4em 3em 4em; }
 
@@ -226,18 +231,6 @@ body.template-about {
             }
 
             .outcome-wrapper { margin: 0 1em 1em 1em; }
-
-            .indicator-wrapper {
-                .rich-text {
-                    h4 { font-size: 3vw; }
-                }
-            }
-
-            .measure-wrapper {
-                .rich-text {
-                    h5 { font-size: 2.6vw; }
-                }
-            }
 
             .tax-title { 
                 font-size: 12px;
