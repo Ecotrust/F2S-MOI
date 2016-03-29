@@ -5,15 +5,21 @@
 <footer id="footer">
     <div class="container-fluid">
         <div class="row">
-            <div class="logos col-md-3">
-                <img class="img-responsive no-retina" src="/media/original_images/ecotrust_logo_color.png" data-no-retina />
-
+            <div class="logos col-md-3 col-sm-3">
+                <div class="text-center">
+                    <a href="http://www.ecotrust.org">
+                        <img class="img-responsive no-retina" src="/media/original_images/ecotrust_logo_color.png" data-no-retina />
+                    </a>
+                    <a href="http://www.farmtoschool.org/our-network/Oregon">
+                        <img class="img-responsive no-retina" src="/media/original_images/ofssgn_logo.png" data-no-retina />
+                    </a>
+                </div>
             </div>
-            <div class="info col-md-6">
+            <div class="info col-md-6 col-sm-6">
                 <div class="header-title">{{ text.header }}</div>
                 {{ text.content | richtext }}
             </div>
-            <div class="menus col-md-3">
+            <div class="menus col-md-3 col-sm-3">
                 <div class="header-title">THE DATA</div>
                 {% for menu in menus %}
                    <div class="menu"><a href="{{ menu.url.url }}"> {{ menu.title }}</a></div>

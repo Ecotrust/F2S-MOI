@@ -29,9 +29,12 @@ footer#footer {
             }
         }
 
-        .logos { 
-            max-width: 200px;
-            border-right: 1px solid $black; 
+        .logos {
+            border-right: 1px solid $black;
+
+            img { 
+                &:first-of-type { padding-bottom: 15px };
+            }
         }
 
         .menus {
@@ -51,5 +54,27 @@ footer#footer {
 
     @media all and (-webkit-min-device-pixel-ratio: 1.5) {
         background-image: url('grid_wht@2x.png');
+    }
+
+    @media screen and (max-width: 768px) {
+        .row {
+            .logos {
+                border: none;
+                padding-bottom: 10px;
+
+                img { 
+                    width: 200px;
+                    display: inline-block;
+                    margin-left: auto;
+                    margin-right: auto; 
+
+                    &:first-of-type { padding: 0; }
+                }
+            }
+
+            .info { padding-bottom: 20px; } 
+
+            .menus { text-align: center; }
+        }
     }
 }
