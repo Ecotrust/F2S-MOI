@@ -45,7 +45,10 @@ body.template-about {
                 }
             }
 
-            .richtext-image.img-responsive.center-block { width: 45%; } 
+            .richtext-image.img-responsive.center-block { 
+                width: 45%; 
+                min-width: 375px;
+            } 
         }
     }
     

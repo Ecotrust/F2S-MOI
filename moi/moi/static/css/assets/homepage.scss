@@ -18,7 +18,7 @@ body.template-homepage {
             /* extra right padding for nav dots */
             padding: 0 60px 0 35px;
 
-            h2 { font-family: $arbutus-slab; }
+            h2, h3, h4, h5 { font-family: $arbutus-slab; }
 
             h2 > b {
                 font-weight: 400;
@@ -27,7 +27,7 @@ body.template-homepage {
             .color-text { font-weight: 600; }
 
             &:not(:first-child) {
-                h2 {
+                h2, h3, h4, h5 {
                     font-size: pt-px(42);
                     line-height: line-spacing(42, 50);
                 }
@@ -196,7 +196,7 @@ body.template-homepage {
                 letter-spacing: letter-spacing(50);
             }
 
-            h2 {
+            h2, h3, h4, h5 {
                 font-size: pt-px(54);
                 line-height: line-spacing(54, 64);
             }
@@ -254,6 +254,7 @@ body.template-homepage {
         section.sec-6 {
             background-color: $tan;
             .color-text, { color: $dark-red; }
+            .sector-link a { color: $white; }
         }
         section.sec-7 {
             background-color: $turquoise;
@@ -261,7 +262,7 @@ body.template-homepage {
         }
     }
     
-    @media (max-width: 1235px) {
+    @media screen and (max-width: 1235px) {
         .body-content {
             .outer {
                 .sector-link {
@@ -280,7 +281,7 @@ body.template-homepage {
         }
     }
 
-    @media (min-width: 1300px) {
+    @media screen and (min-width: 1300px) {
         section {
             .economic-calculator {
                 table {
@@ -293,7 +294,7 @@ body.template-homepage {
         }
     }
 
-    @media (min-width: 1200px) and (max-width: 1299px) {
+    @media screen and (min-width: 1200px) and (max-width: 1299px) {
         section {
             .economic-calculator {
                 table {
@@ -305,7 +306,7 @@ body.template-homepage {
         }
     }
 
-    @media (max-width: 1075px) {
+    @media screen and (max-width: 1075px) {
         .body-content {
             .outer {
                 .ts-source-full {
@@ -351,7 +352,7 @@ body.template-homepage {
     }
 
 
-    @media (max-width: 875px) {
+    @media screen and (max-width: 875px) {
         .body-content {
             .outer { 
 
@@ -375,7 +376,7 @@ body.template-homepage {
         }
     }
 
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
         .body-content {
             .outer {
 
@@ -401,7 +402,7 @@ body.template-homepage {
         }
     }
 
-    @media (max-width: 600px) {
+    @media screen and (max-width: 600px) {
         .body-content {
             section.sec-1 {
                 .rich-text {
@@ -412,7 +413,7 @@ body.template-homepage {
             section {
                 &:not(:first-child) {
 
-                    h2 { font-size: 26px; }
+                    h2, h3, h4, h5 { font-size: 26px; }
 
                     .color-text { font-size: 27px; }
 
@@ -438,7 +439,7 @@ body.template-homepage {
         }
     }
 
-    @media (min-width: 400px) {
+    @media screen and (min-width: 400px) {
         #moveDown { font-size: 2em; }
     }
 

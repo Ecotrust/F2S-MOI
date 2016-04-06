@@ -41,12 +41,12 @@ function rotate() {
         if ($imgSrc === frameworkImg || $imgSrc === frameworkImgRet) {
             if ($(window).width() < 768) { 
                 var src = $(this).attr('src').replace($imgSrc, frameworkImgVert);
-                $(this).attr('src', src);
+                $(this).attr('src', src).css({ 'width': '30%', 'min-width': '155px'});
             } 
         } else if ($imgSrc === frameworkImgVert || $imgSrc === frameworkImgVertRet) {
             if ($(window).width() >= 768) {
                 var src = $(this).attr('src').replace($imgSrc, frameworkImg);
-                $(this).attr('src', src);
+                $(this).attr('src', src).css({'width': '45%', 'min-width': '375px'});
             }
         }
     })
