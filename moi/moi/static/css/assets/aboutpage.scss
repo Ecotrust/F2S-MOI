@@ -75,7 +75,10 @@ body.template-about {
             line-height: line-spacing(21, 25); 
             letter-spacing: letter-spacing(25);
 
-            .img-responsive { width: 40%; }
+            .img-responsive { 
+                width: 33%; 
+                min-width: 165px;
+            }
         }
 
         .rich-text {
