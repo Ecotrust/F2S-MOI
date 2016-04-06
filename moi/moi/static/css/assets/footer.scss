@@ -58,10 +58,18 @@ footer#footer {
 
     @media screen and (max-width: 768px) {
         .row {
+            display: table;
+            padding: 0 15px 0 15px;
+
             .logos {
-                border: none;
-                padding-bottom: 10px;
+                border-right: none;
+                padding-bottom: 30px;
                 max-width: none;
+
+                .text-center { 
+                    border-bottom: 1px solid $black;
+                    padding-bottom: 20px;
+                }
 
                 img { 
                     width: 200px;
@@ -73,7 +81,11 @@ footer#footer {
                 }
             }
 
-            .info { padding-bottom: 20px; } 
+            .info { 
+                /* becomes first div */
+                display: table-header-group;
+                padding-bottom: 30px; 
+            } 
 
             .menus { text-align: center; }
         }
