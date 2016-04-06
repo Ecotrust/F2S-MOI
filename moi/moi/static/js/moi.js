@@ -59,11 +59,11 @@ $(window).on('resize', rotate);
 $('img.img-responsive').each(function(index, elm) {
     var sourcePath = $(this).attr('src');
     if (!$(this).hasClass('no-retina')) {
-        if (sourcePath.includes('original.png')) {
+        if (sourcePath.indexOf('original.png') > -1) {
            var imgSlug = sourcePath.match('/images(.*).original')[1];
            var retinaPath = '/media/original_images' + imgSlug + '2x.png';
            $(this).attr('data-at2x', retinaPath);
-        } else if (sourcePath.includes('original_images')) {
+        } else if (sourcePath.indexOf('original_images') > -1) {
            var retinaPath = sourcePath.slice(0, -4) + '2x.png';
            $(this).attr('data-at2x', retinaPath);
         }
@@ -171,7 +171,7 @@ if ($countNum.length) {
     $countNum.each(function(index, element) {
         var start;
         var id = this.id;
-        var number = id.match(/\d+/)[0];
+        var number = parseInt(id.match(/\d+/)[0]);
 
         // starting from zero can set spans into a funk
         // this helps with easing the starting point - a bit
