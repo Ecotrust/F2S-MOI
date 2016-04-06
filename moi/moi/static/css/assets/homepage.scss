@@ -228,7 +228,7 @@ body.template-homepage {
             }
 
             .four-circle { 
-                padding-top: 50px;
+                padding: 50px 0 40px 0;
 
                 a {
                     &:hover, &:active { 
@@ -404,6 +404,15 @@ body.template-homepage {
 
                 .ts-source-full {
                     
+                }
+            }
+
+            section.sec-2 {
+                .four-circle {
+                    .img-responsive { 
+                        width: 40%;
+                        min-width: 215px;
+                    }
                 }
             }
         }
