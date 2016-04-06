@@ -9,32 +9,7 @@
 <div class="body-content {{ page.slug }}">
     {% include "includes/streamfield_blocks.html" with blocks=page.body_content section_title=page.display_title %}
 </div>
- <!--  <p>
-  {% for ancestor in self.get_ancestors %}
-    {% if not ancestor.title == 'Root' %}
-      <a href="{% for grandcestor in ancestor.get_ancestors %}{% if forloop.first %}/{% endif %}{% if not grandcestor.title == 'Root' %}{% if not grandcestor.content_type.name == 'home page' %}{{ grandcestor.slug }}/{% endif %}{% endif %}{% endfor %}{% if not ancestor.content_type.name == 'home page' %}{{ ancestor.slug }}{% endif %}">
-        {% if ancestor.content_type.name == 'home page'%}
-          Home
-        {% else %}
-          {{ ancestor.title }}
-        {% endif %}
-      </a>
-      {% if not forloop.last %}
-        >
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-  </p>
 
-  <h1>Sector: {{ page.title }}</h1>
-
-  {{ page.displayTitle|richtext }}
-
-  {{ page.sub_title|richtext }}
-
-  {{ page.main_content|richtext }}
-
-  {% image page.image min-100x100 %}
 
   <h2>Priority Outcomes</h2>
   <ul>
@@ -42,13 +17,13 @@
     <li><a href="{{ outcome.slug }}">{{ outcome.title }}</a></li>
     <ul>
     {% for indicator in outcome.get_children %}
-      <li><a href="{{ outcome.slug }}/{{ indicator.slug }}">{{ indicator.title }}</a></li>
+      <li>{{ indicator.title }}</li>
       <ul>
         <li>MEASURES:</li>
         <ul>
         {% for measure in indicator.get_children %}
           {% if measure.content_type.name == "Core Measure"  %}
-            <li><a href="{{ outcome.slug }}/{{ indicator.slug }}/{{ measure.slug }}">{{ measure.title }}</a></li>
+            <li><a name="{{ measure.slug }}">{{ measure.title }}</a></li>
           {% endif %}
         {% endfor %}
         </ul>
@@ -64,6 +39,6 @@
     {% endfor %}
     </ul>
   {% endfor %}
-  </ul> -->
+  </ul>
 
 {% endblock %}
