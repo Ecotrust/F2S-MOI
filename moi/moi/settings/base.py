@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'moi',
     'search',
     'data',
+    'data_gaps',
     'sectors',
     'carousel',
     'outcomes',
