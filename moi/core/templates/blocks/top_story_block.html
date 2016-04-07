@@ -2,9 +2,6 @@
 <div class="top-story {{  self.sector }}">
     <div class="main-content">{{ value.content }}</div>
     <div class="outer text-center">
-        {% if self.sector == 'economy' %}
-            {% include "includes/economic_calculator.html" %}
-        {% endif %}
         <div class="sector-link">
             <a href="/{{ self.sector }}">
                 <span class="link-text">{{ self.link_caption }} <i class="fa fa-one-quarter fa-arrow-circle-right"></i></span>

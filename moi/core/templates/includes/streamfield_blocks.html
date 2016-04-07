@@ -27,6 +27,9 @@
                 {% endwith %}
             </div>
         {% endif %}
+        {% if request.path == '/economy/' and forloop.counter == 1 %}
+            {% include "includes/economic_calculator.html" %}
+        {% endif %}
     </section>
     {% endfor %}
 {% endif %}

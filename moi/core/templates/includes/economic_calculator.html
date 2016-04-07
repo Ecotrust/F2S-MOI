@@ -1,15 +1,27 @@
 <div class="text-center economic-calculator">
   <div class="calc-title">Calculate the economic impact of your own local spending</div>
-  <table border="0">
-    <tr>
-      <td id="inputCol"><input id="inputCalc" type="number" /></td>
-      <td><div class="equal-sign"> = </div></td>
-      <td id="resultCol"><input id="result" readonly="readonly"/></td>
-    </tr>
-    <tr>
-      <td><div id="input-caption">Enter your spending on local food here</div></td>
-      <td><div class="equal-sign"> </div></td>
-      <td><div id="result-caption">Your contribution to the local Oregon economy</div></td>
-    </tr>
-  </table>
+  <div class="row row-eq-height">
+    <div class="calc col-md-6">
+      <div id="input-caption">Enter your spending on local food here</div>
+      <div id="calculator">
+        <div class="top">
+          <input type="number" id="inputCalc" />
+        </div>
+        
+        <div class="keys">
+          <div class="calculate-btn">CALCULATE</div>
+          <span>  </span>
+          <span>  </span>
+          <span>  </span>
+          <span>  </span>
+        </div>
+      </div>
+    </div>
+    <div class="calc col-md-6">
+      <div id="input-caption">Your contributions to the local economy</div>
+      <div class="result-container">
+        <div class="animated bounceInLeft" id="calcResult"></div>
+      </div>
+    </div>
+  </div>
 </div>

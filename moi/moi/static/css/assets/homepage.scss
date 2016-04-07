@@ -74,45 +74,6 @@ body.template-homepage {
                     }
                 }
             }
-
-            .economic-calculator {
-                margin-top: 30px;
-
-                .calc-title {
-                    font-family: $lato;
-                    font-size: pt-px(12);
-                    line-height: line-spacing(12, 18);
-                    font-weight: 600;
-                    margin-bottom: 15px;
-                }
-
-                table {
-                    width: 75%;
-                    margin-left: auto;
-                    margin-right: auto;
-
-                    td#inputCol, td#resultCol {
-                        width: 9em;
-                    }
-
-                    input, .equal-sign {
-                        font-size: pt-px(30);
-                        font-weight: 600;
-                    }
-
-                    input {
-                        height: 75px;
-                        width: 8em;
-                        padding-left: 10px;
-                    }
-
-                    #input-caption, #result-caption {
-                        padding-top: 10px;
-                        font-family: $arbutus-slab;
-                    }
-                }
-
-            }
         }
 
         .outer { 

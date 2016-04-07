@@ -89,9 +89,9 @@ if ($num !== undefined) {
         var inputField = $num.value;
         var resultField = inputField * 2;
         if (inputField === '') {
-          result.value = '';
+          calcResult.value = '';
         } else {
-          result.value = '$' + numberWithCommas(resultField);
+          calcResult.value = '$' + numberWithCommas(resultField);
         }
     }
 }
@@ -99,6 +99,10 @@ if ($num !== undefined) {
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+$('.calculate-btn').click(function() {
+    $('#calcResult').text(calcResult.value).show()
+})
 
 
 /** top story source toggle **/

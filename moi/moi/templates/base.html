@@ -15,6 +15,7 @@
         {% load staticfiles %}
             {# fontawesome was compiling improperly with sass #}
             <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}" />
+            <link rel="stylesheet" href="{%static "animate.css/animate.min.css" %}" />
 
         {% compress css %}
             {# Custom stylesheets #}
@@ -37,7 +38,7 @@
         <script src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
         <script src="{% static 'countUp.js/dist/countUp.min.js' %}"></script>
         <script src="{% static 'isInViewport/lib/isInViewport.min.js' %}"></script>
-        <script src="{% static 'fullpage.js/vendors/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
         <script src="{% static 'js/fullpage.js/jquery.fullPage.js' %}"></script>
         <script src="{% static 'retina.js/dist/retina.min.js' %}"></script>
         <script src="{% static 'js/moi.js' %}"></script>
