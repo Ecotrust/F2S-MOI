@@ -10,35 +10,15 @@
     {% include "includes/streamfield_blocks.html" with blocks=page.body_content section_title=page.display_title %}
 </div>
 
-
-  <h2>Priority Outcomes</h2>
-  <ul>
   {% for outcome in self.get_children %}
-    <li><a href="{{ outcome.slug }}">{{ outcome.title }}</a></li>
-    <ul>
     {% for indicator in outcome.get_children %}
-      <li>{{ indicator.title }}</li>
-      <ul>
-        <li>MEASURES:</li>
-        <ul>
+      <div>PO {{ outcome.title }}</div>
+      <div>Ind {{ indicator.title }}</div>
         {% for measure in indicator.get_children %}
           {% if measure.content_type.name == "Core Measure"  %}
-            <li><a name="{{ measure.slug }}">{{ measure.title }}</a></li>
+            <div id="{{ measure.slug }}">ME {{ measure.title }}</div>
           {% endif %}
         {% endfor %}
-        </ul>
-        <li>RECOMMENDATIONS:</li>
-        <ul>
-        {% for recommendation in indicator.get_children %}
-          {% if recommendation.content_type.name == "Recommendation" %}
-          <li><a href="{{ outcome.slug }}/{{ indicator.slug }}/{{ recommendation.slug }}">{{ recommendation.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-        </ul>
-      </ul>
     {% endfor %}
-    </ul>
   {% endfor %}
-  </ul>
-
 {% endblock %}
