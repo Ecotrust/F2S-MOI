@@ -93,6 +93,7 @@ if ($num !== undefined) {
         } else {
           calcResult.value = '$' + numberWithCommas(resultField);
         }
+        $('#calcResult').removeClass('animated bounceInLeft');
     }
 }
 
@@ -101,7 +102,9 @@ function numberWithCommas(x) {
 }
 
 $('.calculate-btn').click(function() {
-    $('#calcResult').text(calcResult.value).show()
+    $('#calcResult').text(calcResult.value)
+                    .show()
+                    .addClass('animated bounceInLeft');
 })
 
 
