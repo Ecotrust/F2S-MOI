@@ -6,25 +6,61 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailimages.models import Image
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
-class Data(Page):
-    displayTitle = RichTextField(blank=True)
-    sub_title = RichTextField(blank=True, null=True, default=None)
-    main_content = RichTextField(blank=True, null=True, default=None)
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        default=None,
-        on_delete=models.SET_NULL,
-        related_name='+'
+class Data(models.Model):
+    DATA_CHOICES = (
+        ('pie', 'Pie Chart'),
+        ('bar', 'Bar Chart'),
+        ('link', 'Link'),
+        ('list', 'List'),
+        ('map', 'Map'),
+        ('number', 'Big Number'),
     )
 
-    content_panels = Page.content_panels + [
-        FieldPanel('displayTitle', classname="full"),
-        FieldPanel('sub_title', classname="subtitle or blurb"),
-        FieldPanel('main_content', classname="content"),
-        ImageChooserPanel('image')
+    data_viz_type = models.CharField(choices=DATA_CHOICES,
+                                       max_length=1,
+                                       null=True,
+                                       default="",
+                                       help_text='Select the type of data vizulation for this Core Measure')
+    prime_label = models.CharField(blank=True, 
+                                   null=True,
+                                   default="", 
+                                   max_length=255, 
+                                   help_text='This will be primary label/text for the data vizulation')
+    year = models.CharField(blank=True,
+                            null=True,
+                            default="",
+                            max_length=255,
+                            help_text='Input the year/date range for the associated data vizulation')
+    data_values = models.CharField(blank=True, 
+                             null=True,
+                             default="", 
+                             max_length=255, 
+                             help_text='Enter your values here. If there is more than one value present, separate them by a semicolon')
+    data_labels = models.CharField(blank=True, 
+                             null=True,
+                             default="", 
+                             max_length=255, 
+                             help_text='Enter your labels here. If there is more than one label present, separate them by a semicolon')
+    x_axis_label = models.CharField(blank=True, 
+                             null=True,
+                             default="", 
+                             max_length=255, 
+                             help_text='Enter your x-axis label here')
+    y_axis_label = models.CharField(blank=True, 
+                             null=True,
+                             default="", 
+                             max_length=255, 
+                             help_text='Enter your y-axis label here')
+
+
+    content_panels = [
+        FieldPanel('data_viz_type'),
+        FieldPanel('prime_label'),
+        FieldPanel('year'),
+        FieldPanel('year'),
+        FieldPanel('data_values'),
+        FieldPanel('data_labels'),
+        FieldPanel('x_axis_label'),
+        FieldPanel('y_axis_label'),
     ]
 
-    parent_page_types = ['home.HomePage']
-    subpage_types = ['sectors.Sector']
