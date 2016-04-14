@@ -2,6 +2,7 @@
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+<head>{% include_chart_jscss %}</head>
 
 {% block body_class %}template-datapage{% endblock %}
 
@@ -10,13 +11,14 @@
     {% include "includes/streamfield_blocks.html" with blocks=page.body_content section_title=page.display_title %}
 </div>
 
-  {% for outcome in self.get_children %}
-    {% for indicator in outcome.get_children %}
-      <div>PO {{ outcome.title }}</div>
-      <div>Ind {{ indicator.title }}</div>
-        {% for measure in indicator.get_children %}
+  {% for child in self.get_children %}
+    {% for grandchild in child.get_children %}
+      <div>PO {{ child.priorityoutcome.display_title | richtext }}</div>
+      <div>Ind {{ grandchild.indicator.display_title | richtext  }}</div>
+        {% for measure in grandchild.get_children %}
           {% if measure.content_type.name == "Core Measure"  %}
-            <div id="{{ measure.slug }}">ME {{ measure.title }}</div>
+            <div id="{{ measure.slug }}">ME {{ measure.coremeasure.display_title | richtext }}</div>
+              !{{ measure.coremeasure.related_data.all }}
           {% endif %}
         {% endfor %}
     {% endfor %}

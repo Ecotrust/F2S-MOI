@@ -73,5 +73,11 @@ class Data(models.Model):
         FieldPanel('y_axis_label'),
     ]
 
+    @property
+    def data_object(self):
+        if self.data_viz_type == 'pie':
+            return render_piechart()
+
     class Meta:
         abstract = True
+

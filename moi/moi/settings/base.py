@@ -70,6 +70,8 @@ INSTALLED_APPS = [
 
     # installs bower components
     'djangobower',
+
+    'django_nvd3',
 ]
 
 MIDDLEWARE_CLASSES = (

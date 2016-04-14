@@ -27,7 +27,9 @@
                             {% if indicator.pk == measure.get_parent.pk %}
                             <div class="measure-wrapper">
                                 <span class="tax-title {{ sector.slug }}">MEASURE</span>
-                                <a href="{{ sector.url }}#{{ measure.slug }}">{{ measure.display_title | richtext }}</a>
+                                <a href="{{ sector.url }}#{{ measure.slug }}">
+                                    {{ measure.display_title | richtext }}
+                                </a>
                                 <hr class="vertical-line" width="2" size="550">
                             </div>
                             {% endif %}
