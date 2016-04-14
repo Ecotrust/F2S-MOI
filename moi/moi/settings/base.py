@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'measures',
     'recommendations',
     'about',
-    'dataviz',
     'menu',
 
     'wagtail.wagtailforms',
@@ -186,6 +185,11 @@ BOWER_INSTALLED_APPS = (
     'jquery-slimscroll',
     'retina.js',
     'animate.css',
+
+    # d3 and nvd3 need to explicitly set to the versions below
+    # for its django/python wrapper package to work
+    'd3#3.5.5',
+    'nvd3#1.7.1',
 )
 # Wagtail settings
 

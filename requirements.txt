@@ -7,5 +7,9 @@ django-filter
 
 libsass==0.10.1
 
+django_compressor
 django-libsass
 django-bower
+
+python-nvd3
+django-nvd3

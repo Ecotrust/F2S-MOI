@@ -13,9 +13,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {% load staticfiles %}
-            {# fontawesome was compiling improperly with sass #}
             <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}" />
             <link rel="stylesheet" href="{%static "animate.css/animate.min.css" %}" />
+            <link rel="stylesheet" href="{%static "nvd3/build/nv.d3.min.css" %}" />
 
         {% compress css %}
             {# Custom stylesheets #}
@@ -41,6 +41,8 @@
         <script src="{% static 'jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
         <script src="{% static 'js/fullpage.js/jquery.fullPage.js' %}"></script>
         <script src="{% static 'retina.js/dist/retina.min.js' %}"></script>
+        <script src="{% static 'd3/d3.min.js' %}"></script>
+        <script src="{% static 'nvd3/build/nv.d3.min.js' %}"></script>
         <script src="{% static 'js/moi.js' %}"></script>
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
