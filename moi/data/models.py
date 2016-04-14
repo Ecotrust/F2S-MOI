@@ -65,7 +65,7 @@ class Data(models.Model):
     content_panels = [
         FieldPanel('data_viz_type'),
         FieldPanel('prime_label'),
-        FieldPanel('year'),
+        FieldPanel('source'),
         FieldPanel('year'),
         FieldPanel('data_values'),
         FieldPanel('data_labels'),

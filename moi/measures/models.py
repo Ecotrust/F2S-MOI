@@ -9,7 +9,7 @@ from wagtail.wagtailsearch import index
 
 from data.models import Data as DV
 
-from core.models import CoreStreamBlock
+from core.models import BasicContentBlock
 
 class RelatedData(DV):
     content_panels = [ MultiFieldPanel(DV.content_panels, 'Data'), ]
@@ -20,7 +20,7 @@ class RelatedData(DV):
 
 class CoreMeasure(Page):
     display_title = RichTextField(blank=True)
-    body_content = StreamField(CoreStreamBlock(), blank=True, null=True, default=None)
+    body_content = RichTextField(blank=True, null=True, default=None, verbose_name="Extra Content")
 
     search_fields = Page.search_fields + (
             index.SearchField('display_title'),
@@ -29,8 +29,8 @@ class CoreMeasure(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('display_title'),
-        StreamFieldPanel('body_content'),
         InlinePanel('related_data', label='Data'),
+        FieldPanel('body_content'),
     ]
 
     parent_page_types = ['indicators.Indicator']
