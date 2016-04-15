@@ -77,19 +77,17 @@ class Data(models.Model):
     def chart(request):
         viz_obj = request
         chart = viz_obj.data_viz_type
-        xdata = viz_obj.data_values.split("; ")
-        ydata = viz_obj.data_labels.split("; ")
+        ydata = viz_obj.data_values.split("; ")
+        xdata = viz_obj.data_labels.split("; ")
+        y_values = [ int(y) for y in ydata ]
+        x_values = xdata
 
         if chart == 'pie':
             charttype = "pieChart"
             chartcontainer = "piechart_container"
-            x_values = [ int(x) for x in xdata ]
-            y_values = ydata
         else:
             charttype = "discreteBarChart"
             chartcontainer = "discretebarchart_container"
-            x_values = values
-            y_values = [ int(y) for y in ydata ]
 
         chartdata = {'x': x_values, 'y': y_values}
 

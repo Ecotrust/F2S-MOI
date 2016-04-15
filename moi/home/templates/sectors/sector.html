@@ -16,10 +16,12 @@
       <div>PO {{ child.priorityoutcome.display_title | richtext }}</div>
       <div>Ind {{ grandchild.indicator.display_title | richtext  }}</div>
         {% for measure in grandchild.get_children %}
-          {% if measure.content_type.name == "Core Measure"  %}
+          {% if measure.coremeasure  %}
             <div id="{{ measure.slug }}">ME {{ measure.coremeasure.display_title | richtext }}</div>
-              {% for data in measure.coremeasure.related_data.all %}
-                {{data.data_object}}
+              {% for viz in measure.coremeasure.related_data.all %}
+                {% if viz.data_viz_type == 'pie' %}
+                  {% include 'data/piechart.html' with data=viz.data_object %}
+                {% endif %}
               {% endfor %}
           {% endif %}
         {% endfor %}
