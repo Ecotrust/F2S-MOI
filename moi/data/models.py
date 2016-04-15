@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import render
 
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
@@ -17,9 +18,9 @@ class Data(models.Model):
     )
 
     data_viz_type = models.CharField(choices=DATA_CHOICES,
-                                       max_length=1,
+                                       max_length=10,
                                        null=True,
-                                       default="",
+                                       default=None,
                                        verbose_name='Data Viz Type',
                                        help_text='Select the type of data vizulation for this Core Measure')
     prime_label = models.TextField(blank=True, 
@@ -73,10 +74,43 @@ class Data(models.Model):
         FieldPanel('y_axis_label'),
     ]
 
+    def chart(request):
+        viz_obj = request
+        chart = viz_obj.data_viz_type
+        xdata = viz_obj.data_values.split("; ")
+        ydata = viz_obj.data_labels.split("; ")
+
+        if chart == 'pie':
+            charttype = "pieChart"
+            chartcontainer = "piechart_container"
+            x_values = [ int(x) for x in xdata ]
+            y_values = ydata
+        else:
+            charttype = "discreteBarChart"
+            chartcontainer = "discretebarchart_container"
+            x_values = values
+            y_values = [ int(y) for y in ydata ]
+
+        chartdata = {'x': x_values, 'y': y_values}
+
+        data = {
+            'charttype': charttype,
+            'chartdata': chartdata,
+            'chartcontainer': chartcontainer,
+            'extra': {
+                'x_is_date': False,
+                'x_axis_format': '',
+                'tag_script_js': True,
+                'jquery_on_ready': False,
+            }
+        }
+
+        return data
+
     @property
     def data_object(self):
-        if self.data_viz_type == 'pie':
-            return render_piechart()
+        if self.data_viz_type == 'pie' or self.data_viz_type == 'bar':
+            return self.chart()
 
     class Meta:
         abstract = True

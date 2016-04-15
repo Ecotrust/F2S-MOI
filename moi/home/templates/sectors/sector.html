@@ -18,7 +18,9 @@
         {% for measure in grandchild.get_children %}
           {% if measure.content_type.name == "Core Measure"  %}
             <div id="{{ measure.slug }}">ME {{ measure.coremeasure.display_title | richtext }}</div>
-              !{{ measure.coremeasure.related_data.all }}
+              {% for data in measure.coremeasure.related_data.all %}
+                {{data.data_object}}
+              {% endfor %}
           {% endif %}
         {% endfor %}
     {% endfor %}
