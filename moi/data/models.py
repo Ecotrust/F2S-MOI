@@ -74,7 +74,7 @@ class Data(models.Model):
         FieldPanel('y_axis_label'),
     ]
 
-    def chart(request):
+    def chart_data(request):
         viz_obj = request
         chart = viz_obj.data_viz_type
         ydata = viz_obj.data_values.split("; ")
@@ -83,7 +83,6 @@ class Data(models.Model):
         x_values = xdata
 
         if chart == 'pie':
-            extra = {}
             charttype = "pieChart"
             chartcontainer = "piechart_container"
 
@@ -108,10 +107,21 @@ class Data(models.Model):
 
         return data
 
+    def district_map_data(request):
+        map_params = request
+        data_values = map_params.data_values("; ")
+        district_ids = [ int(val) for val in data_values ]
+
+        return district_ids
+
+
+
     @property
     def data_object(self):
         if self.data_viz_type == 'pie' or self.data_viz_type == 'bar':
-            return self.chart()
+            return self.chart_data()
+        elif self.data_viz_type == 'map':
+            return self.district_map_data()
 
     class Meta:
         abstract = True

@@ -21,6 +21,8 @@
               {% for viz in measure.coremeasure.related_data.all %}
                 {% if viz.data_viz_type == 'pie' or viz.data_viz_type == 'bar' %}
                   {% include 'data/chart.html' with data=viz.data_object %}
+                {% elif viz.data_viz_type == 'map' %}
+                  {% include 'data/map.html' with data=viz.data_object %} 
                 {% endif %}
               {% endfor %}
           {% endif %}

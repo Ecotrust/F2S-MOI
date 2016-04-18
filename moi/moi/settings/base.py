@@ -189,9 +189,11 @@ BOWER_INSTALLED_APPS = (
     'animate.css',
 
     # d3 and nvd3 need to explicitly set to the versions below
-    # for its django/python wrapper package to work
+    # for the related django/python wrapper package to work
     'd3#3.5.5',
     'nvd3#1.7.1',
+
+    'datamaps',
 )
 # Wagtail settings
 

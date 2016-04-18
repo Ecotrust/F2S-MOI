@@ -1,0 +1,42 @@
+<style>
+path {
+  fill: none;
+  stroke: #000;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+</style>
+
+<body>
+
+<script src="/static/d3/d3.min.js"></script>
+<script src="/static/topojson/topojson.js"></script>
+
+<script>
+var width = 800,
+    height = 700;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("/static/js/school_district_topo.json", function(error, or) {
+    var districts = topojson.feature(or, or.objects.school_district_geo)
+
+    var projection = d3.geo.mercator()
+        .center([-120.5, 43.8])
+        .scale(5000)
+        .translate([width / 2, height / 2]); 
+
+    var path = d3.geo.path()
+        .projection(projection)
+
+    svg.append("path")
+        .datum(districts)
+        .attr("d", path);
+});
+
+
+
+</script>
+</body>
