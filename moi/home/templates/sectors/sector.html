@@ -19,8 +19,8 @@
           {% if measure.coremeasure  %}
             <div id="{{ measure.slug }}">ME {{ measure.coremeasure.display_title | richtext }}</div>
               {% for viz in measure.coremeasure.related_data.all %}
-                {% if viz.data_viz_type == 'pie' %}
-                  {% include 'data/piechart.html' with data=viz.data_object %}
+                {% if viz.data_viz_type == 'pie' or viz.data_viz_type == 'bar' %}
+                  {% include 'data/chart.html' with data=viz.data_object %}
                 {% endif %}
               {% endfor %}
           {% endif %}

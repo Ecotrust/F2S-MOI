@@ -1,7 +1,7 @@
 {% load nvd3_tags %}
 <head>
     {% include_chart_jscss %}
-    {% load_chart data.charttype data.chartdata "piechart_container" data.extra %}
+    {% load_chart data.charttype data.chartdata data.chartcontainer data.extra %}
 </head>
 <body>
     {% include_container data.chartcontainer 400 600 %}

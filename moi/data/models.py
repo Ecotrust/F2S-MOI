@@ -83,8 +83,10 @@ class Data(models.Model):
         x_values = xdata
 
         if chart == 'pie':
+            extra = {}
             charttype = "pieChart"
             chartcontainer = "piechart_container"
+
         else:
             charttype = "discreteBarChart"
             chartcontainer = "discretebarchart_container"
@@ -100,6 +102,7 @@ class Data(models.Model):
                 'x_axis_format': '',
                 'tag_script_js': True,
                 'jquery_on_ready': False,
+                'donut': True,
             }
         }
 
