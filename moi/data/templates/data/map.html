@@ -1,11 +1,23 @@
+{% load wagtailcore_tags %}
 <style>
 path {
-  fill: none;
-  stroke: #000;
+  fill: #E0E0DF;
+  stroke: #FFF;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
-
+.hidden {
+    display: none;
+}
+div.tooltip {
+    color: #222;
+    background-color: #fff;
+    padding: .5em;
+    text-shadow: #f5f5f5 0 1px 0;
+    border-radius: 2px;
+    opacity: 0.9;
+    position: absolute;
+}
 </style>
 
 <body>
@@ -21,10 +33,12 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
+var tooltip = d3.select("body").append("div")
+    .attr("class", "hidden tooltip");
 
 d3.json("/static/js/school_district_topo.json", function(error, or) {
     var districts = topojson.feature(or, or.objects.school_district_geo).features,
-        ids = [35, 100, 23, 3, 6, 55, 23, 51, 47, 36, 99, 102, 84]
+        ids = {{ data }}
 
     var projection = d3.geo.mercator()
         .center([-120.5, 43.8])
@@ -35,18 +49,31 @@ d3.json("/static/js/school_district_topo.json", function(error, or) {
         .projection(projection)
 
 
+
     svg.append("g")
-            .attr("class", "school_district_geo")
+        .attr("class", "school_district_geo")
         .selectAll("path")
             .data(districts)  
-        .enter().append("path")
+            .enter()
+            .append("path")
             .attr("d", path)
-            .attr("class", function(d) { return d.properties.SCHOOL_DIS })
+
             .style("fill", function(d) { 
                 if (ids.indexOf(d.properties.ET_UID) > -1) { return "red" }
             })
 
-
+            .on('mouseover', function(d) {
+                var mouse = d3.mouse(svg.node()).map(function(d) {
+                    return parseInt(d);
+                });
+                tooltip.classed('hidden', false)
+                    .style('left',(d3.event.pageX - 35) + 'px')
+                    .style('top', (d3.event.pageY - 30) + 'px')
+                    .html(d.properties.SCHOOL_DIS);
+            })
+            .on('mouseout', function() {
+                tooltip.classed('hidden', true);
+            });
 });
 
 

@@ -109,15 +109,15 @@ class Data(models.Model):
 
     def district_map_data(request):
         map_params = request
-        data_values = map_params.data_values("; ")
+        data_values = map_params.data_values.split("; ")
         district_ids = [ int(val) for val in data_values ]
-
+        
         return district_ids
 
 
 
     @property
-    def data_object(self):
+    def data_object(self):           
         if self.data_viz_type == 'pie' or self.data_viz_type == 'bar':
             return self.chart_data()
         elif self.data_viz_type == 'map':
