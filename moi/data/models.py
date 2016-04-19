@@ -114,6 +114,15 @@ class Data(models.Model):
         
         return district_ids
 
+    def big_number_data(request):
+        number_params = request
+        big_num = int(number_params.data_values)
+        count_up = "<span id='count-%s' class='count-up'></span>" % (big_num)
+
+        return count_up
+
+    def link_data(request):
+        return request
 
 
     @property
@@ -122,6 +131,10 @@ class Data(models.Model):
             return self.chart_data()
         elif self.data_viz_type == 'map':
             return self.district_map_data()
+        elif self.data_viz_type == 'number':
+            return self.big_number_data()
+        elif self.data_viz_type == 'link':
+            return self.link_data()
 
     class Meta:
         abstract = True
