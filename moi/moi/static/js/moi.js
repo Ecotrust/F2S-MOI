@@ -108,10 +108,13 @@ $('.calculate-btn').click(function() {
 })
 
 
-/** top story source toggle **/
+/** source toggle **/
 $('.ts-source').click(function() {
     $(this).children().first().toggleClass('table');
 });
+$('.data-attr > .source').click(function() {
+    $(this).parent().prev().toggleClass('inline-block')
+})
 
 /** search toggle **/
 var $searchIcon = $('.fa-search');

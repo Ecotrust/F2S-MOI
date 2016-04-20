@@ -37,6 +37,13 @@
                   {% elif viz.data_viz_type == 'link' %}
                     {% include 'data/link.html' %}  
                   {% endif %}
+                  <div class="meta-wrapper">
+                    <div class="source-full">{{ data.source }}</div>
+                    <div class="data-attr row">
+                      <div class="source">SOURCE</div>
+                      <div class="year" style="background-color: {{ data.color }}">{{ data.year }}</div>
+                    </div>
+                  </div>
                 </div>
                 {% endwith %}
               {% endfor %}

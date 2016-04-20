@@ -3,7 +3,7 @@
 
 <script src="{% static 'd3/d3.min.js' %}"></script>
 <script src="{% static 'topojson/topojson.js' %}"></script>
-
+<div class="map-tooltip"></div>
 <script>
 d3.select(window)
     .on("resize", sizeChange);
@@ -12,9 +12,7 @@ var svg = d3.select(".map-viz")
     .append("svg")
     .attr("width", "100%")
 
-var tooltip = d3.select(".map-viz")
-    .append("div")
-    .attr("class", "hidden tooltip");
+var tooltip = d3.select("div.map-tooltip");
 
 d3.json("{% static 'js/school_district_topo.json' %}", function(error, or) {
     var districts = topojson.feature(or, or.objects.school_district_geo).features,
@@ -40,16 +38,22 @@ d3.json("{% static 'js/school_district_topo.json' %}", function(error, or) {
             })
 
             .on('mouseover', function(d) {
-                var mouse = d3.mouse(svg.node()).map(function(d) {
-                    return parseInt(d);
-                });
-                tooltip.classed('hidden', false)
-                    .style('left',(d3.event.pageX - 35) + 'px')
-                    .style('top', (d3.event.pageY - 30) + 'px')
+                d3.select(this).classed('hover', true)
+
+                tooltip
+                    .style('visibility', 'visible')
                     .html(d.properties.SCHOOL_DIS);
             })
+
+            .on('mousemove', function() {
+                tooltip
+                    .style('left',(d3.event.pageX - 45) + 'px')
+                    .style('top', (d3.event.pageY - 40) + 'px')
+            })
+
             .on('mouseout', function() {
-                tooltip.classed('hidden', true);
+                tooltip.style('visibility', 'hidden');
+                d3.select(this).classed('hover', false)
             });
 });
 

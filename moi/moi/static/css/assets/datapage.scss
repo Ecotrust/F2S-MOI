@@ -112,7 +112,7 @@ body.template-datapage {
             h3 {
                 text-transform: uppercase;
                 font-size: pt-px(12);
-                line-height: line-spacing(14, 18);
+                line-height: line-spacing(12, 18);
                 letter-spacing: letter-spacing(100);
                 font-weight: 600;
             }
@@ -130,7 +130,7 @@ body.template-datapage {
 
         .viz { 
             padding-top: 40px;
-            margin: 2em;
+            margin: 2.5em;
             background-color: $white;
 
             .measure-text {
@@ -141,10 +141,70 @@ body.template-datapage {
                   line-height: line-spacing(20, 30);
                   letter-spacing: letter-spacing(30);  
                 }
-            } 
+            }
+
+            .source-full { 
+                padding: 12px;
+                border: 1px solid $light-grey;
+                background-color: $light-grey;
+                display: none;
+                font-size: pt-px(10);
+                font-weight: 600;
+                line-height: line-spacing(10, 16);
+                letter-spacing: letter-spacing(100);
+                max-width: 325px;
+                width: auto;
+                overflow: hidden;
+                margin: 0 0 5px 12px;
+
+                &.inline-block { display: inline-block; }
+            }
+
+            
+            .data-attr {
+                background-color: $white;
+                margin: 0;
+                padding: 0 10px 10px 10px;
+
+                .year { 
+                    float: right;
+                    padding: 12px;
+                    border: 1px solid $light-grey;
+                    background-color: $light-grey;
+
+                }
+
+                .source {
+                    float: left;
+                    cursor: pointer;
+                    padding: 12px;
+                    border: 1px solid $light-grey;
+                    background-color: $light-grey;
+                }
+
+                .year, .source {                     
+                    font-size: pt-px(10);
+                    font-weight: 600;
+                    line-height: line-spacing(10, 16);
+                    letter-spacing: letter-spacing(100);
+                }
+
+            }
+
         }
-        
+
         .map-viz {
+            
+            .map-tooltip {
+                visibility: hidden;
+                color: #222;
+                background-color: $white;
+                padding: .5em;
+                text-shadow: $light-grey 0 1px 0;
+                border-radius: 2px;
+                opacity: 0.9;
+                position: absolute;
+            }
 
             svg {
                 path {
@@ -154,16 +214,7 @@ body.template-datapage {
                   stroke-linecap: round;
                 }
 
-                .hidden { display: none; }
-                div.tooltip {
-                    color: #222;
-                    background-color: $white;
-                    padding: .5em;
-                    text-shadow: $light-grey 0 1px 0;
-                    border-radius: 2px;
-                    opacity: 0.9;
-                    position: absolute;
-                }
+                path.hover { fill: $grey; }
             }     
         }
     }
