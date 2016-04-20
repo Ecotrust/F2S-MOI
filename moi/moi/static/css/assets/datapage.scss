@@ -96,4 +96,75 @@ body.template-datapage {
 
         }
     }
+
+    .data-viz-container {
+        background-image: url("grid_wht.png");
+        color: $black;
+        font-family: $lato;
+
+        &.environment { 
+            .outcome-text { color: $green; }
+        }
+
+        .outcome-text, .indicator-text, .measure-text { margin-left: 3em; }
+
+        .outcome-text {
+            h3 {
+                text-transform: uppercase;
+                font-size: pt-px(12);
+                line-height: line-spacing(14, 18);
+                letter-spacing: letter-spacing(100);
+                font-weight: 600;
+            }
+        }
+
+        .indicator-text {
+            width: 85%;
+            h4 {
+                font-size: pt-px(42);
+                font-family: $arbutus-slab;
+                line-height: line-spacing(42, 50);
+                letter-spacing: letter-spacing(50);
+            }
+        }
+
+        .viz { 
+            padding-top: 40px;
+            margin: 2em;
+            background-color: $white;
+
+            .measure-text {
+                padding-bottom: 20px; 
+                h5 {
+                  font-size: pt-px(20);
+                  font-weight: 600;
+                  line-height: line-spacing(20, 30);
+                  letter-spacing: letter-spacing(30);  
+                }
+            } 
+        }
+        
+        .map-viz {
+
+            svg {
+                path {
+                  fill: $dark-grey;
+                  stroke: $white;
+                  stroke-linejoin: round;
+                  stroke-linecap: round;
+                }
+
+                .hidden { display: none; }
+                div.tooltip {
+                    color: #222;
+                    background-color: $white;
+                    padding: .5em;
+                    text-shadow: $light-grey 0 1px 0;
+                    border-radius: 2px;
+                    opacity: 0.9;
+                    position: absolute;
+                }
+            }     
+        }
+    }
 }

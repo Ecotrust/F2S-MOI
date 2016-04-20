@@ -2,7 +2,7 @@
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-<head>{% include_chart_jscss %}</head>
+
 
 {% block body_class %}template-datapage{% endblock %}
 
@@ -11,15 +11,23 @@
     {% include "includes/streamfield_blocks.html" with blocks=page.body_content section_title=page.display_title %}
 </div>
 
+<div class="data-viz-container {{ page.slug }} container-fluid">
   {% for child in self.get_children %}
     {% for grandchild in child.get_children %}
-      <div>PO {{ child.priorityoutcome.display_title | richtext }}</div>
-      <div>Ind {{ grandchild.indicator.display_title | richtext  }}</div>
+      <div class="outcome-text">
+        {{ child.priorityoutcome.display_title | richtext }}
+      </div>
+      <div class="indicator-text">
+        {{ grandchild.indicator.display_title | richtext  }}
+      </div>
         {% for measure in grandchild.get_children %}
           {% if measure.coremeasure  %}
-            <div id="{{ measure.slug }}">ME {{ measure.coremeasure.display_title | richtext }}</div>
               {% for viz in measure.coremeasure.related_data.all %}
                 {% with data=viz.data_object %}
+                <div class="{{viz.data_viz_type}}-viz viz">
+                  <div id="{{ measure.slug }}" class="measure-text">
+                    {{ measure.coremeasure.display_title | richtext }}
+                  </div>
                   {% if viz.data_viz_type == 'pie' or viz.data_viz_type == 'bar' %}
                     {% include 'data/chart.html' %}
                   {% elif viz.data_viz_type == 'map' %}
@@ -29,10 +37,12 @@
                   {% elif viz.data_viz_type == 'link' %}
                     {% include 'data/link.html' %}  
                   {% endif %}
+                </div>
                 {% endwith %}
               {% endfor %}
           {% endif %}
         {% endfor %}
     {% endfor %}
   {% endfor %}
+</div>
 {% endblock %}

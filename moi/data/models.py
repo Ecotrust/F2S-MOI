@@ -111,8 +111,9 @@ class Data(models.Model):
         map_params = request
         data_values = map_params.data_values.split("; ")
         district_ids = [ int(val) for val in data_values ]
-        
-        return district_ids
+        map_params.data_values = district_ids
+           
+        return map_params
 
     def big_number_data(request):
         number_params = request

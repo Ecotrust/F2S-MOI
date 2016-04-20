@@ -1,54 +1,31 @@
-{% load wagtailcore_tags %}
-<style>
-path {
-  fill: #E0E0DF;
-  stroke: #FFF;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-.hidden {
-    display: none;
-}
-div.tooltip {
-    color: #222;
-    background-color: #fff;
-    padding: .5em;
-    text-shadow: #f5f5f5 0 1px 0;
-    border-radius: 2px;
-    opacity: 0.9;
-    position: absolute;
-}
-</style>
+{% load static compress wagtailcore_tags %}
+<body onload="sizeChange()">
 
-<body>
-
-<script src="/static/d3/d3.min.js"></script>
-<script src="/static/topojson/topojson.js"></script>
+<script src="{% static 'd3/d3.min.js' %}"></script>
+<script src="{% static 'topojson/topojson.js' %}"></script>
 
 <script>
-var width = 800,
-    height = 700;
+d3.select(window)
+    .on("resize", sizeChange);
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+var svg = d3.select(".map-viz")
+    .append("svg")
+    .attr("width", "100%")
 
-var tooltip = d3.select("body").append("div")
+var tooltip = d3.select(".map-viz")
+    .append("div")
     .attr("class", "hidden tooltip");
 
-d3.json("/static/js/school_district_topo.json", function(error, or) {
+d3.json("{% static 'js/school_district_topo.json' %}", function(error, or) {
     var districts = topojson.feature(or, or.objects.school_district_geo).features,
-        ids = {{ data }}
+        ids = {{ data.data_values }}
 
     var projection = d3.geo.mercator()
         .center([-120.5, 43.8])
         .scale(5000)
-        .translate([width / 2, height / 2]); 
 
     var path = d3.geo.path()
         .projection(projection)
-
-
 
     svg.append("g")
         .attr("class", "school_district_geo")
@@ -76,7 +53,10 @@ d3.json("/static/js/school_district_topo.json", function(error, or) {
             });
 });
 
-
+function sizeChange() {
+    d3.select("g").attr("transform", "scale(" + $(".map-viz").width()/900 + ")");
+    $("svg").height($(".map-viz").width()*0.618);
+}
 
 </script>
 </body>
