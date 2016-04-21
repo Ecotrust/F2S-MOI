@@ -1,16 +1,18 @@
 {% load static compress wagtailcore_tags %}
-<body onload="sizeChange()">
+<body>
 
 <script src="{% static 'd3/d3.min.js' %}"></script>
 <script src="{% static 'topojson/topojson.js' %}"></script>
 <div class="map-tooltip"></div>
 <script>
-d3.select(window)
-    .on("resize", sizeChange);
 
 var svg = d3.select(".map-viz")
+    .append("div")
+    .classed("svg-container", true)
     .append("svg")
-    .attr("width", "100%")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 700 600")
+    .classed("svg-content-responsive", true);
 
 var tooltip = d3.select("div.map-tooltip");
 
@@ -19,8 +21,8 @@ d3.json("{% static 'js/school_district_topo.json' %}", function(error, or) {
         ids = {{ data.data_values }}
 
     var projection = d3.geo.mercator()
-        .center([-120.5, 43.8])
-        .scale(5000)
+        .center([-118.6, 44.3])
+        .scale(4000)
 
     var path = d3.geo.path()
         .projection(projection)
@@ -56,11 +58,5 @@ d3.json("{% static 'js/school_district_topo.json' %}", function(error, or) {
                 d3.select(this).classed('hover', false)
             });
 });
-
-function sizeChange() {
-    d3.select("g").attr("transform", "scale(" + $(".map-viz").width()/900 + ")");
-    $("svg").height($(".map-viz").width()*0.618);
-}
-
 </script>
 </body>

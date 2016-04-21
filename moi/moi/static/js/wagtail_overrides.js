@@ -6,23 +6,29 @@ $(function() {
         $yLabel = $('#id_related_data-0-y_axis_label'),
         $dataLabels = $('#id_related_data-0-data_labels');
 
-    function findGrandParent(elm){
+    function findAncestors(elm){
         return elm.parent().parent().parent()
     }
 
-    $dropdown.change(function() {
-        var $val = $('option:selected').val()
+    function toggleFields(){
+        var $val = $dropdown.find(":selected").val();
         if ($val !== 'bar') {
-            findGrandParent($xLabel).hide();
-            findGrandParent($yLabel).hide();
+            findAncestors($xLabel).hide();
+            findAncestors($yLabel).hide();
             if ($val !== 'pie') {
-                findGrandParent($dataLabels).hide();
+                findAncestors($dataLabels).hide();
             } else {
-                findGrandParent($dataLabels).show();
+                findAncestors($dataLabels).show();
             }
         } else {
-            findGrandParent($xLabel).show();
-            findGrandParent($yLabel).show();
+            findAncestors($xLabel).show();
+            findAncestors($yLabel).show();
         }
+    }
+
+    $dropdown.change(function() {
+        toggleFields();
     })
+
+    toggleFields();
 });

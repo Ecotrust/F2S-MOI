@@ -130,17 +130,32 @@ body.template-datapage {
 
         .viz { 
             padding-top: 40px;
-            margin: 2.5em;
+            margin: 3em;
             background-color: $white;
 
             .measure-text {
-                padding-bottom: 20px; 
+                margin-right: 1em;
                 h5 {
                   font-size: pt-px(20);
                   font-weight: 600;
                   line-height: line-spacing(20, 30);
                   letter-spacing: letter-spacing(30);  
                 }
+            }
+
+            .svg-container {
+                display: inline-block;
+                position: relative;
+                width: 100%;
+                vertical-align: top;
+                overflow: hidden;
+            }
+
+            .svg-content-responsive {
+                display: inline-block;
+                position: absolute;
+                top: 10px;
+                left: 0;
             }
 
             .source-full { 
@@ -194,7 +209,7 @@ body.template-datapage {
         }
 
         .map-viz {
-            
+
             .map-tooltip {
                 visibility: hidden;
                 color: #222;
@@ -204,7 +219,9 @@ body.template-datapage {
                 border-radius: 2px;
                 opacity: 0.9;
                 position: absolute;
+                z-index: 1000;
             }
+            .svg-container { padding-bottom: 80%; }
 
             svg {
                 path {
