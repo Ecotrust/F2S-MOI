@@ -91,7 +91,8 @@ class Data(models.Model):
                 remaining_val = (100 - sum(y_values))
                 y_values.append(remaining_val)
         else:
-            chartcontainer = "discretebarchart_container"
+            chart = 'multiBarHorizontal'
+            chartcontainer = "barchart_container"
 
         #there must be a label for every value
         if x_values:
@@ -109,7 +110,7 @@ class Data(models.Model):
             for indx, label in enumerate(x_values):
                 if index == indx:
                     val.update(label)
-
+            
         #return data object
         data = {
             'charttype': chart,

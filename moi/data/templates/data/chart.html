@@ -4,16 +4,24 @@
 </head>
 <body>
     <div class="{{ data.chartcontainer }}"><svg></svg></div>
-    <script>
-    var data = [{"values":  {{ data.chartdata | safe }} }];
+<script>
+var data = [{"values":  {{ data.chartdata | safe }} }]
 
-    nv.addGraph(function() {
-        var chart = nv.models.pieChart();
-        var datum = data[0].values;
+if ('{{ data.charttype }}' === 'pie') {
+    var datum = data[0].values;
+} else {
+    var datum = data;
+}
 
-        var width = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().width
-        var height = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().height
+nv.addGraph(function() {
+    var chart = nv.models.{{ data.charttype}}Chart()
+        .x(function(d) { return d.label })
+        .y(function(d) { return d.value })
 
+    var width = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().width
+    var height = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().height
+
+    if ('{{ data.charttype }}' === 'pie') {
         chart.tooltipContent(function(key, y, e, graph) {
             var x = String(key);
             var y =  String(y.slice(0,2));
@@ -21,24 +29,29 @@
             return tooltip_str;
         });
 
-        chart.showLegend(true)
+        chart.showLegend(false)
             .showLabels(false)
             .donut(true)
             .donutRatio(0.35)
-            .x(function(d) { return d.label })
-            .y(function(d) { return d.value })
+    } else {
+        chart.showValues(true)
+            .showControls(false)
+            .stacked(true)
+    }
 
-        d3.select('.{{ data.chartcontainer }} svg')
-            .attr("width", '100%')
-            .attr("height", '100%')
-            .attr('viewBox','0 0 '+width+' '+height)
-            .attr('preserveAspectRatio','xMinYMin')
-            .attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")")
-            .datum(datum)
-            .transition().duration(500)
-            .call(chart);
 
-        return chart;
-    });
-    </script>
+
+    d3.select('.{{ data.chartcontainer }} svg')
+        .attr("width", '100%')
+        .attr("height", '100%')
+        .attr('viewBox','0 0 '+width+' '+height)
+        .attr('preserveAspectRatio','xMinYMin')
+        .attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")")
+        .datum(datum)
+        .transition().duration(500)
+        .call(chart);
+
+    return chart;
+});
+</script>
 </body>
