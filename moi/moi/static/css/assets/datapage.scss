@@ -106,7 +106,7 @@ body.template-datapage {
             .outcome-text { color: $green; }
         }
 
-        .outcome-text, .indicator-text, .measure-text { margin-left: 3em; }
+        .outcome-text, .indicator-text, .measure-text { margin-left: 4.5em; }
 
         .outcome-text {
             h3 {
@@ -130,7 +130,7 @@ body.template-datapage {
 
         .viz { 
             padding-top: 40px;
-            margin: 3em;
+            margin: 3em 4.5em 3em 4.5em;
             background-color: $white;
 
             .measure-text {
@@ -233,6 +233,10 @@ body.template-datapage {
 
                 path.hover { fill: $grey; }
             }     
+        }
+
+        .pie-viz {
+
         }
     }
 }

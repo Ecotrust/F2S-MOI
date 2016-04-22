@@ -1,8 +1,35 @@
-{% load nvd3_tags %}
+{% load nvd3_tags static compress wagtailcore_tags %}
 <head>
     {% include_chart_jscss %}
-    {% load_chart data.charttype data.chartdata data.chartcontainer data.extra %}
 </head>
 <body>
-    {% include_container data.chartcontainer 400 600 %}
+<div id="{{ data.chartcontainer }}">
+    <svg style="width:450px;height:450px;"></svg>
+</div>
+
+<script>
+var data = {{ data.chartdata }};
+
+nv.addGraph(function() {
+    var chart = nv.models.pieChart();
+    chart.margin({top: 30, right: 60, bottom: 20, left: 60});
+    var datum = data[0].values;
+
+    chart.color(d3.scale.category20().range());
+    chart.showLabels(false);
+    chart.donut(true);
+    chart.donutRatio(0.35);
+
+    chart.showLegend(false);
+
+    chart.height(450);
+
+    d3.select('#{{ data.chartcontainer }} svg')
+       .datum(datum)
+       .transition().duration(500)
+       .attr('height', 450)
+       .call(chart);
+
+});
+</script> 
 </body>

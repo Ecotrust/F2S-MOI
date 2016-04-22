@@ -75,7 +75,7 @@ class Data(models.Model):
     ]
 
     def chart_data(request):
-        viz_obj = request
+        viz_obj = request           
         chart = viz_obj.data_viz_type
         ydata = viz_obj.data_values.split("; ")
         xdata = viz_obj.data_labels.split("; ")
@@ -86,9 +86,17 @@ class Data(models.Model):
             charttype = "pieChart"
             chartcontainer = "piechart_container"
 
+            if y_values and sum(y_values) < 100:
+                remaining_val = (100 - sum(y_values))
+                y_values.append(remaining_val)
         else:
             charttype = "discreteBarChart"
             chartcontainer = "discretebarchart_container"
+
+        if x_values:
+            while len(x_values) != len(y_values):
+                x_values.append('')
+
 
         chartdata = {'x': x_values, 'y': y_values}
 
@@ -102,7 +110,9 @@ class Data(models.Model):
                 'tag_script_js': True,
                 'jquery_on_ready': False,
                 'donut': True,
-            }
+            },
+            'source': viz_obj.source,
+            'year': viz_obj.year,
         }
 
         return data
@@ -117,17 +127,26 @@ class Data(models.Model):
 
     def big_number_data(request):
         number_params = request
-        big_num = int(number_params.data_values)
-        count_up = "<span id='count-%s' class='count-up'></span>" % (big_num)
+        value = number_params.data_values
+        sign = ''
 
-        return count_up
+        if value.startswith('$'):
+            value = value[1:]
+            sign = '$'
+
+        big_num = int(value)
+        number_params.data_values = "<span>%s</span><span id='count-%s' class='count-up'></span>" % (sign, big_num)
+            
+        return number_params
 
     def link_data(request):
         return request
 
-
     @property
-    def data_object(self):           
+    def data_object(self):  
+        if self.data_values.endswith(";"):                
+            self.data_values = self.data_values[:-1]
+                              
         if self.data_viz_type == 'pie' or self.data_viz_type == 'bar':
             return self.chart_data()
         elif self.data_viz_type == 'map':
