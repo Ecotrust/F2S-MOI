@@ -1,6 +1,16 @@
 body.template-datapage {
 
     #fp-nav { display: none; }
+
+    .nvtooltip.xy-tooltip {
+        color: #222;
+        background-color: $white;
+        padding: .5em;
+        text-shadow: $light-grey 0 1px 0;
+        border-radius: 2px;
+        opacity: 0.9;
+        z-index: 1000;  
+    }
     
     .body-content {
         color: $black;
@@ -209,7 +219,6 @@ body.template-datapage {
         }
 
         .map-viz {
-
             .map-tooltip {
                 visibility: hidden;
                 color: #222;
@@ -235,8 +244,23 @@ body.template-datapage {
             }     
         }
 
-        .pie-viz {
+        .pie-viz, .bar-viz {
+            .nvd3 {
+                .nv-legend-text { font-size: 16px; }
+                .nv-series { 
+                    cursor: auto;
+                    pointer-events: none; 
+                }  
+            }
+        }
 
+        .pie-viz {
+            .piechart_container {
+                min-height: 425px;
+                .nvd3-svg { 
+                    margin: auto;
+                }
+            }
         }
     }
 }

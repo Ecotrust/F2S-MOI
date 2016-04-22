@@ -3,33 +3,42 @@
     {% include_chart_jscss %}
 </head>
 <body>
-<div id="{{ data.chartcontainer }}">
-    <svg style="width:450px;height:450px;"></svg>
-</div>
+    <div class="{{ data.chartcontainer }}"><svg></svg></div>
+    <script>
+    var data = [{"values":  {{ data.chartdata | safe }} }];
 
-<script>
-var data = {{ data.chartdata }};
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart();
+        var datum = data[0].values;
 
-nv.addGraph(function() {
-    var chart = nv.models.pieChart();
-    chart.margin({top: 30, right: 60, bottom: 20, left: 60});
-    var datum = data[0].values;
+        var width = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().width
+        var height = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().height
 
-    chart.color(d3.scale.category20().range());
-    chart.showLabels(false);
-    chart.donut(true);
-    chart.donutRatio(0.35);
+        chart.tooltipContent(function(key, y, e, graph) {
+            var x = String(key);
+            var y =  String(y.slice(0,2));
+            tooltip_str = '<center><b>'+y+'%</b></center>' + x;
+            return tooltip_str;
+        });
 
-    chart.showLegend(false);
+        chart.showLegend(true)
+            .showLabels(false)
+            .donut(true)
+            .donutRatio(0.35)
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
 
-    chart.height(450);
+        d3.select('.{{ data.chartcontainer }} svg')
+            .attr("width", '100%')
+            .attr("height", '100%')
+            .attr('viewBox','0 0 '+width+' '+height)
+            .attr('preserveAspectRatio','xMinYMin')
+            .attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")")
+            .datum(datum)
+            .transition().duration(500)
+            .call(chart);
 
-    d3.select('#{{ data.chartcontainer }} svg')
-       .datum(datum)
-       .transition().duration(500)
-       .attr('height', 450)
-       .call(chart);
-
-});
-</script> 
+        return chart;
+    });
+    </script>
 </body>

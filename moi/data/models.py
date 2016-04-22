@@ -80,28 +80,39 @@ class Data(models.Model):
         ydata = viz_obj.data_values.split("; ")
         xdata = viz_obj.data_labels.split("; ")
         y_values = [ int(y) for y in ydata ]
-        x_values = xdata
+        x_values = [ str(x) for x in xdata ]
 
+        #check what type of chart
         if chart == 'pie':
-            charttype = "pieChart"
             chartcontainer = "piechart_container"
 
+            #if pie - it must add up to 100%
             if y_values and sum(y_values) < 100:
                 remaining_val = (100 - sum(y_values))
                 y_values.append(remaining_val)
         else:
-            charttype = "discreteBarChart"
             chartcontainer = "discretebarchart_container"
 
+        #there must be a label for every value
         if x_values:
             while len(x_values) != len(y_values):
                 x_values.append('')
 
+        #create dict within list
+        y_values = [ {'value':y} for y in y_values ]
+        x_values = [ {'label':x} for x in x_values ]
+        chartdata = y_values 
 
-        chartdata = {'x': x_values, 'y': y_values}
+        #labels will be updated to existing values
+        #nvd3 takes a single list of label, val pairs
+        for index, val in enumerate(chartdata):
+            for indx, label in enumerate(x_values):
+                if index == indx:
+                    val.update(label)
 
+        #return data object
         data = {
-            'charttype': charttype,
+            'charttype': chart,
             'chartdata': chartdata,
             'chartcontainer': chartcontainer,
             'extra': {
