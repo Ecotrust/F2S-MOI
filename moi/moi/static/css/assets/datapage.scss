@@ -11,6 +11,8 @@ body.template-datapage {
         opacity: 0.9;
         z-index: 1000;  
     }
+
+    footer#footer { border-top: 1px solid $black; }
     
     .body-content {
         color: $black;
@@ -259,6 +261,15 @@ body.template-datapage {
                 min-height: 400px;
                 .nvd3-svg { 
                     margin: auto;
+                }
+                .pie-legend { text-align: center; }
+            }
+        }
+
+        .bar-viz {
+            .barchart_container {
+                .nv-wrap.nv-axis { 
+                    line { display: none; }
                 }
             }
         }
