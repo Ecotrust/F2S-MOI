@@ -280,6 +280,14 @@ body.template-datapage {
                     line { display: none; }
                     text { font-size: 15px; }
                 }
+                .nv-multibarHorizontal {
+                    .nv-groups {
+                        rect {
+                            fill-opacity: 0.8;
+                            &:hover { fill-opacity: 1; }
+                        }
+                    }
+                }
             }
         }
     }

@@ -94,11 +94,6 @@ nv.addGraph(function() {
 
         chart.yAxis
             .tickFormat(d3.format('.2'));
-
-        d3.selectAll('g.nv-bar text').each(function(d,i) {
-            console.log(this)
-        })
-
     }
 
     d3.select('#{{ data.chartcontainer }} svg')
