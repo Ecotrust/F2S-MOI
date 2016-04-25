@@ -9,14 +9,14 @@ body.template-datapage {
         text-shadow: $light-grey 0 1px 0;
         border-radius: 2px;
         opacity: 0.9;
-        z-index: 1000;  
+        z-index: 1000;
     }
 
     footer#footer { border-top: 1px solid $black; }
-    
+
     .body-content {
         color: $black;
-        
+
 
         &.health {
             section.sec-1 {
@@ -49,7 +49,7 @@ body.template-datapage {
         section {
             padding: 0 35px 0 35px;
 
-            h2 { 
+            h2 {
                 font-family: $arbutus-slab;
                 font-size: pt-px(42);
                 line-height: line-spacing(42, 50);
@@ -59,7 +59,7 @@ body.template-datapage {
                     font-family: $lato;
                     font-size: pt-px(42);
                     letter-spacing: letter-spacing(50);
-                } 
+                }
             }
 
             h2 > b {
@@ -97,7 +97,7 @@ body.template-datapage {
             }
 
             .sector-title {
-                h4,h5 { 
+                h4,h5 {
                     margin: 0px;
                     font-family: $lato;
                     font-size: pt-px(12);
@@ -114,7 +114,7 @@ body.template-datapage {
         color: $black;
         font-family: $lato;
 
-        &.environment { 
+        &.environment {
             .outcome-text { color: $green; }
         }
 
@@ -140,7 +140,7 @@ body.template-datapage {
             }
         }
 
-        .viz { 
+        .viz {
             padding-top: 40px;
             margin: 3em 4.5em 3em 4.5em;
             background-color: $white;
@@ -151,7 +151,7 @@ body.template-datapage {
                   font-size: pt-px(20);
                   font-weight: 600;
                   line-height: line-spacing(20, 30);
-                  letter-spacing: letter-spacing(30);  
+                  letter-spacing: letter-spacing(30);
                 }
             }
 
@@ -170,7 +170,7 @@ body.template-datapage {
                 left: 0;
             }
 
-            .source-full { 
+            .source-full {
                 padding: 12px;
                 border: 1px solid $light-grey;
                 background-color: $light-grey;
@@ -187,13 +187,13 @@ body.template-datapage {
                 &.inline-block { display: inline-block; }
             }
 
-            
+
             .data-attr {
                 background-color: $white;
                 margin: 0;
                 padding: 0 10px 10px 10px;
 
-                .year { 
+                .year {
                     float: right;
                     padding: 12px;
                     border: 1px solid $light-grey;
@@ -209,7 +209,7 @@ body.template-datapage {
                     background-color: $light-grey;
                 }
 
-                .year, .source {                     
+                .year, .source {
                     font-size: pt-px(10);
                     font-weight: 600;
                     line-height: line-spacing(10, 16);
@@ -243,33 +243,42 @@ body.template-datapage {
                 }
 
                 path.hover { fill: $grey; }
-            }     
+            }
         }
 
         .pie-viz, .bar-viz {
             .nvd3 {
                 .nv-legend-text { font-size: 16px; }
-                .nv-series { 
+                .nv-series {
                     cursor: auto;
-                    pointer-events: none; 
-                }  
+                    pointer-events: none;
+                }
             }
         }
 
         .pie-viz {
-            .piechart_container {
-                min-height: 400px;
-                .nvd3-svg { 
-                    margin: auto;
-                }
-                .pie-legend { text-align: center; }
+            #piechart_container svg {
+                height: 350px;
+                width: 100%;
+            }
+            .pie-legend {
+                display: table;
+                margin-left: auto;
+                margin-right: auto;
+               > div { float: left; }
             }
         }
 
         .bar-viz {
-            .barchart_container {
-                .nv-wrap.nv-axis { 
+            #barchart_container svg {
+                height: 400px;
+                width: 100%;
+                .nv-y.nv-axis.nvd3-svg {
+                    .nvd3.nv-wrap.nv-axis { display: none; }
+                }
+                .nv-x.nv-axis.nvd3-svg {
                     line { display: none; }
+                    text { font-size: 15px; }
                 }
             }
         }

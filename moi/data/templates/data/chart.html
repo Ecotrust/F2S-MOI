@@ -3,7 +3,7 @@
     {% include_chart_jscss %}
 </head>
 <body>
-    <div class="{{ data.chartcontainer }}">
+    <div id="{{ data.chartcontainer }}">
         <svg></svg>
         {% if data.charttype == 'pie' %}
             <div class="pie-legend">
@@ -14,7 +14,7 @@
                        >
                     </i>
                     {{ entry.label }}
-                  </div>
+                  </div></br>
                 {% endfor %}
             </div>
         {% endif %}
@@ -64,11 +64,7 @@ d3.selectAll('.fa-circle').each(function(d,i) {
 nv.addGraph(function() {
     var chart = nv.models.{{ data.charttype}}Chart()
         .x(function(d) { return d.label })
-        .y(function(d) { return d.value })
-        .color(sectorColor())
-
-    var width = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().width
-    var height = d3.select('.{{ data.chartcontainer }}').node().getBoundingClientRect().height
+        .y(function(d) { return d.value });
 
     //pie-donut
     if ('{{ data.charttype }}' === 'pie') {
@@ -83,28 +79,34 @@ nv.addGraph(function() {
             .showLabels(false)
             .donut(true)
             .donutRatio(0.35)
+            .color(sectorColor());
 
     //barchart
     } else {
-        chart.stacked(true)
+        chart.stacked(false)
+            .tooltips(false)
             .showControls(false)
             .showLegend(false)
             .showValues(true)
-            .margin({top: 30, right: 20, bottom: 50, left: 175});
+            .valueFormat(d3.format('.2'))
+            .barColor(sectorColor())
+            .margin({top: 30, right: 20, bottom: 50, left: 100});
 
         chart.yAxis
             .tickFormat(d3.format('.2'));
+
+        d3.selectAll('g.nv-bar text').each(function(d,i) {
+            console.log(this)
+        })
+
     }
 
-    d3.select('.{{ data.chartcontainer }} svg')
-        .attr("width", '100%')
-        .attr("height", '100%')
-        .attr('viewBox','0 0 '+width+' '+height)
-        .attr('preserveAspectRatio','xMinYMin')
-        .attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")")
+    d3.select('#{{ data.chartcontainer }} svg')
         .datum(datum)
         .transition().duration(500)
         .call(chart);
+
+    nv.utils.windowResize(chart.update);
 
     return chart;
 });
