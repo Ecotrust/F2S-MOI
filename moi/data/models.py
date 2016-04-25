@@ -147,7 +147,7 @@ class Data(models.Model):
             sign = '$'
 
         big_num = int(value)
-        number_params.data_values = "<span>%s</span><span id='count-%s' class='count-up'></span>" % (sign, big_num)
+        number_params.data_values = "<span class='dollar-sign'>%s</span><span id='count-%s' class='count-up'></span>" % (sign, big_num)
             
         return number_params
 

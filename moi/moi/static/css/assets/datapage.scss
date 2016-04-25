@@ -115,7 +115,19 @@ body.template-datapage {
         font-family: $lato;
 
         &.environment {
-            .outcome-text { color: $green; }
+            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $dark-red; }
+        }
+
+        &.education {
+            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $dark-blue; }
+        }
+
+        &.economy {
+            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $green; }
+        }
+
+        &.health {
+            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $dark-blue; }
         }
 
         .outcome-text, .indicator-text, .measure-text { margin-left: 4.5em; }
@@ -147,6 +159,7 @@ body.template-datapage {
 
             .measure-text {
                 margin-right: 1em;
+                > .rich-text { text-align: initial;}
                 h5 {
                   font-size: pt-px(20);
                   font-weight: 600;
@@ -289,6 +302,19 @@ body.template-datapage {
                     }
                 }
             }
+        }
+
+        .number-viz {
+            > .rich-text { 
+                text-align: center;
+                padding: 10px 0 20px 0;
+                margin: 0 1.75em 0 1.75em;
+                .count-up, span.dollar-sign {
+                    font-size: pt-px(60);
+                    font-weight: 600;
+                    line-height: line-spacing(60, 72);
+                } 
+            } 
         }
     }
 }
