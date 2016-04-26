@@ -15,6 +15,7 @@
 .fa-one-half { font-size: 1.5em; }
 .fa-two-half { font-size: 2.5em; }
 
+
 html { height: 100% }
 
 body {
@@ -48,8 +49,16 @@ body {
         float: right;
     }
 
-    img.margin-auto {
+    img.margin-auto, img.multi {
         margin: auto;
+    }
+
+    img.multi.col-md-4 {
+        max-width: 475px;
+    }
+
+    img.multi.col-sm-4 {
+        padding-bottom: 35px;
     }
 
     h1, h2, h3, h4, h5 {

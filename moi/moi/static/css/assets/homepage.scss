@@ -42,6 +42,24 @@ body.template-homepage {
 
             .container-fluid { text-align: left; }
 
+            .sector-title {
+                margin: 0px;
+                font-family: $lato;
+                font-size: pt-px(12);
+                letter-spacing: letter-spacing(100);
+                font-weight: 600;
+
+
+            }
+
+            .top-story {                
+                .main-content {
+                    .rich-text {
+                        h2 { margin-top: 8px; }
+                    }
+                }
+            }
+
             .main-content .rich-text {
                 p {
                     font-family: $arbutus-slab;
@@ -77,7 +95,7 @@ body.template-homepage {
         }
 
         .outer { 
-            height: 300px; 
+            height: 250px; 
 
             .ts-source > span, .ts-source-full {
                 border: 1px solid $light-grey;
@@ -208,25 +226,25 @@ body.template-homepage {
         }
         section.sec-3 {
             background-color: $yellow;
-            p, .color-text, .link-text { color: $white; }
+            p, .color-text, .link-text, .sector-title { color: $white; }
         }
         section.sec-4 {
             background-color: $grey;
             .link-text { color: $white; }
-            .color-text { color: $dark-blue; }
+            .color-text, .sector-title { color: $dark-blue; }
         }
         section.sec-5 {
             background-color: $green;
-            p, .color-text, .sector-link a { color: $white; }
+            p, .color-text, .sector-link a, .sector-title { color: $white; }
         }
         section.sec-6 {
             background-color: $tan;
-            .color-text, { color: $dark-red; }
+            .color-text, .sector-title { color: $dark-red; }
             .sector-link a { color: $white; }
         }
         section.sec-7 {
             background-color: $turquoise;
-            .color-text, .link-text { color: $white; }
+            .color-text, .link-text, .sector-title { color: $white; }
         }
     }
     
