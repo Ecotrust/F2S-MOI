@@ -226,18 +226,19 @@ function fireCountWhenInView() {
 
 /** jquery overrides **/
 var $basicContentImg = $('.rich-text > p > img');
-var $multiImg = $('.rich-text > p > img.multi');
 if ($basicContentImg.length > 0) {
     $basicContentImg.parent().addClass('row no-text-row');
-    if ($multiImg.length >= 2) {
-        if ($basicContentImg.length == 2) {
+    var $multiImgParent = $('.no-text-row'); 
+    $multiImgParent.each(function() {
+        var $multiImg = $(this).find('.multi');
+        if ($multiImg.length == 2) {
             $multiImg.addClass('col-md-6 col-sm-6 col-xs-6')
         } else if ($multiImg.length == 3) {
             $multiImg.addClass('col-md-4 col-sm-4')
         } else if ($multiImg.length == 4) {
-            $multiImg.addClass('col-md-3 col-sm-3 col-xs-6')
+            $multiImg.addClass('col-md-3 col-sm-3')
         }
-    }
+    }); 
 }
 
 })(jQuery);
