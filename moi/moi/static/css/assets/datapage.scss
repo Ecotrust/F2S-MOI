@@ -46,6 +46,63 @@ body.template-datapage {
             }
         }
 
+        &.data-gaps {
+            section.sec-1 {
+                background-color: $turquoise;
+                .sector-title { color: $white; }
+            }
+
+            .rich-text {
+                h4 {
+                    font-family: $arbutus-slab;
+                    font-size: pt-px(20);
+                    line-height: line-spacing(20, 26);
+                    letter-spacing: letter-spacing(50);
+                    color: $white;
+                    margin-left: 3em;
+                    padding-bottom: 15px;
+                    > b { border-bottom: 5px solid $black; }
+                }
+                ol {
+                    list-style-type: none;
+                    counter-reset: li-counter; 
+                    padding: 0;
+                    margin-left: 7.5em;
+                    > li {
+                        position: relative;
+                        padding: 9px 0 0 45px;
+                        margin-bottom: 30px;
+                        min-height: 35px;
+                        color: $white;
+                        font-family: $lato;
+                        font-size: pt-px(12);
+                        font-weight: 600;
+                        line-height: line-spacing(12, 19);
+                        letter-spacing: letter-spacing(50);
+                        &:before {
+                            position: absolute;
+                            top: 20%;
+                            left: -1.33em;
+                            width: 50px;
+                            height: 48px;
+                            font-family: $arbutus-slab; 
+                            font-size: pt-px(20);
+                            line-height: 1.8;
+                            font-weight: 400;
+                            text-align: center;
+                            color: $black;
+                            
+                            border-radius: 50%;
+                            background-color: $white;
+                            content: counter(li-counter);
+                            counter-increment: li-counter;
+                        }
+                    }
+                }
+            }
+
+        }
+
         section {
             padding: 0 35px 0 35px;
 
@@ -63,7 +120,7 @@ body.template-datapage {
             }
 
             h2 > b {
-                font-weight: 400;
+                font-weight: 600;
             }
 
             a { color: $blue; }
@@ -103,6 +160,7 @@ body.template-datapage {
                     font-size: pt-px(12);
                     letter-spacing: letter-spacing(100);
                     font-weight: 600;
+                    text-transform: uppercase;
                 }
             }
 
