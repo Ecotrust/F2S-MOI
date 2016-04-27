@@ -1,28 +1,29 @@
 .economic-calculator {
-    margin-top: 30px;
-
-    .calc-title {
-        font-family: $lato;
-        font-size: pt-px(12);
-        line-height: line-spacing(12, 18);
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: $black;
-    }
-
-    #input-caption, #result-caption { 
-        color: $black;
-        padding-bottom: 10px; 
-    }
+    margin-top: 100px;
 
     .result-container {
         display: inline-block;
+        width: 100%;
         padding: 30px 0 30px 0;
         #calcResult { 
             display: none;
             color: $white;
             font-size: pt-px(34);
-            vertical-align: middle; 
+            vertical-align: middle;
+
+            #equal-sign { 
+                float: left;
+                color: $black;
+                font-size: pt-px(47);
+                font-weight: 600;
+            } 
+        }
+        #calcResult-text {
+            display: none;
+            color: $black;
+            font-family: $lato;
+            font-weight: 600;
+            font-size: pt-px(12);
         }
     }
 
@@ -39,7 +40,7 @@
 
     /* Using box shadows to create 3D effects */
     #calculator {
-      width: 300px;
+      width: 350px;
       height: auto;
       margin: auto;
       padding: 30px 20px 9px;
@@ -68,6 +69,21 @@
           text-align: right;
           letter-spacing: 1px;
         }
+
+        input {
+            &::-webkit-input-placeholder {
+              font-size: pt-px(10);
+            }
+            &::-moz-placeholder { 
+              font-size: pt-px(10);
+            }
+            &:-ms-input-placeholder { 
+              font-size: pt-px(10);
+            }
+            &:-moz-placeholder { 
+              font-size: pt-px(10);
+            }
+        }
     } 
 
     .keys {
@@ -93,10 +109,10 @@
         }
 
         .calculate-btn, span {
-            height: 36px;
+            height: 40px;
             background: $orange;
             border-radius: 3px;
-            margin: 0 6px 11px 0;
+            margin: 0 6px 13px 0;
             line-height: 36px;
             text-align: center;
             box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
@@ -106,9 +122,9 @@
             float: left;
             position: relative;
             top: 0;
-            width: 60px;
+            width: 73px;
         }
-        
+
         span:last-child { margin-right: 0;}
     }
 }

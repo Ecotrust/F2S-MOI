@@ -92,7 +92,7 @@ if ($num !== undefined) {
         } else {
           calcResult.value = '$' + numberWithCommas(resultField);
         }
-        $('#calcResult').removeClass('animated bounceInLeft');
+        $('#calcResult, #calcResult-text').removeClass('animated bounceInLeft');
     }
 }
 
@@ -101,8 +101,8 @@ function numberWithCommas(x) {
 }
 
 $('.calculate-btn').click(function() {
-    $('#calcResult').text(calcResult.value)
-                    .show()
+    $('#calcResult').html('<span id="equal-sign">=</span><span id="result-val">   '+calcResult.value+'</span>');
+    $('#calcResult, #calcResult-text').show()
                     .addClass('animated bounceInLeft');
 })
 
