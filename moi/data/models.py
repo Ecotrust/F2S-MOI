@@ -7,13 +7,14 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailimages.models import Image
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
+import validators
+
 class Data(models.Model):
     DATA_CHOICES = (
         ('pie', 'Pie Chart'),
         ('bar', 'Bar Chart'),
-        ('link', 'Link'),
-        ('list', 'List'),
-        ('map', 'Map'),
+        ('link', 'Yes! Link'),
+        ('map', 'District Map'),
         ('number', 'Big Number'),
     )
 
@@ -151,7 +152,12 @@ class Data(models.Model):
             
         return number_params
 
-    def link_data(request):
+    def link_data(request):            
+        if validators.url(request.data_values):
+            request.data_values = str(request.data_values)
+        else:
+            request.data_values = '#'
+            
         return request
 
     @property

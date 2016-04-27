@@ -13,3 +13,5 @@ django-bower
 
 python-nvd3
 django-nvd3
+
+validators

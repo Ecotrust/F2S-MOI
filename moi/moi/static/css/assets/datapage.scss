@@ -173,19 +173,31 @@ body.template-datapage {
         font-family: $lato;
 
         &.environment {
-            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $dark-red; }
+            .outcome-text, 
+            .rich-text > span.count-up, 
+            span.dollar-sign,
+            .yes-wrap { color: $dark-red; }
         }
 
         &.education {
-            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $dark-blue; }
+            .outcome-text, 
+            .rich-text > span.count-up, 
+            span.dollar-sign,
+            .yes-wrap { color: $dark-blue; }
         }
 
         &.economy {
-            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $green; }
+            .outcome-text, 
+            .rich-text > span.count-up, 
+            span.dollar-sign,
+            .yes-wrap { color: $green; }
         }
 
         &.health {
-            .outcome-text, .rich-text > span.count-up, span.dollar-sign { color: $dark-blue; }
+            .outcome-text, 
+            .rich-text > span.count-up, 
+            span.dollar-sign,
+            .yes-wrap { color: $dark-blue; }
         }
 
         .outcome-text, .indicator-text, .measure-text { margin-left: 4.5em; }
@@ -289,6 +301,34 @@ body.template-datapage {
 
             }
 
+            .extra-content {
+                padding: 25px 0 15px 0;
+                margin: 0 1.5em 0 1.5em;
+
+                .rich-text {
+                    p {
+                        margin: 0 1em 0 1em;
+                        font-family: $arbutus-slab;
+                        font-size: pt-px(11);
+                        line-height: line-spacing(11, 16);
+                        -webkit-column-count: 2;
+                        -moz-column-count: 2;
+                        column-count: 2;
+                        -webkit-column-gap: 25px;
+                        -moz-column-gap: 25px;
+                        column-gap: 25px;
+
+                        &.no-text-row {
+                            -webkit-column-count: auto;
+                            -moz-column-count: auto;
+                            column-count: auto;
+
+                            padding-top: 20px;
+                        }
+                    }
+                }
+            }
+
         }
 
         .map-viz {
@@ -373,6 +413,35 @@ body.template-datapage {
                     line-height: line-spacing(60, 72);
                 } 
             } 
+        }
+
+        .link-viz {
+            .yes-container {
+                text-align: center;
+                margin: 2.5em 0 2.5em 0;
+                .yes-wrap {
+                    font-size: pt-px(65);
+                    font-weight: 600;
+                    font-family: $lato;
+                    line-height: line-spacing(65, 75);
+                }
+                .yes-link-wrap {
+                    font-size: pt-px(18);
+                    font-weight: 600;
+                    font-family: $lato;
+                    line-height: line-spacing(18, 26);
+                    letter-spacing: letter-spacing(75);
+                    margin: 0 3.5em 0 3.5em;
+
+                    a {
+                        color: $blue;
+                    }
+                }
+                hr.yes-seperate {
+                    width: 80%;
+                    border-top: 1px solid $black;
+                }
+            }
         }
     }
 }
