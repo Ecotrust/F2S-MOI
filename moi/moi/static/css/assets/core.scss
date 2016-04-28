@@ -23,10 +23,16 @@ body {
     color: $black;
 }
 
-.body-content {
+.body-content, .about-content {
     width: 100%;
     overflow: hidden;
     clear: both;
+
+    h2, h3, h4, h5, p {
+        max-width: 850px;
+        margin: 0 auto;
+        float: none;
+    }
 
     img {
         margin-bottom: 2%;
@@ -64,6 +70,8 @@ body {
     h1, h2, h3, h4, h5 {
         clear: both;
     }
+
+    a { text-decoration: none !important;}
 
     .rich-text {
         p {

@@ -154,6 +154,10 @@ body.template-datapage {
             }
 
             .sector-title {
+                max-width: 850px;
+                margin: 0 auto;
+                float: none;
+
                 h4,h5 {
                     margin: 0px;
                     font-family: $lato;
@@ -171,6 +175,7 @@ body.template-datapage {
         background-image: url("grid_wht.png");
         color: $black;
         font-family: $lato;
+        padding-bottom: 65px;
 
         &.environment {
             .outcome-text, 

@@ -31,7 +31,7 @@ $yellow: #F6AB1B;
 $med-reg: 22px;
 
 @function pt-px($pt-size) {
-    @return ($pt-size/0.75)+px;
+    @return ($pt-size/0.8)+px;
 }
 
 @function line-spacing($pt-size, $line-size) {

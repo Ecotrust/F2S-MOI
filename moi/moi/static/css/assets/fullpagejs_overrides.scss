@@ -1,6 +1,8 @@
 /* Navigation Dots overrides */
-#fp-nav ul li a span, 
-.fp-slidesNav ul li a span {
+#fp-nav ul li a span,
+#fp-nav ul li:hover a span,  
+.fp-slidesNav ul li a span
+.fp-slidesNav ul li:hover a span {
     height: 12px;
     width: 12px;
     margin: -6px 0 0 -6px;
