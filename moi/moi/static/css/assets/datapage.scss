@@ -202,7 +202,7 @@ body.template-datapage {
             .outcome-text, 
             .rich-text > span.count-up, 
             span.dollar-sign,
-            .yes-wrap { color: $dark-blue; }
+            .yes-wrap { color: $yellow; }
         }
 
         .outcome-text, .indicator-text, .measure-text { margin-left: 4.5em; }
@@ -373,10 +373,6 @@ body.template-datapage {
         }
 
         .pie-viz {
-            #piechart_container svg {
-                height: 350px;
-                width: 100%;
-            }
             .pie-legend {
                 display: table;
                 margin-left: auto;
@@ -386,9 +382,7 @@ body.template-datapage {
         }
 
         .bar-viz {
-            #barchart_container svg {
-                height: 400px;
-                width: 100%;
+            svg {
                 .nv-y.nv-axis.nvd3-svg {
                     .nvd3.nv-wrap.nv-axis { display: none; }
                 }

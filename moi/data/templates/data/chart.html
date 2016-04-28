@@ -1,9 +1,15 @@
-{% load nvd3_tags static compress wagtailcore_tags %}
-<head>
-    {% include_chart_jscss %}
-</head>
 <body>
-    <div id="{{ data.chartcontainer }}">
+<style>
+#piechart_container{{data.id}} svg {
+    height: 350px;
+    width: 100%;
+}
+#barchart_container{{data.id}} svg {
+    height: 400px;
+    width: 100%;
+}
+</style>
+    <div id="{{ data.chartcontainer }}{{ data.id }}">
         <svg></svg>
         {% if data.charttype == 'pie' %}
             <div class="pie-legend">
@@ -21,14 +27,33 @@
     </div>
 <script>
 var data = [{"values":  {{ data.chartdata | safe }} }];
+var id = '{{ data.chartcontainer }}{{ data.id }}';
+var elm = '#'+id;
 
 if ('{{ data.charttype }}' === 'pie') {
     var datum = data[0].values;
+
+    var circleSelect = elm+' .fa-circle';
+
+    d3.selectAll(circleSelect).each(function(d,i) {
+        d3.select(this).style('color', sectorColor()[i])
+    })
 } else {
     var datum = data;
 }
 
-var colorArrays = [
+var pieColorArrays = [
+    //environment
+    ['#ba2226', '#c08477', '#e6d1ca'],
+    //education
+    ['#185377', '#98a2b8', '#d1d4de'],
+    //health
+    ['#f6ab1b', '#fbca7a', '#feeacd'],
+    //economy
+    ['#83b841', '#b2ce87', '#e9f0dc']
+];
+
+var multiBarHorizontalColorArrays = [
     //environment
     ['#ba2226', '#ae6054', '#c08477', '#d6aea3', '#e6d1ca'],
     //education
@@ -42,68 +67,69 @@ var colorArrays = [
 function sectorColor() {
     switch('{{ request.path }}') {
         case '/environment/':
-            sector = colorArrays[0];
+            sector = {{ data.charttype }}ColorArrays[0];
             break;
         case '/education/':
-            sector = colorArrays[1];
+            sector = {{ data.charttype }}ColorArrays[1];
             break;
         case '/health/':
-            sector = colorArrays[2];
+            sector = {{ data.charttype }}ColorArrays[2];
             break;
         case '/economy/':
-            sector = colorArrays[3];
+            sector = {{ data.charttype }}ColorArrays[3];
             break;
     }
     return sector
 }
 
-d3.selectAll('.fa-circle').each(function(d,i) {
-    d3.select(this).style('color', sectorColor()[i])
-})
+function createChart{{ data.id }}() {
 
-nv.addGraph(function() {
-    var chart = nv.models.{{ data.charttype}}Chart()
-        .x(function(d) { return d.label })
-        .y(function(d) { return d.value });
+    nv.addGraph(function() {
+        var chart = nv.models.{{ data.charttype}}Chart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value });
 
-    //pie-donut
-    if ('{{ data.charttype }}' === 'pie') {
-        chart.tooltipContent(function(key, y, e, graph) {
-            var x = String(key);
-            var y =  String(y.slice(0,2));
-            tooltip_str = '<center><b>'+y+'%</b></center>' + x;
-            return tooltip_str;
-        });
+        //pie-donut
+        if ('{{ data.charttype }}' === 'pie') {
+            chart.tooltipContent(function(key, y, e, graph) {
+                var x = String(key);
+                var y =  String(y.slice(0,2));
+                tooltip_str = '<center><b>'+y+'%</b></center>' + x;
+                return tooltip_str;
+            });
 
-        chart.showLegend(false)
-            .showLabels(false)
-            .donut(true)
-            .donutRatio(0.35)
-            .color(sectorColor());
+            chart.showLegend(false)
+                .showLabels(false)
+                .donut(true)
+                .donutRatio(0.35)
+                .color(sectorColor());
 
-    //barchart
-    } else {
-        chart.stacked(false)
-            .tooltips(false)
-            .showControls(false)
-            .showLegend(false)
-            .showValues(true)
-            .valueFormat(d3.format('.2'))
-            .barColor(sectorColor())
-            .margin({top: 30, right: 20, bottom: 50, left: 100});
+        //barchart
+        } else {
+            chart.stacked(false)
+                .tooltips(false)
+                .showControls(false)
+                .showLegend(false)
+                .showValues(true)
+                .valueFormat(d3.format('.2'))
+                .barColor(sectorColor())
+                .margin({top: 30, right: 20, bottom: 50, left: 100});
 
-        chart.yAxis
-            .tickFormat(d3.format('.2'));
-    }
+            chart.yAxis
+                .tickFormat(d3.format('.2'));
+        }
 
-    d3.select('#{{ data.chartcontainer }} svg')
-        .datum(datum)
-        .transition().duration(500)
-        .call(chart);
+        d3.select(elm+' svg')
+            .datum(datum)
+            .transition().duration(500)
+            .call(chart);
 
-    nv.utils.windowResize(chart.update);
+        nv.utils.windowResize(chart.update);
 
-    return chart;
-});
+        return chart;
+    });
+}
+
+createChart{{ data.id }}()
 </script>
 </body>

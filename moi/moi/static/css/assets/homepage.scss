@@ -98,7 +98,7 @@ body.template-homepage {
         }
 
         .outer { 
-            height: 250px; 
+            min-height: 135px; 
 
             .ts-source > span, .ts-source-full {
                 border: 1px solid $light-grey;
@@ -271,31 +271,6 @@ body.template-homepage {
         }
     }
 
-    @media screen and (min-width: 1300px) {
-        section {
-            .economic-calculator {
-                table {
-                    input#inputCalc, input#result {
-                        width: 10em;
-                        height: 90px;
-                    }
-                }
-            }
-        }
-    }
-
-    @media screen and (min-width: 1200px) and (max-width: 1299px) {
-        section {
-            .economic-calculator {
-                table {
-                    input#inputCalc, input#result {
-                        width: 9em;
-                    }
-                }
-            }
-        }
-    }
-
     @media screen and (max-width: 1150px) {
         section.sec-1 {
             .rich-text {
@@ -356,7 +331,7 @@ body.template-homepage {
     @media screen and (max-width: 768px) {
         .body-content {
             .outer {
-
+                min-height: 200px;
                 .sector-link { bottom: 30px; }
 
                 .ts-source, .ts-source-full {
@@ -370,10 +345,6 @@ body.template-homepage {
                 .ts-source { 
                     font-size: 10px; 
                     text-align: center;
-                }
-
-                .ts-source-full {
-                    
                 }
             }
 

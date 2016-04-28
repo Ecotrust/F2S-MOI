@@ -24,7 +24,7 @@
           {% if measure.coremeasure  %}
               {% for viz in measure.coremeasure.related_data.all %}
                 {% with data=viz.data_object %}
-                <div class="{{viz.data_viz_type}}-viz viz">
+                <div class="{{viz.data_viz_type}}-viz viz viz-{{ data.id }}">
                   <div id="{{ measure.slug }}" class="measure-text">
                     {{ measure.coremeasure.display_title | richtext }}
                   </div>
@@ -37,15 +37,15 @@
                   {% elif viz.data_viz_type == 'link' %}
                     {% include 'data/link.html' %}  
                   {% endif %}
+                  <div class="extra-content container-fluid">
+                    {{ measure.coremeasure.body_content | richtext }}
+                  </div>
                   <div class="meta-wrapper">
                     <div class="source-full">{{ data.source }}</div>
                     <div class="data-attr row">
                       <div class="source">SOURCE</div>
                       <div class="year" style="background-color: {{ data.color }}">{{ data.year }}</div>
                     </div>
-                  </div>
-                  <div class="extra-content container-fluid">
-                    {{ measure.coremeasure.body_content | richtext }}
                   </div>
                 </div>
                 {% endwith %}

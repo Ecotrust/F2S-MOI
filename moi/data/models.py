@@ -76,7 +76,7 @@ class Data(models.Model):
     ]
 
     def chart_data(request):
-        viz_obj = request           
+        viz_obj = request
         chart = viz_obj.data_viz_type
         ydata = viz_obj.data_values.split("; ")
         xdata = viz_obj.data_labels.split("; ")
@@ -114,6 +114,7 @@ class Data(models.Model):
             
         #return data object
         data = {
+            'id': viz_obj.page_id,
             'charttype': chart,
             'chartdata': chartdata,
             'chartcontainer': chartcontainer,
