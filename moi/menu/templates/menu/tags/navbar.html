@@ -30,17 +30,17 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="main-nav{% if '/recommendations/' == request.path %} active{% endif %}"><a href="/recommendations"><span>Spotlight Stories</span></a></li>
+                       <!--  <li class="main-nav{% if '/recommendations/' == request.path %} active{% endif %}"><a href="/recommendations"><span>Spotlight Stories</span></a></li> -->
                         <li class="main-nav{% if '/about/' == request.path %} active{% endif %}"><a href="/about"><span>About</span></a></li>
-                        <li class="main-nav search"><a href="#" class="fa fa-search fa-one-half"></a></li>
+                        <!-- <li class="main-nav search"><a href="#" class="fa fa-search fa-one-half"></a></li> -->
                     <!-- search form -->
-                    <span class="search-nav">
+                    <!-- <span class="search-nav">
                         <form class="navbar-form" role="search" action="{% url 'search' %}" method="get">
                             <div class="field-toggle">
                                 <input type="text" class="form-control search-form" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
                             </div>
                         </form>
-                    </span>
+                    </span> -->
                    <!--  end search form -->
                     </ul>
                 </div>

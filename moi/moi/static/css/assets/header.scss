@@ -3,6 +3,7 @@
     font-family: $arbutus-slab;
     color: $black;
     font-size: pt-px(12);
+    letter-spacing: letter-spacing(100);
     font-weight: 500;
 
     .navbar {
@@ -55,9 +56,9 @@
 
                 ul.dropdown-menu {
                     font-family: $lato;
-                    font-size: pt-px(11);
+                    font-size: pt-px(12);
                     color: $black;
-                    letter-spacing: letter-spacing(95);
+                    letter-spacing: letter-spacing(100);
                     min-width: 265px;
                     min-height: 40px;
 
