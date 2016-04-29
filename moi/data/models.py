@@ -125,11 +125,14 @@ class Data(models.Model):
         return data
 
     def district_map_data(request):
-        map_params = request
-        data_values = map_params.data_values.split("; ")
+        data_values = request.data_values.split("; ")
         district_ids = [ int(val) for val in data_values ]
-        map_params.data_values = district_ids
-           
+        
+        map_params = {
+            'id': request.page_id,
+            'data_values': district_ids,
+        }
+            
         return map_params
 
     def big_number_data(request):
@@ -158,6 +161,9 @@ class Data(models.Model):
     def data_object(self):  
         if self.data_values.endswith(";"):                
             self.data_values = self.data_values[:-1]
+
+        if self.data_labels.endwith(";"):
+            self.data_labels = self.data_labels[:-1]
                               
         if self.data_viz_type == 'pie' or self.data_viz_type == 'bar':
             return self.chart_data()
