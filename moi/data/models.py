@@ -85,7 +85,7 @@ class Data(models.Model):
 
         #check what type of chart
         if chart == 'pie':
-            chartcontainer = "piechart_container"
+            chartcontainer = "piechart_container%s" % (viz_obj.page_id)
 
             #if pie - it must add up to 100%
             if y_values and sum(y_values) < 100:
@@ -93,7 +93,7 @@ class Data(models.Model):
                 y_values.append(remaining_val)
         else:
             chart = 'multiBarHorizontal'
-            chartcontainer = "barchart_container"
+            chartcontainer = "barchart_container%s" % (viz_obj.page_id)
 
         #there must be a label for every value
         if x_values:
@@ -115,18 +115,11 @@ class Data(models.Model):
         #return data object
         data = {
             'id': viz_obj.page_id,
-            'charttype': chart,
+            'charttype': str(chart),
             'chartdata': chartdata,
             'chartcontainer': chartcontainer,
-            'extra': {
-                'x_is_date': False,
-                'x_axis_format': '',
-                'tag_script_js': True,
-                'jquery_on_ready': False,
-                'donut': True,
-            },
-            'source': viz_obj.source,
-            'year': viz_obj.year,
+            'source': str(viz_obj.source),
+            'year': str(viz_obj.year),
         }
 
         return data

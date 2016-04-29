@@ -9,7 +9,7 @@
     width: 100%;
 }
 </style>
-    <div id="{{ data.chartcontainer }}{{ data.id }}">
+    <div id="{{ data.chartcontainer }}">
         <svg></svg>
         {% if data.charttype == 'pie' %}
             <div class="pie-legend">
@@ -26,110 +26,12 @@
         {% endif %}
     </div>
 <script>
-var data = [{"values":  {{ data.chartdata | safe }} }];
-var id = '{{ data.chartcontainer }}{{ data.id }}';
-var elm = '#'+id;
-
-if ('{{ data.charttype }}' === 'pie') {
-    var datum = data[0].values;
-
-    var circleSelect = elm+' .fa-circle';
-
-    d3.selectAll(circleSelect).each(function(d,i) {
-        d3.select(this).style('color', sectorColor()[i])
-    })
+var dataSlug = '{{ request.path | safe }}';
+var dataViz = {{ data | safe}};
+if (typeof vizArray == "undefined" || !(vizArray instanceof Array)) {
+    var vizArray = [dataViz];
 } else {
-    var datum = data;
+    vizArray.push(dataViz);
 }
-
-var pieColorArrays = [
-    //environment
-    ['#ba2226', '#c08477', '#e6d1ca'],
-    //education
-    ['#185377', '#98a2b8', '#d1d4de'],
-    //health
-    ['#f6ab1b', '#fbca7a', '#feeacd'],
-    //economy
-    ['#83b841', '#b2ce87', '#e9f0dc']
-];
-
-var multiBarHorizontalColorArrays = [
-    //environment
-    ['#ba2226', '#ae6054', '#c08477', '#d6aea3', '#e6d1ca'],
-    //education
-    ['#185377', '#5e7493', '#98a2b8', '#aeb5c6', '#d1d4de'],
-    //health
-    ['#f6ab1b', '#f9ba43', '#fbca7a', '#fddaa2', '#feeacd'],
-    //economy
-    ['#83b841', '#9bc261', '#b2ce87', '#cbdcab', '#e9f0dc']
-];
-
-function sectorColor() {
-    switch('{{ request.path }}') {
-        case '/environment/':
-            sector = {{ data.charttype }}ColorArrays[0];
-            break;
-        case '/education/':
-            sector = {{ data.charttype }}ColorArrays[1];
-            break;
-        case '/health/':
-            sector = {{ data.charttype }}ColorArrays[2];
-            break;
-        case '/economy/':
-            sector = {{ data.charttype }}ColorArrays[3];
-            break;
-    }
-    return sector
-}
-
-function createChart{{ data.id }}() {
-
-    nv.addGraph(function() {
-        var chart = nv.models.{{ data.charttype}}Chart()
-            .x(function(d) { return d.label })
-            .y(function(d) { return d.value });
-
-        //pie-donut
-        if ('{{ data.charttype }}' === 'pie') {
-            chart.tooltipContent(function(key, y, e, graph) {
-                var x = String(key);
-                var y =  String(y.slice(0,2));
-                tooltip_str = '<center><b>'+y+'%</b></center>' + x;
-                return tooltip_str;
-            });
-
-            chart.showLegend(false)
-                .showLabels(false)
-                .donut(true)
-                .donutRatio(0.35)
-                .color(sectorColor());
-
-        //barchart
-        } else {
-            chart.stacked(false)
-                .tooltips(false)
-                .showControls(false)
-                .showLegend(false)
-                .showValues(true)
-                .valueFormat(d3.format('.2'))
-                .barColor(sectorColor())
-                .margin({top: 30, right: 20, bottom: 50, left: 100});
-
-            chart.yAxis
-                .tickFormat(d3.format('.2'));
-        }
-
-        d3.select(elm+' svg')
-            .datum(datum)
-            .transition().duration(500)
-            .call(chart);
-
-        nv.utils.windowResize(chart.update);
-
-        return chart;
-    });
-}
-
-createChart{{ data.id }}()
 </script>
 </body>
