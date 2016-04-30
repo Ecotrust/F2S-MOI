@@ -2,7 +2,7 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey
 
-from wagtail.wagtailcore.models import Page
+from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel, FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.wagtailsearch import index
@@ -18,7 +18,7 @@ class RelatedData(DV):
         abstract = True
 
 
-class CoreMeasure(Page):
+class CoreMeasure(Page, Orderable):
     display_title = RichTextField(blank=True)
     body_content = RichTextField(blank=True, null=True, default=None, verbose_name="Extra Content")
 
