@@ -21,7 +21,7 @@
         {{ grandchild.indicator.display_title | richtext  }}
       </div>
         {% for measure in grandchild.get_children %}
-          {% if measure.coremeasure  %}
+          {% if measure.coremeasure.live  %}
               {% for viz in measure.coremeasure.related_data.all %}
                 {% with data=viz.data_object %}
                 <div class="{{viz.data_viz_type}}-viz viz viz-{{ data.id }}">
@@ -33,9 +33,9 @@
                   {% elif viz.data_viz_type == 'map' %}
                     {% include 'data/map.html' %}
                   {% elif viz.data_viz_type == 'number' %}
-                    {% include 'data/number.html' %}  
+                    {% include 'data/number.html' %}
                   {% elif viz.data_viz_type == 'link' %}
-                    {% include 'data/link.html' %}  
+                    {% include 'data/link.html' %}
                   {% endif %}
                   <div class="extra-content container-fluid">
                     {{ measure.coremeasure.body_content | richtext }}

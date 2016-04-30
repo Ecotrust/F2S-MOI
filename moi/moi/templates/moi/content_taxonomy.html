@@ -13,7 +13,7 @@
                     {{ outcome.display_title | richtext }}
                 </div>
             </div>
-            
+
 
                 {% for indicator in indicators %}
                     {% if outcome.pk == indicator.get_parent.pk %}
@@ -21,10 +21,10 @@
                         <span class="tax-title {{ sector.slug }}">INDICATOR</span>
                             {{ indicator.display_title | richtext }}
                     </div>
-                        
+
                         <div class="measures-wrapper">
                         {% for measure in measures %}
-                            {% if indicator.pk == measure.get_parent.pk %}
+                            {% if indicator.pk == measure.get_parent.pk and measure.live %}
                             <div class="measure-wrapper">
                                 <span class="tax-title {{ sector.slug }}">MEASURE</span>
                                 <a href="{{ sector.url }}#{{ measure.slug }}">

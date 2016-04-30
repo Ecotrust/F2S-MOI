@@ -24,43 +24,43 @@ class Data(models.Model):
                                        default=None,
                                        verbose_name='Data Viz Type',
                                        help_text='Select the type of data vizulation for this Core Measure')
-    prime_label = models.TextField(blank=True, 
+    prime_label = models.TextField(blank=True,
                                    null=True,
-                                   default="", 
-                                   verbose_name='Prime Label', 
+                                   default="",
+                                   verbose_name='Prime Label',
                                    help_text='This will be primary label/text for the data visualization')
-    source = models.TextField(blank=True, 
+    source = models.TextField(blank=True,
                               null=True,
-                              default="", 
+                              default="",
                               help_text='Source text for data visualization')
     year = models.CharField(blank=True,
                             null=True,
                             default="",
                             max_length=255,
                             help_text='Input the year/date range for the associated data visualization')
-    data_values = models.CharField(blank=True, 
+    data_values = models.CharField(blank=True,
                              null=True,
-                             default="", 
+                             default="",
                              max_length=255,
-                             verbose_name='Data', 
+                             verbose_name='Data',
                              help_text='Enter your values here. If there is more than one value present, separate them by a semicolon')
-    data_labels = models.CharField(blank=True, 
+    data_labels = models.CharField(blank=True,
                              null=True,
-                             default="", 
+                             default="",
                              max_length=255,
-                             verbose_name="Data Labels", 
+                             verbose_name="Data Labels",
                              help_text='Enter your labels here. If there is more than one label present, separate them by a semicolon')
-    x_axis_label = models.CharField(blank=True, 
+    x_axis_label = models.CharField(blank=True,
                              null=True,
-                             default="", 
+                             default="",
                              max_length=255,
-                             verbose_name='X-Axis Label', 
+                             verbose_name='X-Axis Label',
                              help_text='Enter your x-axis label here')
-    y_axis_label = models.CharField(blank=True, 
+    y_axis_label = models.CharField(blank=True,
                              null=True,
-                             default="", 
+                             default="",
                              max_length=255,
-                             verbose_name='Y-Axis Label', 
+                             verbose_name='Y-Axis Label',
                              help_text='Enter your y-axis label here')
 
 
@@ -103,7 +103,7 @@ class Data(models.Model):
         #create dict within list
         y_values = [ {'value':y} for y in y_values ]
         x_values = [ {'label':x} for x in x_values ]
-        chartdata = y_values 
+        chartdata = y_values
 
         #labels will be updated to existing values
         #nvd3 takes a single list of label, val pairs
@@ -111,7 +111,7 @@ class Data(models.Model):
             for indx, label in enumerate(x_values):
                 if index == indx:
                     val.update(label)
-            
+
         #return data object
         data = {
             'id': viz_obj.page_id,
@@ -127,12 +127,12 @@ class Data(models.Model):
     def district_map_data(request):
         data_values = request.data_values.split("; ")
         district_ids = [ int(val) for val in data_values ]
-        
+
         map_params = {
             'id': request.page_id,
             'data_values': district_ids,
         }
-            
+
         return map_params
 
     def big_number_data(request):
@@ -146,25 +146,25 @@ class Data(models.Model):
 
         big_num = int(value)
         number_params.data_values = "<span class='dollar-sign'>%s</span><span id='count-%s' class='count-up'></span>" % (sign, big_num)
-            
+
         return number_params
 
-    def link_data(request):            
+    def link_data(request):
         if validators.url(request.data_values):
             request.data_values = str(request.data_values)
         else:
             request.data_values = '#'
-            
+
         return request
 
     @property
-    def data_object(self):  
-        if self.data_values.endswith(";"):                
+    def data_object(self):
+        if self.data_values.endswith(";"):
             self.data_values = self.data_values[:-1]
 
-        if self.data_labels.endwith(";"):
+        if self.data_labels.endswith(";"):
             self.data_labels = self.data_labels[:-1]
-                              
+
         if self.data_viz_type == 'pie' or self.data_viz_type == 'bar':
             return self.chart_data()
         elif self.data_viz_type == 'map':

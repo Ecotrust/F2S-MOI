@@ -65,7 +65,7 @@ body.template-datapage {
                 }
                 ol {
                     list-style-type: none;
-                    counter-reset: li-counter; 
+                    counter-reset: li-counter;
                     padding: 0;
                     margin-left: 7.5em;
                     > li {
@@ -85,13 +85,13 @@ body.template-datapage {
                             left: -1.33em;
                             width: 50px;
                             height: 48px;
-                            font-family: $arbutus-slab; 
+                            font-family: $arbutus-slab;
                             font-size: pt-px(20);
                             line-height: 1.8;
                             font-weight: 400;
                             text-align: center;
                             color: $black;
-                            
+
                             border-radius: 50%;
                             background-color: $white;
                             content: counter(li-counter);
@@ -178,29 +178,29 @@ body.template-datapage {
         padding-bottom: 65px;
 
         &.environment {
-            .outcome-text, 
-            .rich-text > span.count-up, 
+            .outcome-text,
+            .rich-text > span.count-up,
             span.dollar-sign,
             .yes-wrap { color: $dark-red; }
         }
 
         &.education {
-            .outcome-text, 
-            .rich-text > span.count-up, 
+            .outcome-text,
+            .rich-text > span.count-up,
             span.dollar-sign,
             .yes-wrap { color: $dark-blue; }
         }
 
         &.economy {
-            .outcome-text, 
-            .rich-text > span.count-up, 
+            .outcome-text,
+            .rich-text > span.count-up,
             span.dollar-sign,
             .yes-wrap { color: $green; }
         }
 
         &.health {
-            .outcome-text, 
-            .rich-text > span.count-up, 
+            .outcome-text,
+            .rich-text > span.count-up,
             span.dollar-sign,
             .yes-wrap { color: $yellow; }
         }
@@ -348,7 +348,7 @@ body.template-datapage {
                 position: absolute;
                 z-index: 1000;
             }
-            .svg-container { padding-bottom: 80%; }
+            .svg-container { padding-bottom: 60%; }
 
             svg {
                 path {
@@ -388,13 +388,22 @@ body.template-datapage {
                 }
                 .nv-x.nv-axis.nvd3-svg {
                     line { display: none; }
-                    text { font-size: 15px; }
+                    text {
+                        font-size: pt-px(15);
+                        font-weight: 600;
+                        font-family: $lato;
+                    }
                 }
                 .nv-multibarHorizontal {
                     .nv-groups {
                         rect {
-                            fill-opacity: 0.8;
-                            &:hover { fill-opacity: 1; }
+                            fill-opacity: 1;
+                            &:hover { fill-opacity: 0.75; }
+                        }
+                        text {
+                            font-size: pt-px(15);
+                            font-weight: 600;
+                            font-family: $lato;
                         }
                     }
                 }
@@ -402,7 +411,7 @@ body.template-datapage {
         }
 
         .number-viz {
-            > .rich-text { 
+            > .rich-text {
                 text-align: center;
                 padding: 10px 0 20px 0;
                 margin: 0 1.75em 0 1.75em;
@@ -410,8 +419,8 @@ body.template-datapage {
                     font-size: pt-px(60);
                     font-weight: 600;
                     line-height: line-spacing(60, 72);
-                } 
-            } 
+                }
+            }
         }
 
         .link-viz {
