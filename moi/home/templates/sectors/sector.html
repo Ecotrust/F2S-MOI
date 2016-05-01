@@ -25,9 +25,11 @@
               {% for viz in measure.coremeasure.related_data.all %}
                 {% with data=viz.data_object %}
                 <div class="{{viz.data_viz_type}}-viz viz viz-{{ data.id }}">
-                  <div id="{{ measure.slug }}" class="measure-text">
+                  <div class="measure-text">
+                    <a id="{{ measure.slug }}" class="sector-anchor"></a>
                     {{ measure.coremeasure.display_title | richtext }}
                   </div>
+
                   {% if viz.data_viz_type == 'pie' or viz.data_viz_type == 'bar' %}
                     {% include 'data/chart.html' %}
                   {% elif viz.data_viz_type == 'map' %}

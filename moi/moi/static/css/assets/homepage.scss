@@ -55,7 +55,7 @@ body.template-homepage {
 
             }
 
-            .top-story {                
+            .top-story {
                 .main-content {
                     .rich-text {
                         h2 { margin-top: 8px; }
@@ -97,8 +97,8 @@ body.template-homepage {
             }
         }
 
-        .outer { 
-            min-height: 135px; 
+        .outer {
+            min-height: 135px;
 
             .ts-source > span, .ts-source-full {
                 border: 1px solid $light-grey;
@@ -111,7 +111,7 @@ body.template-homepage {
                 font-weight: 600;
                 letter-spacing: letter-spacing(100);
             }
-        
+
             .ts-source {
                 position: absolute;
                 bottom: 65px;
@@ -127,7 +127,7 @@ body.template-homepage {
                 margin-bottom: 20px;
                 padding: 10px;
                 max-width: 325px;
-                p { 
+                p {
                     font-size: pt-px(11);
                     text-align: left;
                     color: $black;
@@ -193,6 +193,8 @@ body.template-homepage {
             .no-text-row {
                 img.img-responsive { width: 35%;}
             }
+
+            .container-fluid { padding-top: 35px; }
         }
         section.sec-2 {
             background-image: url("grid_wht.png");
@@ -209,16 +211,16 @@ body.template-homepage {
                 column-gap: 35px;
             }
 
-            .four-circle { 
+            .four-circle {
                 padding: 50px 0 40px 0;
 
                 a {
                     color: $black;
-                    &:hover, &:active { 
+                    &:hover, &:active {
                         div.text-center { color: $blue; }
                     }
 
-                    div.text-center { 
+                    div.text-center {
                         font-family: $lato;
                         font-size: pt-px(14);
                         letter-spacing: letter-spacing(100);
@@ -251,7 +253,7 @@ body.template-homepage {
             .color-text, .link-text, .sector-title { color: $white; }
         }
     }
-    
+
     @media screen and (max-width: 1235px) {
         .body-content {
             .outer {
@@ -290,7 +292,7 @@ body.template-homepage {
             }
             section {
                 &:not(:first-child) {
-                   h2 { 
+                   h2 {
                         font-size: 4.4vw;
                     }
                     .color-text { font-size: 4.5vw; }
@@ -317,9 +319,9 @@ body.template-homepage {
 
     @media screen and (max-width: 875px) {
         .body-content {
-            .outer { 
+            .outer {
 
-                .ts-source-full { max-width: 185px; } 
+                .ts-source-full { max-width: 185px; }
 
                 .sector-link {
                     a > .link-text { font-size: 14px; }
@@ -342,15 +344,15 @@ body.template-homepage {
                     bottom: 80px;
                 }
 
-                .ts-source { 
-                    font-size: 10px; 
+                .ts-source {
+                    font-size: 10px;
                     text-align: center;
                 }
             }
 
             section.sec-2 {
                 .four-circle {
-                    .img-responsive { 
+                    .img-responsive {
                         width: 40%;
                         min-width: 215px;
                     }
@@ -363,7 +365,7 @@ body.template-homepage {
         .body-content {
             section {
                 &:not(:first-child) {
-                    .main-content p, p { 
+                    .main-content p, p {
                         font-size: 15px;
                         -webkit-column-count: auto;
                         -moz-column-count: auto;

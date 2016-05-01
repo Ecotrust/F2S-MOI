@@ -241,6 +241,14 @@ body.template-datapage {
                   line-height: line-spacing(20, 30);
                   letter-spacing: letter-spacing(30);
                 }
+
+                .sector-anchor:before {
+                    display: block;
+                    content: " ";
+                    width: 0;
+                    height: $navbar-height + 40px; /* padding-top of viz class */
+                    margin-top: -$navbar-height - 40px; /* padding-top of viz class */
+                }
             }
 
             .svg-container {
