@@ -28,33 +28,6 @@ sectorArrays.forEach(function(i) {
     $('.four-circle').find(circleSector).attr('href', anchorValue);
 })
 
-/** switch evaluation image **/
-function rotate() {
-    var frameworkImg = '/media/images/about_evaluation_framework.original.png';
-    var frameworkImgRet = '/media/original_images/about_evaluation_framework2x.png';
-    var frameworkImgVert = '/media/original_images/about_evaluation_framework_vertical.png';
-    var frameworkImgVertRet = '/media/original_images/about_evaluation_framework_vertical2x.png';
-
-    $('img.img-responsive').each(function(index, elm) {
-        var $imgSrc = $(this).attr('src');
-
-        if ($imgSrc === frameworkImg || $imgSrc === frameworkImgRet) {
-            if ($(window).width() < 768) { 
-                var src = $(this).attr('src').replace($imgSrc, frameworkImgVert);
-                $(this).attr('src', src).css({ 'width': '30%', 'min-width': '155px'});
-            } 
-        } else if ($imgSrc === frameworkImgVert || $imgSrc === frameworkImgVertRet) {
-            if ($(window).width() >= 768) {
-                var src = $(this).attr('src').replace($imgSrc, frameworkImg);
-                $(this).attr('src', src).css({'width': '45%', 'min-width': '375px'});
-            }
-        }
-    })
-}
-rotate();
-$(window).on('resize', rotate);
-
-
 /** retina images **/
 $('img.img-responsive').each(function(index, elm) {
     var sourcePath = $(this).attr('src');
@@ -73,6 +46,69 @@ $('img.img-responsive').each(function(index, elm) {
         }
     }
 })
+
+/** switch image **/
+function rotate() {
+    var imgArray = [],
+        elm,
+        $templateAbout = $('.template-about'),
+        $ecoTopStory = $('.top-story.economy'),
+        $healthTopStory = $('.top-story.health');
+
+    function changeImg(elm) {
+        $(elm).each(function(index, elm) {
+            var $imgSrc = $(this).attr('src');
+
+            if ($imgSrc === imgArray[0] || $imgSrc === imgArray[1]) {
+                if ($(window).width() < 768) { 
+                    var src = $(this).attr('src').replace($imgSrc, imgArray[3]);
+                    $(this).attr('src', src).css({ 'width': '30%', 'min-width': '155px'});
+                } 
+            } else if ($imgSrc === imgArray[3] || $imgSrc === imgArray[4]) {
+                if ($(window).width() >= 768) {
+                    var src = $(this).attr('src').replace($imgSrc, imgArray[0]);
+                    $(this).attr('src', src).css({'width': '45%', 'min-width': '375px'});
+                }
+            }
+        })
+    }    
+
+    if ($templateAbout.length) {
+        elm = $templateAbout.find('img.img-responsive');
+        imgArray = [
+            '/media/images/about_evaluation_framework.original.png',
+            '/media/original_images/about_evaluation_framework2x.png',
+            '/media/original_images/about_evaluation_framework_vertical.png',
+            '/media/original_images/about_evaluation_framework_vertical2x.png'
+        ]
+
+        changeImg(elm);
+    } else {
+        if ($ecoTopStory.length) {
+            elm = $ecoTopStory.find('img.img-responsive');
+            imgArray = [
+                '/media/images/eco_full.original.png',
+                '/media/original_images/eco_full2x.png',
+                '/media/original_images/eco_full_vert.png',
+                '/media/original_images/eco_full_vert2x.png'
+            ]
+
+            changeImg(elm);
+        } if ($healthTopStory.length) {
+            elm = $healthTopStory.find('img.img-responsive');
+            imgArray = [
+                '/media/images/health_full_horizontal.original.png',
+                '/media/original_images/health_full_horizontal2x.png',
+                '/media/original_images/health_full_vert.png',
+                '/media/original_images/health_full_vert2x.png'
+            ]
+
+            changeImg(elm);
+        }
+    }
+}
+rotate();
+$(window).on('resize', rotate);
 
 /** content taxonomy vertical line **/
 if ($('.template-about').length > 0) {
