@@ -7,7 +7,10 @@ body.template-homepage {
             position: absolute;
             margin-top: 5%;
             bottom: 3%;
-            left: 48%;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
             cursor: pointer;
             -webkit-animation: bounce 2.75s 2.5s ease-out;
             -moz-animation: bounce 2.75s 2.5s ease-out;
@@ -188,10 +191,6 @@ body.template-homepage {
             h2, h3, h4, h5 {
                 font-size: pt-px(54);
                 line-height: line-spacing(54, 64);
-            }
-
-            .no-text-row {
-                img.img-responsive { width: 35%;}
             }
 
             .container-fluid { padding-top: 35px; }
