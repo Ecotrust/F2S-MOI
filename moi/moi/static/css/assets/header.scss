@@ -102,19 +102,24 @@
             background: $white;
             overflow-x: hidden;
             border-bottom: 1px solid;
+            max-height: none;
+            overflow-y: hidden;
         }
 
         .navbar-toggle {
-            margin: 6px 10px 6px 0;
+            margin: 10px 10px 6px 0;
             border-color: $white;
+            float: left;
             &:hover,
             &:focus,
             &:active, {
                 background-color: transparent;
-                border-color: $blue;
             };
 
-            i.fa { color: $red; }
+            i.fa { 
+                color: $blue;
+                &.fa-times { display: none; } 
+            }
         }
 
         .navbar-form { 
@@ -130,13 +135,62 @@
     #header {
         .navbar-inverse, 
         .navbar-default {
-            .navbar-brand { padding-left: 10px; }
+            .navbar-brand { 
+                padding-left: 10px;
+                transform: translateX(-50%);
+                left: 50%;
+                position: absolute; 
+            }
             .navbar-form { margin-top: 0; }
 
             .search-nav,
             .nav > li.search { display: inline-block; }
 
             .fa-search {pointer-events: none; }
+
+            .collapsing { display: none; }
+
+            .collapse.navbar-collapse {
+                &.in { 
+                    border-top: 2px solid $dark-grey;
+                    .navbar-nav {
+                        .main-nav > a {
+                            &:hover, &:focus, &:active { border: none };
+                        }
+                        a:hover span, a:focus span, a:active span { border: none; }
+                    } 
+                }
+
+                a span.data, .about.main-nav a span.about-menu {
+                    font-size: pt-px(15);
+                }
+                span { 
+                    font-size: pt-px(12);
+                    color: $black;
+                }
+
+                a { padding: 15px 0 15px 55px; }
+
+                .main-nav.dropdown {
+                    ul.dropdown-menu {
+                        li {
+                            border: none;
+                            a { 
+                                padding-left: 85px;
+                                &:hover { background-color: $light-grey; } 
+                            } 
+                        }
+                    }
+                }
+
+                .about.main-nav, .main-nav.dropdown > a { 
+                    &:hover { background-color: $light-grey; }
+                }
+
+
+
+                i.arrow-toggle { display: none; }
+            }
         }
     }
 }

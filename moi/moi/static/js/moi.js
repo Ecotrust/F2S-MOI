@@ -117,10 +117,10 @@ $('.data-attr > .source').click(function() {
 });
 
 /** search toggle **/
-var $searchIcon = $('.fa-search');
-var $searchField = $('.search-nav');
-var $searchForm = $('.search-form');
-var $mainNav = $('.main-nav');
+// var $searchIcon = $('.fa-search');
+// var $searchField = $('.search-nav');
+// var $searchForm = $('.search-form');
+var $mainNav = $('.main-nav.dropdown');
 var $mobileNav = $('button.navbar-toggle');
 var $searchItem = $('li.search');
 
@@ -136,30 +136,36 @@ $.fn.focusWithoutScrolling = function() {
     return this;
 }
 
-$searchIcon.on('click', function() {
-    $mainNav.toggleClass('no-view');
-    $searchField.toggleClass('nav-view');
-    $searchForm.focusWithoutScrolling();
-});
+// $searchIcon.on('click', function() {
+//     $mainNav.toggleClass('no-view');
+//     $searchField.toggleClass('nav-view');
+//     $searchForm.focusWithoutScrolling();
+// });
 
 // reshow menu on blur out
-$searchForm.focusout(function() {
-    if ($('.navbar-collapse.collapse.in').length) {
-        setTimeout(function() {
-            $mobileNav.click();
-        }, 50);
-    } else {
-        $searchField.toggleClass('nav-view');
-        $mainNav.toggleClass('no-view');
-    }
+// $searchForm.focusout(function() {
+//     if ($('.navbar-collapse.collapse.in').length) {
+//         setTimeout(function() {
+//             $mobileNav.click();
+//         }, 50);
+//     } else {
+//         $searchField.toggleClass('nav-view');
+//         $mainNav.toggleClass('no-view');
+//     }
 
-});
+// });
 
 //mobile menu
-// $mobileNav.on('click', function() {
-//     $searchItem.toggleClass('nav-view');
-//     $searchField.toggleClass('nav-view');
-// });
+$mobileNav.on('click', function() {
+    setTimeout(function(){
+        $mainNav.find('a.dropdown-toggle').click();
+        if ($mainNav.hasClass('open')) {
+            $('button.navbar-toggle').find('i.fa').toggle();
+        }
+    }, 200);
+});
+
+
 
 /** countUp.js **/
 
