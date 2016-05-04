@@ -41,10 +41,10 @@ function rotate() {
             var $imgSrc = $(this).attr('src');
 
             if ($imgSrc === imgArray[0] || $imgSrc === imgArray[1]) {
-                if ($(window).width() < 768) { 
+                if ($(window).width() < 768) {
                     var src = $(this).attr('src').replace($imgSrc, imgArray[3]);
                     $(this).attr('src', src).css({ 'max-width': '190px', 'min-width': '155px'});
-                } 
+                }
             } else if ($imgSrc === imgArray[3] || $imgSrc === imgArray[4]) {
                 if ($(window).width() >= 768) {
                     var src = $(this).attr('src').replace($imgSrc, imgArray[0]);
@@ -52,7 +52,7 @@ function rotate() {
                 }
             }
         })
-    }    
+    }
 
     if ($templateAbout.length) {
         elm = $templateAbout.find('img.img-responsive');
@@ -106,7 +106,7 @@ $('img.img-responsive').each(function(index, elm) {
             var retinaPath = sourcePath.slice(0, -4) + '2x.png';
            }
            $(this).attr('data-at2x', retinaPath);
-        } 
+        }
         if ($( window ).width() >= 1025) {
            var retina2x = $(this).attr('data-at2x');
            $(this).attr('src', retina2x);
@@ -245,7 +245,7 @@ if ($countNum.length) {
             start = 100000;
         }
 
-        var count = new CountUp(id, start, number, 0, 3, options);
+        var count = new CountUp(id, start, number, 0, 1.25, options);
         countUpArray.push(count);
     });
 
@@ -274,7 +274,7 @@ function fireCountWhenInView() {
 var $basicContentImg = $('.rich-text > p > img');
 if ($basicContentImg.length > 0) {
     $basicContentImg.parent().addClass('row no-text-row');
-    var $multiImgParent = $('.no-text-row'); 
+    var $multiImgParent = $('.no-text-row');
     $multiImgParent.each(function() {
         var $multiImg = $(this).find('.multi');
         if ($multiImg.length == 2) {
@@ -284,7 +284,7 @@ if ($basicContentImg.length > 0) {
         } else if ($multiImg.length == 4) {
             $multiImg.addClass('col-md-3 col-sm-3')
         }
-    }); 
+    });
 }
 
 })(jQuery);

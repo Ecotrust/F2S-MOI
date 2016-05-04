@@ -35,19 +35,19 @@ body.template-about {
                 -moz-column-gap: 35px;
                 column-gap: 35px;
 
-                a { 
+                a {
                     font-family: $lato;
                     font-size: px-pt(14);
                     font-weight: 600;
                     line-height: line-spacing(14, 21);
                     letter-spacing: letter-spacing(50);
                     color: $blue;
-                
+
                 }
             }
         }
     }
-    
+
     /** streamfields **/
     .block-basic_content {
         &:first-child { background-image: url("grid_wht.png"); }
@@ -55,11 +55,14 @@ body.template-about {
         .basic-content { padding: 3em 4em 3em 3em }
 
     }
-    
+
     /** content_taxonomy.html **/
     .taxonomy {
-        .text-center { 
-            margin: 0 7em 0 7em; 
+        margin-left: auto;
+        margin-right: auto;
+        .text-center {
+            max-width: 850px;
+            margin: auto;
 
              &:not(:first-child) {
                 margin-top: 4em;
@@ -71,14 +74,14 @@ body.template-about {
             font-family: $arbutus-slab;
             font-size: pt-px(21);
             font-weight: 600;
-            line-height: line-spacing(21, 25); 
+            line-height: line-spacing(21, 25);
             letter-spacing: letter-spacing(25);
         }
 
         .rich-text {
             h2, h3 {
                 font-size: pt-px(21);
-                line-height: line-spacing(21, 25); 
+                line-height: line-spacing(21, 25);
                 letter-spacing: letter-spacing(25);
             }
 
@@ -116,7 +119,7 @@ body.template-about {
 
         .indicator-wrapper {
             .rich-text {
-                h4 { 
+                h4 {
                     display: inline-block;
                     font-family: $lato;
                     font-weight: 600;
@@ -131,10 +134,10 @@ body.template-about {
         }
 
         .measure-wrapper {
-            .vertical-line { 
+            .vertical-line {
                 margin-top: 10px;
                 margin-bottom: 10px;
-                border-top: 20px solid $darker-grey;  
+                border-top: 20px solid $darker-grey;
             }
 
             .rich-text {
@@ -149,7 +152,7 @@ body.template-about {
 
             a:hover, a:active { color: $blue; }
 
-            
+
         }
     }
 
@@ -180,11 +183,11 @@ body.template-about {
         }
 
         .taxonomy {
-/*            .rich-text { 
+/*            .rich-text {
                 h2, h3 { font-size: 3vw; }
             }*/
 
-            .text-center { 
+            .text-center {
                 margin: 0 4em 0 4em;
                 &:not(:first-child) { margin-top: 2.75em; }
             }
@@ -203,7 +206,7 @@ body.template-about {
                 }*/
             }
 
-            .tax-title { 
+            .tax-title {
                 font-size: 14px;
                 padding-bottom: 10px;
             }
@@ -213,7 +216,7 @@ body.template-about {
     @media screen and (max-width: 768px) {
         .basic-content {
             .rich-text {
-                p { 
+                p {
                     font-size: 14px;
                     -webkit-column-count: auto;
                     -moz-column-count: auto;
@@ -223,13 +226,13 @@ body.template-about {
         }
 
         .taxonomy {
-/*            .rich-text { 
+/*            .rich-text {
                 h2, h3 { font-size: 3.3vw; }
             }*/
 
             .outcome-wrapper { margin: 0 1em 1em 1em; }
 
-            .tax-title { 
+            .tax-title {
                 font-size: 12px;
                 padding-bottom: 10px;
             }
@@ -239,12 +242,12 @@ body.template-about {
     @media screen and (max-width: 600px) {
         div.rich-text { font-size: 4.5vw; }
         .taxonomy {
-            .outcome-wrapper { 
-                margin: 10px; 
+            .outcome-wrapper {
+                margin: 10px;
                 .outcome-border { padding: 15px; }
             }
-        } 
+        }
     }
-        
+
 }
 
