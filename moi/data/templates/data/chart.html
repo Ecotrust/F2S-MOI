@@ -13,7 +13,7 @@
         <svg></svg>
         {% if data.charttype == 'pie' %}
             <div class="pie-legend">
-                {% for entry in data.chartdata|dictsortreversed:"value"  %}
+                {% for entry in data.chartdata  %}
                   <div class="{{ entry.value }}">
                     <i class="fa fa-circle {{ forloop.counter0 }}"
                        aria-hidden="true"
