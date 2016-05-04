@@ -1,5 +1,5 @@
 $( window ).load(function() {
-    if ( $('.template-datapage').length)  {
+    if ( $('.template-datapage').length && vizArray !== undefined)  {
         $.each(vizArray, function(index, val) {
             createChart(val)
         });

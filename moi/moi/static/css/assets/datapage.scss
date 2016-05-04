@@ -214,7 +214,7 @@ body.template-datapage {
          }
 
         .outcome-text {
-            h3 {
+            h2, h3, h4, h5, p {
                 text-transform: uppercase;
                 font-size: pt-px(12);
                 line-height: line-spacing(12, 18);
@@ -224,7 +224,7 @@ body.template-datapage {
         }
 
         .indicator-text {
-            h4 {
+            h2, h3, h4, h5, p {
                 font-size: pt-px(42);
                 font-family: $arbutus-slab;
                 line-height: line-spacing(42, 50);
@@ -244,7 +244,7 @@ body.template-datapage {
             .measure-text {
                 margin-right: 1em;
                 > .rich-text { text-align: initial;}
-                h5 {
+                h2, h3, h4, h5, p {
                   font-size: pt-px(20);
                   font-weight: 600;
                   line-height: line-spacing(20, 30);

@@ -1,5 +1,5 @@
 $( window ).load(function() {
-    if ( $('.template-datapage').length)  {
+    if ( $('.template-datapage').length && districtArray !== undefined)  {
         $.each(districtArray, function(index, val) {
             generateMap(val);
         });

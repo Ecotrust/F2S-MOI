@@ -241,8 +241,14 @@ if ($countNum.length) {
             start = 1000;
         } else if (number.toString().length == 5 && number > 10500 || number <= 102500) {
             start = 10000;
-        } else {
+        } else if (number.toString().length == 6 && number > 102500 || number <= 250000) {
             start = 100000;
+        } else if (number.toString().length == 6 && number > 250000) {
+            start = number - 150000;
+        } else if (number.toString().length == 7) {
+            start = number - number/2;
+        } else {
+            start = number - number/3;
         }
 
         var count = new CountUp(id, start, number, 0, 1.25, options);
