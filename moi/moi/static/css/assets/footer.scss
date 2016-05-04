@@ -8,7 +8,7 @@ footer#footer {
 
         .header-title {
             font-family: $lato;
-            font-size: pt-px(11);
+            font-size: pt-px(14);
             letter-spacing: letter-spacing(98);
             text-transform: uppercase;
             padding-bottom: 10px;
@@ -17,8 +17,8 @@ footer#footer {
         .rich-text {
             p {
                 font-family: $arbutus-slab;
-                font-size: pt-px(9);
-                line-height: line-spacing(9, 14);
+                font-size: pt-px(12);
+                line-height: line-spacing(12, 14);
 
 
                 a {
@@ -41,8 +41,8 @@ footer#footer {
             .header-title { padding: 0; }
             .menu {
                 font-family: $arbutus-slab;
-                font-size: pt-px(9);
-                line-height: line-spacing(9, 22);
+                font-size: pt-px(12);
+                line-height: line-spacing(12, 22);
                 letter-spacing: letter-spacing(100);
                 a {
                     color: $black;
