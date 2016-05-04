@@ -123,6 +123,7 @@ class Data(models.Model):
     def big_number_data(request):
         number_params = request
         value = number_params.data_values
+        id = request.page_id
         sign = ''
 
         if value.startswith('$'):
@@ -130,7 +131,7 @@ class Data(models.Model):
             sign = '$'
 
         big_num = int(value)
-        number_params.data_values = "<span class='dollar-sign'>%s</span><span id='count-%s' class='count-up'></span>" % (sign, big_num)
+        number_params.data_values = "<span class='dollar-sign'>%s</span><span id='%s-count-%s' class='count-up'></span>" % (sign, big_num, id)
 
         return number_params
 

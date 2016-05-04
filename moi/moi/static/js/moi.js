@@ -246,9 +246,9 @@ if ($countNum.length) {
         } else if (number.toString().length == 6 && number > 250000) {
             start = number - 150000;
         } else if (number.toString().length == 7) {
-            start = number - number/2;
-        } else {
             start = number - number/3;
+        } else {
+            start = number - number/4;
         }
 
         var count = new CountUp(id, start, number, 0, 1.25, options);
