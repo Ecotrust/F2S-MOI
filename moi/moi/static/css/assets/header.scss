@@ -23,7 +23,13 @@
 
         .navbar-brand {
             padding: 0 2px 0 0;
-            img { max-height: 100%; }
+            line-height: $navbar-height;
+            img { 
+                max-height: 100%;
+                display: inline-block;
+                margin: auto;
+                vertical-align: middle; 
+            }
         }
 
         .navbar-text {

@@ -107,7 +107,7 @@ $('img.img-responsive').each(function(index, elm) {
            }
            $(this).attr('data-at2x', retinaPath);
         }
-        if ($( window ).width() >= 1025) {
+        if ($( window ).width() >= 1367) {
            var retina2x = $(this).attr('data-at2x');
            $(this).attr('src', retina2x);
         }
