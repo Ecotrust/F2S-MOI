@@ -44,7 +44,7 @@
                     {{ measure.coremeasure.body_content | richtext }}
                   </div>
                   <div class="meta-wrapper">
-                    <div class="source-full">{{ data.source }}</div>
+                    <div class="source-full">{{ data.source | richtext }}</div>
                     <div class="data-attr row">
                       <div class="source">SOURCE</div>
                       <div class="year" style="background-color: {{ data.color }}">{{ data.year }}</div>

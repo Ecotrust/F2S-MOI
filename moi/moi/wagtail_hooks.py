@@ -9,6 +9,6 @@ def editor_css():
   + settings.STATIC_URL \
   + 'css/assets/wagtail_overrides.scss">')
 
-@hooks.register('insert_editor_js')
-def editor_js():
-  return format_html('<script src="/static/js/wagtail_overrides.js"></script>')
+# @hooks.register('insert_editor_js')
+# def editor_js():
+#   return format_html('<script src="/static/js/wagtail_overrides.js"></script>')

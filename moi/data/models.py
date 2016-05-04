@@ -24,6 +24,11 @@ class Data(models.Model):
                                      default=None,
                                      verbose_name='Data Viz Type',
                                      help_text='Select the type of data vizulation for this Core Measure')
+    prime_label = models.TextField(blank=True,
+                                   null=True,
+                                   default="",
+                                   verbose_name='Prime Label',
+                                   help_text='This will be primary label/text for the data visualization')
     source = models.TextField(blank=True,
                               null=True,
                               default="",
@@ -110,6 +115,7 @@ class Data(models.Model):
             'id': request.page_id,
             'data_values': district_ids,
             'year': str(request.year),
+            'source': str(request.source),
         }
 
         return map_params
