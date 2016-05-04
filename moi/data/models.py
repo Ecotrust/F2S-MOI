@@ -109,6 +109,7 @@ class Data(models.Model):
         map_params = {
             'id': request.page_id,
             'data_values': district_ids,
+            'year': request.year,
         }
 
         return map_params
