@@ -330,25 +330,16 @@ body.template-datapage {
                 margin: 0 1.5em 0 1.5em;
 
                 .rich-text {
+                    font-family: $lato;
+                    h2 { font-size: pt-px(20); }
+                    h3 { font-size: pt-px(18); }
+                    h4 { font-size: pt-px(16); }
+                    h5 { font-size: pt-px(14); }
                     p {
-                        margin: 0 1em 0 1em;
-                        font-family: $arbutus-slab;
-                        font-size: pt-px(11);
-                        line-height: line-spacing(11, 16);
-                        -webkit-column-count: 2;
-                        -moz-column-count: 2;
-                        column-count: 2;
-                        -webkit-column-gap: 25px;
-                        -moz-column-gap: 25px;
-                        column-gap: 25px;
-
-                        &.no-text-row {
-                            -webkit-column-count: auto;
-                            -moz-column-count: auto;
-                            column-count: auto;
-
-                            padding-top: 20px;
-                        }
+                        font-size: pt-px(12);
+                        letter-spacing: letter-spacing(100);
+                        font-weight: 500;
+                        &.no-text-row { padding-top: 20px; }
                     }
                 }
             }
@@ -415,7 +406,7 @@ body.template-datapage {
                 .nv-x.nv-axis.nvd3-svg {
                     line { display: none; }
                     text {
-                        font-size: pt-px(15);
+                        font-size: pt-px(12);
                         font-weight: 600;
                         font-family: $lato;
                     }
