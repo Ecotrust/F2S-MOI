@@ -75,17 +75,12 @@ $( window ).load(function() {
 
                 //pie-donut
                 if (type === 'pie') {
-                    chart.tooltipContent(function(key, y, e, graph) {
-                        var x = String(key);
-                        var y =  String(y.slice(0,2));
-                        tooltip_str = '<center><b>'+y+'%</b></center>' + x;
-                        return tooltip_str;
-                    });
-
                     chart.showLegend(false)
-                        .showLabels(false)
+                        .tooltips(false)
                         .donut(true)
                         .donutRatio(0.35)
+                        .labelThreshold(.10)
+                        .labelType("percent")
                         .color(sectorColor(dataSlug, array));
 
                 //barchart

@@ -398,6 +398,13 @@ body.template-datapage {
                 margin-right: auto;
                > div { float: left; }
             }
+            .nv-label {
+                text {
+                    font-size: pt-px(15);
+                    font-weight: 600;
+                    font-family: $lato;
+                }
+            }
         }
 
         .bar-viz {
