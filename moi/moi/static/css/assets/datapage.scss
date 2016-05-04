@@ -208,10 +208,18 @@ body.template-datapage {
             .yes-wrap { color: $yellow; }
         }
 
-        .outcome-text, .indicator-text, .measure-text {
-            margin-left: 4.5em;
+        .outcome-wrap, .outcome-text, .indicator-text, .measure-text {
             max-width: 850px;
-         }
+        }
+
+        .outcome-wrap:first-of-type { padding-top: 35px; }
+
+         .outcome-wrap, .outcome-text, .indicator-text {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .measure-text { margin-left: 4.5em; }
 
         .outcome-text {
             h2, h3, h4, h5, p {

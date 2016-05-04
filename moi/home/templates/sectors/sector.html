@@ -14,6 +14,7 @@
 <div class="data-viz-container {{ page.slug }} container-fluid">
   {% for child in self.get_children %}
     {% for grandchild in child.get_children %}
+    <div class="outcome-wrap">
       <div class="outcome-text">
         {{ child.priorityoutcome.display_title | richtext }}
       </div>
@@ -54,6 +55,7 @@
               {% endfor %}
           {% endif %}
         {% endfor %}
+      </div>
     {% endfor %}
   {% endfor %}
 </div>
