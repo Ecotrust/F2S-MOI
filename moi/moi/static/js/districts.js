@@ -1,9 +1,5 @@
 $( window ).load(function() {
-    if ( $('.template-datapage').length && districtArray !== undefined)  {
-        $.each(districtArray, function(index, val) {
-            generateMap(val);
-        });
-
+    if ( $('.template-datapage').length && typeof districtArray !== 'undefined')  {
         function generateMap(val) {
             var id = val.id,
                 tool = "div.tooltip-"+id,
@@ -89,5 +85,9 @@ $( window ).load(function() {
                         });
             });
         }
+
+        $.each(districtArray, function(index, val) {
+            generateMap(val);
+        });
     }
 });

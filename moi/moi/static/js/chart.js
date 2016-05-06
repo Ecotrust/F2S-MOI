@@ -1,8 +1,5 @@
 $( window ).load(function() {
-    if ( $('.template-datapage').length && vizArray !== undefined)  {
-        $.each(vizArray, function(index, val) {
-            createChart(val)
-        });
+    if ( $('.template-datapage').length && typeof vizArray !== 'undefined')  {
 
         function sectorColor(dataSlug, array) {
             switch(dataSlug) {
@@ -108,5 +105,9 @@ $( window ).load(function() {
                 return chart;
             });
         }
+
+        $.each(vizArray, function(index, val) {
+            createChart(val)
+        });
     }
 });
