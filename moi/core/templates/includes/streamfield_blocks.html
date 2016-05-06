@@ -10,8 +10,8 @@
             {{ block }}
         </div>
 
-        {% if forloop.first and request.path == "/"  %}
-            <img id="moveDown" class="img-responsive" src="/static/css/about_arrow.png"></i>
+        {% if forloop.first and request.path != '/data-gaps/'  %}
+            <img class="moveDown img-responsive" src="/static/css/about_arrow.png"></i>
         {% endif %}
         {% if forloop.counter == 2 and request.path == "/" %}
             <div class="row four-circle">

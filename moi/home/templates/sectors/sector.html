@@ -11,7 +11,7 @@
     {% include "includes/streamfield_blocks.html" with blocks=page.body_content section_title=page.display_title %}
 </div>
 
-<div class="data-viz-container {{ page.slug }} container-fluid">
+<div class="data-viz-container sec-2 {{ page.slug }} container-fluid">
   {% for child in self.get_children %}
     {% for grandchild in child.get_children %}
     <div class="outcome-wrap">

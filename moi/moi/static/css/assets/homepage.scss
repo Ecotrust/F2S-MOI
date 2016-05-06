@@ -2,22 +2,7 @@
 body.template-homepage {
     .body-content {
         color: $black;
-
-        #moveDown {
-            position: absolute;
-            margin-top: 5%;
-            bottom: 3%;
-            left: 0;
-            right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            cursor: pointer;
-            -webkit-animation: bounce 2.75s 2.5s ease-out;
-            -moz-animation: bounce 2.75s 2.5s ease-out;
-            -o-animation: bounce 2.75s 2.5s ease-out;
-            animation: bounce 2.75s 2.5s ease-out;
-        }
-
+        
         section {
             /* extra right padding for nav dots */
             padding: 0 60px 0 35px;

@@ -15,8 +15,15 @@ $('.body-content').fullpage({
     anchors: ['sec1', 'sec2', 'sec3', 'sec4', 'sec5', 'sec6', 'sec7']
 });
 
-$(document).on('click', '#moveDown', function() {
-    $.fn.fullpage.moveTo(2);
+$(document).on('click', '.moveDown', function() {
+    if ($('.template-homepage').length) {
+        $.fn.fullpage.moveTo(2);
+    } else {
+        $('html, body').animate({
+           scrollTop: $('.sec-2').offset().top - 60
+        }, 1250);
+    }
+
 });
 
 // add anchors
