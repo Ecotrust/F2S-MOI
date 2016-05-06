@@ -70,11 +70,13 @@ class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
     numbers = CharBlock(required=False, help_text="Enter the numbers you'd like to count up - seperated by a semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
     colored_text = CharBlock(required=False, help_text="Enter the content you'd like to be a different color - each set of content is seperated by a semicolon")
-    
+    source = CharBlock(required=False, help_text="Enter a source for the associated information.")
+
     def render(self, value):
         num = value['numbers']
         current_context = value['content'].source
         colored = value['colored_text']
+        source = value['source']
             
         if colored:
             colored_list = colored.split("; ")
@@ -92,12 +94,13 @@ class NumberCountUpBlock(StructBlock):
                 html_span = "<span id='%s-count-%s' class='count-up'></span>" % (num, counter)                                                          
                 current_context = current_context.replace(num, html_span, 1)
         else:
-            num_list = None
+            num_list = None          
 
         return render_to_string(self.meta.template, {
             'self': value,
             'content': current_context,
             'numbers': num_list,
+            'source': source,
         })
 
     class Meta:

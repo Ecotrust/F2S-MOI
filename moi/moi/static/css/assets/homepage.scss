@@ -102,6 +102,9 @@ body.template-homepage {
 
         .outer {
             min-height: 135px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
 
             .ts-source > span, .ts-source-full {
                 border: 1px solid $light-grey;
@@ -133,11 +136,9 @@ body.template-homepage {
                 margin-bottom: 20px;
                 padding: 10px;
                 max-width: 325px;
-                p {
-                    font-size: pt-px(11);
-                    text-align: left;
-                    color: $black;
-                }
+                font-size: pt-px(11);
+                text-align: left;
+                p { color: $black; }
             }
 
             .table {
@@ -295,12 +296,12 @@ body.template-homepage {
                 .sector-link > a { padding: 15px; }
             }
             section {
-                &:not(:first-child) {
+                /*&:not(:first-child) {
                    h2 {
                         font-size: 4.4vw;
                     }
                     .color-text { font-size: 4.5vw; }
-                }
+                }*/
             }
             section.sec-2 {
                 /*.four-circle a div.text-center { font-size: 1.8vw; }*/
@@ -325,7 +326,7 @@ body.template-homepage {
         .body-content {
             .outer {
 
-                .ts-source-full { max-width: 185px; }
+                .ts-source-full { max-width: 175px; }
 
                 .sector-link {
                     a > .link-text { font-size: 14px; }
