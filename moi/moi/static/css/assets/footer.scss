@@ -3,7 +3,7 @@ footer#footer {
     color: $black;
     font-weight: 600;
 
-    .container-fluid { padding-top: 30px; }
+    .container-fluid { padding: 10px 35px 0 35px; }
 
     .row {
         margin: 20px 0 10px 0px;
@@ -34,12 +34,19 @@ footer#footer {
         .logos {
             border-right: 1px solid $black;
             max-width: 225px;
+            padding-right: 50px;
             img {
                 &:first-of-type { padding-bottom: 15px };
+                &.ecotrust {
+                    max-width: 127px;
+                    margin: auto;
+                };
             }
         }
 
-        .menus {
+        .info { padding-left: 50px; }
+
+        /*.menus {
             .header-title { padding: 0; }
             .menu {
                 font-family: $arbutus-slab;
@@ -51,7 +58,7 @@ footer#footer {
                     &:hover { color: $blue; }
                 }
             }
-        }
+        }*/
     }
 
     @media all and (-webkit-min-device-pixel-ratio: 1.5) {
@@ -87,9 +94,11 @@ footer#footer {
                 /* becomes first div */
                 display: table-header-group;
                 padding-bottom: 30px;
+                .header-title, .rich-text { 
+                    padding-left: 25;
+                }
+                .rich-text { padding-right: 25px; }
             }
-
-            .menus { text-align: center; }
         }
     }
 }

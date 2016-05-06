@@ -3,7 +3,7 @@ from django.template.loader import get_template
 
 from wagtail.wagtailimages.models import Image
 
-from menu.models import Menu, MainFooterText
+from menu.models import Menu, MainFooterText, SecondaryFooterText
 from home.models import HomePage
 
 register = template.Library()
@@ -37,3 +37,7 @@ def footer_menus():
 @register.assignment_tag
 def footer_text():
     return MainFooterText.objects.all()[0]
+
+@register.assignment_tag
+def secondary_footer():
+    return SecondaryFooterText.objects.all()[0]
