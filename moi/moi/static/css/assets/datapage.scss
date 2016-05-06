@@ -326,6 +326,7 @@ body.template-datapage {
                     cursor: pointer;
                     border: 1px solid $light-grey;
                     background-color: $light-grey;
+                    &:hover { color: $blue };
                 }
 
                 .year, .source {
