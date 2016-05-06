@@ -346,7 +346,7 @@ body.template-datapage {
                 margin: 0 1.5em 0 1.5em;
 
                 .rich-text {
-                    font-family: $lato;
+                    font-family: $arbutus-slab;
                     h2 { font-size: pt-px(20); }
                     h3 { font-size: pt-px(18); }
                     h4 { font-size: pt-px(16); }
@@ -355,7 +355,6 @@ body.template-datapage {
                         font-size: pt-px(12);
                         letter-spacing: letter-spacing(100);
                         font-weight: 500;
-                        font-family: $arbutus-slab;
                         &.no-text-row { padding-top: 20px; }
                     }
                 }
