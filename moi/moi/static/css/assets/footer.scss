@@ -3,6 +3,8 @@ footer#footer {
     color: $black;
     font-weight: 600;
 
+    .container-fluid { padding-top: 30px; }
+
     .row {
         margin: 20px 0 10px 0px;
 
@@ -32,7 +34,7 @@ footer#footer {
         .logos {
             border-right: 1px solid $black;
             max-width: 225px;
-            img { 
+            img {
                 &:first-of-type { padding-bottom: 15px };
             }
         }
@@ -66,26 +68,26 @@ footer#footer {
                 padding-bottom: 30px;
                 max-width: none;
 
-                .text-center { 
+                .text-center {
                     border-bottom: 1px solid $black;
                     padding-bottom: 20px;
                 }
 
-                img { 
+                img {
                     width: 200px;
                     display: inline-block;
                     margin-left: auto;
-                    margin-right: auto; 
+                    margin-right: auto;
 
                     &:first-of-type { padding: 0; }
                 }
             }
 
-            .info { 
+            .info {
                 /* becomes first div */
                 display: table-header-group;
-                padding-bottom: 30px; 
-            } 
+                padding-bottom: 30px;
+            }
 
             .menus { text-align: center; }
         }

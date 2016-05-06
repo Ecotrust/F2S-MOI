@@ -105,7 +105,7 @@ body.template-homepage {
 
             .ts-source > span, .ts-source-full {
                 border: 1px solid $light-grey;
-                padding: 5px;
+                padding: 8px 12px 8px 12px;
                 background-color: $light-grey;
             }
 
@@ -121,7 +121,10 @@ body.template-homepage {
                 font-size: pt-px(9);
                 cursor: pointer;
                 text-align: left;
-                span { max-width: 30px; }
+                span {
+                    max-width: 30px;
+                    &:hover { color: $blue };
+                }
             }
 
             .ts-source-full {

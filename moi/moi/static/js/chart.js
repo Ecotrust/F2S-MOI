@@ -81,6 +81,7 @@ $( window ).load(function() {
                         .donutRatio(0.35)
                         .labelThreshold(.10)
                         .labelType("percent")
+                        .growOnHover(false)
                         .color(sectorColor(dataSlug, array));
 
                 //barchart

@@ -14,8 +14,7 @@
 
     .navbar-inverse,
     .navbar-default {
-
-        border-color: transparent;
+        border-bottom: 1px solid $light-grey;
 
         .container {
             position: relative;
@@ -24,11 +23,11 @@
         .navbar-brand {
             padding: 0 2px 0 0;
             line-height: $navbar-height;
-            img { 
+            img {
                 max-height: 100%;
                 display: inline-block;
                 margin: auto;
-                vertical-align: middle; 
+                vertical-align: middle;
             }
         }
 
