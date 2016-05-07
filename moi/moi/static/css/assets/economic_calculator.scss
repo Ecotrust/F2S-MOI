@@ -5,18 +5,18 @@
         display: inline-block;
         width: 100%;
         padding: 30px 0 30px 0;
-        #calcResult { 
+        #calcResult {
             display: none;
             color: $white;
             font-size: pt-px(34);
             vertical-align: middle;
 
-            #equal-sign { 
+            #equal-sign {
                 float: left;
                 color: $black;
                 font-size: pt-px(47);
                 font-weight: 600;
-            } 
+            }
         }
         #calcResult-text {
             display: none;
@@ -40,7 +40,7 @@
 
     /* Using box shadows to create 3D effects */
     #calculator {
-      width: 350px;
+      width: 355px;
       height: auto;
       margin: auto;
       padding: 30px 20px 9px;
@@ -74,27 +74,37 @@
             &::-webkit-input-placeholder {
               font-size: pt-px(10);
             }
-            &::-moz-placeholder { 
+            &::-moz-placeholder {
               font-size: pt-px(10);
             }
-            &:-ms-input-placeholder { 
+            &:-ms-input-placeholder {
               font-size: pt-px(10);
             }
-            &:-moz-placeholder { 
+            &:-moz-placeholder {
               font-size: pt-px(10);
             }
         }
-    } 
+    }
 
     .keys {
         overflow: hidden;
 
         .calculate-btn {
             width: 100%;
-            cursor: pointer;
             color: $white;
             /* Smoothing out hover and active states using css3 transitions */
             transition: all 0.2s ease;
+        }
+
+        .calculate-btn, span {
+            height: 40px;
+            background: $orange;
+            border-radius: 3px;
+            margin: 0 6px 13px 0;
+            line-height: 40px;
+            text-align: center;
+            box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
 
             &:hover {
                 background: #FDBE57;
@@ -105,26 +115,24 @@
             &:active {
                 box-shadow: 0px 0px #6b54d3;
                 top: 4px;
-            } 
-        }
+            }
 
-        .calculate-btn, span {
-            height: 40px;
-            background: $orange;
-            border-radius: 3px;
-            margin: 0 6px 13px 0;
-            line-height: 36px;
-            text-align: center;
-            box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+            &.blank {
+                pointer-events: none;
+                &:hover, &:active {
+                    background: $orange;
+                    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+                }
+            }
         }
 
         span, .top {
             float: left;
             position: relative;
             top: 0;
-            width: 73px;
-        }
+            width: 101px;
 
-        span:last-child { margin-right: 0;}
+            &.last { margin-right: 0; }
+        }
     }
 }
