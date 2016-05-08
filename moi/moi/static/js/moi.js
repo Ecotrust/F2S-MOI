@@ -154,7 +154,7 @@ if ($('.economic-calculator').length) {
         } else {
           calcResult.value = '$' + numberWithCommas(resultField);
         }
-        $('#calcResult, #calcResult-text').removeClass('animated bounceInLeft');
+        $('#calcResult, #calcResult-text').removeClass('animated bounceInUp');
     }
 
 
@@ -165,7 +165,7 @@ if ($('.economic-calculator').length) {
     $('.calculate-btn').click(function() {
         $('#calcResult').html('<span id="equal-sign">=</span><span id="result-val">   '+calcResult.value+'</span>');
         $('#calcResult, #calcResult-text').show()
-                        .addClass('animated bounceInLeft');
+                        .addClass('animated bounceInUp');
     })
 }
 
