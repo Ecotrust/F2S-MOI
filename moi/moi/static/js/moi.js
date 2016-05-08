@@ -129,8 +129,20 @@ if ($('.template-about').length > 0) {
 }
 
 /** economic calculator **/
-var $num = $('input#inputCalc')[0]
-if ($num !== undefined) {
+if ($('.economic-calculator').length) {
+    var $num = $('input#inputCalc')[0]
+    $('.keys span').on('click', function() {
+        if (this.id === 'del' && $num.value.length > 0) {
+            $num.value = $num.value.slice(0, -1);
+        } else {
+            var intVal = parseInt(this.id)
+            $num.value = $num.value + intVal;
+            $num.oninput();
+        }
+
+    });
+
+
     $num.oninput = function() {
         var inputField = $num.value;
         var resultField = inputField * 2;
@@ -141,17 +153,18 @@ if ($num !== undefined) {
         }
         $('#calcResult, #calcResult-text').removeClass('animated bounceInLeft');
     }
-}
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
-$('.calculate-btn').click(function() {
-    $('#calcResult').html('<span id="equal-sign">=</span><span id="result-val">   '+calcResult.value+'</span>');
-    $('#calcResult, #calcResult-text').show()
-                    .addClass('animated bounceInLeft');
-})
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    $('.calculate-btn').click(function() {
+        $('#calcResult').html('<span id="equal-sign">=</span><span id="result-val">   '+calcResult.value+'</span>');
+        $('#calcResult, #calcResult-text').show()
+                        .addClass('animated bounceInLeft');
+    })
+}
 
 
 /** source toggle **/
