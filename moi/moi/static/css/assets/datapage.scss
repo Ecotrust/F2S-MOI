@@ -489,4 +489,17 @@ body.template-datapage {
             }
         }
     }
+
+    @media screen and (max-width: 675px) {
+        .body-content {
+            section {
+                .basic-content p, p {
+                    font-size: 15px;
+                    -webkit-column-count: auto;
+                    -moz-column-count: auto;
+                    column-count: auto;
+                }
+            }
+        }
+    }
 }

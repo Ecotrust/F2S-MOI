@@ -137,6 +137,9 @@ if ($('.economic-calculator').length) {
         } else {
             var intVal = parseInt(this.id)
             $num.value = $num.value + intVal;
+        }
+
+        if ($num.value.length > 0 && $num.value !== "0") {
             $num.oninput();
         }
 

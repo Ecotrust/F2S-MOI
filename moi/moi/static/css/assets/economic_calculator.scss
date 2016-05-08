@@ -1,5 +1,7 @@
 .economic-calculator {
-    margin-top: 100px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
 
     .result-container {
         display: inline-block;
@@ -8,13 +10,12 @@
         #calcResult {
             display: none;
             color: $white;
-            font-size: pt-px(34);
+            font-size: pt-px(40);
             vertical-align: middle;
 
             #equal-sign {
-                float: left;
                 color: $black;
-                font-size: pt-px(47);
+                font-size: pt-px(42);
                 font-weight: 600;
             }
         }
@@ -133,6 +134,34 @@
             width: 101px;
 
             &.last { margin-right: 0; }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        #calculator {
+            width: 325px;
+
+            .keys {
+                .calculate-btn, span { height: 35px; }
+                span { width: 90px; }
+            }
+
+            .top {
+                input {
+                    &::-webkit-input-placeholder {
+                      font-size: pt-px(9);
+                    }
+                    &::-moz-placeholder {
+                      font-size: pt-px(9);
+                    }
+                    &:-ms-input-placeholder {
+                      font-size: pt-px(9);
+                    }
+                    &:-moz-placeholder {
+                      font-size: pt-px(9);
+                    }
+                }
+            }
         }
     }
 }
