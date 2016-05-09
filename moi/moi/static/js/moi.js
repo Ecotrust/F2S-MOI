@@ -178,8 +178,8 @@ if ($('.economic-calculator').length) {
 
 
 /** source toggle **/
-$('.ts-source').click(function() {
-    $(this).children().first().toggleClass('table');
+$('.ts-source span').click(function() {
+    $(this).siblings('.ts-source-full').toggleClass('table');
 });
 
 $('.data-attr > .source').click(function() {
@@ -235,6 +235,11 @@ $mobileNav.on('click', function() {
     }, 200);
 });
 
+/** about page are external links **/
+if ($('.template-about').length) {
+    $('a').filter('[href^="http://"],[href^="https://"]')
+          .attr('target', '_blank');
+}
 
 
 /** countUp.js **/
