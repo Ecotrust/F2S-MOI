@@ -11,20 +11,27 @@ $('.body-content').fullpage({
     scrollOverflow: false,
     fitToSection: false,
     fixedElements: '#header',
-    paddingTop: '65px',
+    paddingTop: '95px',
     anchors: ['sec1', 'sec2', 'sec3', 'sec4', 'sec5', 'sec6', 'sec7']
 });
 
-$(document).on('click', '.moveDown', function() {
-    if ($('.template-homepage').length) {
-        $.fn.fullpage.moveTo(2);
-    } else {
-        $('html, body').animate({
-           scrollTop: $('.sec-2').offset().top - 60
-        }, 1250);
-    }
+function scrollArrow (pos) {
+    $('html, body').animate({
+       scrollTop: $(pos).offset().top - 60
+    }, 1050);
+}
 
+$(document).on('click', '.moveDown', function() {
+    if ($(this).hasClass('white-arrow')) {
+        var pos = '.sec-2';
+        scrollArrow(pos)
+    } else {
+        var pos = '.sec-3';
+        scrollArrow(pos)
+    }
 });
+
+
 
 // add anchors
 var sectorArrays = ['health', 'education', 'economy', 'environment'];

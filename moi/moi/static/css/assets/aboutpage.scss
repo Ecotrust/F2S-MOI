@@ -50,7 +50,11 @@ body.template-about {
 
     /** streamfields **/
     .block-basic_content {
-        &:first-child { background-image: url("grid_wht.png"); }
+        &:first-child { 
+            background-image: url("grid_wht.png");
+            padding-top: 30px; 
+            padding-bottom: 60px;
+        }
 
         .basic-content { padding: 4em 4em 3em 3em }
 
@@ -60,6 +64,7 @@ body.template-about {
     .taxonomy {
         margin-left: auto;
         margin-right: auto;
+        padding-top: 40px;
         .text-center {
             max-width: 850px;
             margin: auto;
@@ -76,6 +81,11 @@ body.template-about {
             font-weight: 600;
             line-height: line-spacing(21, 25);
             letter-spacing: letter-spacing(25);
+
+            > :first-child  {
+                padding-top: 10px;
+                border-top: 1px solid black;
+            }
         }
 
         .rich-text {

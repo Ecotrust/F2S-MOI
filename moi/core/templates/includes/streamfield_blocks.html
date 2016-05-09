@@ -11,7 +11,7 @@
         </div>
 
         {% if forloop.first and request.path != '/data-gaps/'  %}
-            <img class="moveDown img-responsive" src="/static/css/about_arrow.png"></i>
+            <img class="moveDown img-responsive white-arrow" src="/static/css/about_arrow.png"></i>
         {% endif %}
         {% if forloop.counter == 2 and request.path == "/" %}
             <div class="row four-circle">
@@ -26,6 +26,7 @@
                  {% endfor %}
                 {% endwith %}
             </div>
+            <img class="moveDown img-responsive black-arrow" src="/static/css/about_arrow_blk.png"></i>
         {% endif %}
         {% if request.path == '/economy/' and forloop.counter == 1 %}
             {% include "includes/economic_calculator.html" %}
