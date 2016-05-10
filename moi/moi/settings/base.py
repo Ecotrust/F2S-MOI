@@ -92,6 +92,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'moi.urls'
 
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-77557402-1'
+GOOGLE_ANALYTICS_DOMAIN = 'oregonfarmtoschool.org'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -105,13 +108,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'moi.context_processors.google_analytics',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'moi.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
