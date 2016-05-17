@@ -41,6 +41,8 @@ footer#footer {
                     max-width: 127px;
                     margin: auto;
                 };
+                min-width: 155px;
+                padding-right: 10px;
             }
         }
 
@@ -65,7 +67,7 @@ footer#footer {
         background-image: url('grid_wht@2x.png');
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
         .row {
             display: table;
             padding: 0 15px 0 15px;
@@ -97,7 +99,14 @@ footer#footer {
                 .header-title, .rich-text { 
                     padding-left: 25;
                 }
-                .rich-text { padding-right: 25px; }
+                .rich-text { padding: 0 25px 25px 0; }
+            }
+
+            .second-info { padding-left: 0; }
+
+            .second-info, logos {
+                display: table;
+                margin: auto;
             }
         }
     }

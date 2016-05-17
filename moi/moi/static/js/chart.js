@@ -90,7 +90,12 @@ $( window ).load(function() {
                         .showValues(true)
                         .valueFormat(d3.format('.2'))
                         .barColor(sectorColor(dataSlug, array))
-                        .margin({top: 30, right: 50, bottom: 50, left: 200});
+                        
+                    if (window.outerWidth <= 450) {
+                        chart.margin({top: 30, right: 20, bottom: 50, left: 150});
+                    } else {
+                        chart.margin({top: 30, right: 50, bottom: 50, left: 200});
+                    }
 
                     chart.yAxis
                         .tickFormat(d3.format('.2'));

@@ -48,7 +48,7 @@ class Data(models.Model):
                              default="",
                              max_length=255,
                              verbose_name="Data Labels",
-                             help_text='Enter your labels here. If there is more than one label present, separate them by a semicolon')
+                             help_text='Enter your labels here. If there is more than one label present, separate them by a semicolon. Please limit your labels to approx. 30 characters.')
 
     content_panels = [
         FieldPanel('data_viz_type'),

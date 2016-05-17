@@ -312,9 +312,6 @@ body.template-homepage {
     @media screen and (max-width: 875px) {
         .body-content {
             .outer {
-
-                .ts-source-full { max-width: 175px; }
-
                 .sector-link {
                     a > .link-text { font-size: 14px; }
                 }
@@ -325,7 +322,6 @@ body.template-homepage {
     @media screen and (max-width: 768px) {
         .body-content {
             .outer {
-                min-height: 200px;
                 .sector-link { bottom: 30px; }
 
                 .ts-source, .ts-source-full {
@@ -333,7 +329,7 @@ body.template-homepage {
                     margin-right: auto;
                     left: 0;
                     right: 0;
-                    bottom: 80px;
+                    bottom: 95px;
                 }
 
                 .ts-source {
@@ -346,7 +342,7 @@ body.template-homepage {
                 .four-circle {
                     .img-responsive {
                         width: 40%;
-                        min-width: 215px;
+                        min-width: 155px;
                     }
                 }
             }
@@ -355,9 +351,13 @@ body.template-homepage {
 
     @media screen and (max-width: 675px) {
         .body-content {
+            .outer { 
+                min-height: 100px;
+                .ts-source-full > p { font-size: 11px; } 
+            }
             section {
                 &:not(:first-child) {
-                    .main-content p, p {
+                    .main-content p, .basic-content > .rich-text p {
                         font-size: 15px;
                         -webkit-column-count: auto;
                         -moz-column-count: auto;

@@ -55,12 +55,12 @@ function rotate() {
             var $imgSrc = $(this).attr('src');
 
             if ($imgSrc === imgArray[0] || $imgSrc === imgArray[1]) {
-                if ($(window).width() < 768) {
+                if (window.outerWidth < 768) {
                     var src = $(this).attr('src').replace($imgSrc, imgArray[3]);
                     $(this).attr('src', src).css({ 'max-width': '190px', 'min-width': '155px'});
                 }
             } else if ($imgSrc === imgArray[3] || $imgSrc === imgArray[4]) {
-                if ($(window).width() >= 768) {
+                if (window.outerWidth >= 768) {
                     var src = $(this).attr('src').replace($imgSrc, imgArray[0]);
                     $(this).attr('src', src).css({'max-width': '100%', 'min-width': '375px'});
                 }
@@ -121,7 +121,7 @@ $('img.img-responsive').each(function(index, elm) {
            }
            $(this).attr('data-at2x', retinaPath);
         }
-        if ($( window ).width() >= 1367) {
+        if (window.outerWidth >= 1367) {
            var retina2x = $(this).attr('data-at2x');
            $(this).attr('src', retina2x);
         }
@@ -141,6 +141,9 @@ if ($('.economic-calculator').length) {
     $('.keys span').on('click', function() {
         if (this.id === 'del' && $num.value.length > 0) {
             $num.value = $num.value.slice(0, -1);
+            if ($num.value === '') {
+                calcResult.value = '';
+            } 
         } else {
             var intVal = parseInt(this.id)
             $num.value = $num.value + intVal;
@@ -170,9 +173,11 @@ if ($('.economic-calculator').length) {
     }
 
     $('.calculate-btn').click(function() {
-        $('#calcResult').html('<span id="equal-sign">=</span><span id="result-val">   '+calcResult.value+'</span>');
-        $('#calcResult, #calcResult-text').show()
-                        .addClass('animated bounceInUp');
+        if (calcResult.hasOwnProperty('value') && (calcResult.value !== '' || calcResult.value.length > 0 )) {
+            $('#calcResult').html('<span id="equal-sign">=</span><span id="result-val">   '+calcResult.value+'</span>');
+            $('#calcResult, #calcResult-text').show()
+                            .addClass('animated bounceInUp');
+        }
     })
 }
 
