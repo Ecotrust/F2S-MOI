@@ -179,6 +179,54 @@ body.template-datapage {
                 }
             }
 
+            &.sec-1 {
+                .ts-source > span, .ts-source-full {
+                    border: 1px solid $light-grey;
+                    padding: 8px 12px 8px 12px;
+                    background-color: $light-grey;
+                }
+
+                .ts-source, .ts-source-full p {
+                    font-family: $lato;
+                    font-weight: 600;
+                    letter-spacing: letter-spacing(100);
+                }
+
+                .ts-source {
+                    position: absolute;
+                    bottom: 65px;
+                    font-size: pt-px(9);
+                    cursor: pointer;
+                    text-align: left;
+                    span {
+                        max-width: 30px;
+                        &:hover { color: $blue };
+                    }
+                }
+
+                .ts-source-full {
+                    display: none;
+                    bottom: 35px;
+                    margin-bottom: 20px;
+                    padding: 10px;
+                    text-align: left;
+                    p { 
+                        color: $black;
+                        font-size: pt-px(11);
+                        max-width: 125px;
+                        word-break: break-all;
+                        -webkit-column-count: auto;
+                        -moz-column-count: auto;
+                        column-count: auto;
+                        padding-top: 0;
+                    }
+                    cursor: initial;
+                }
+
+                .table {
+                    display: table;
+                }
+            }
         }
     }
 
@@ -491,7 +539,26 @@ body.template-datapage {
     }
 
     @media screen and (max-width: 768px) {
-        
+        .body-content {
+            section.sec-1 {
+                .ts-source, .ts-source-full {
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 0;
+                    right: 0;
+                    bottom: 95px;
+                    max-width: 250px;
+                    z-index: 1001;
+                }
+
+                .ts-source {
+                    font-size: 10px;
+                    text-align: center;
+                }
+            }
+
+            .economic-calculator { margin-bottom: 80px;}
+        }
     }
 
     @media screen and (max-width: 675px) {

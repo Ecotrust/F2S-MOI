@@ -61,6 +61,15 @@ class AlignedHTMLBlock(StructBlock):
 
 class BasicContentBlock(StructBlock):
     content = RichTextBlock(help_text="Add your text and/or image content above", label="Content Area")
+    source = RichTextBlock(required=False, help_text="Display your source here")
+    
+    def render(self, value):
+        source_len = len(value['source'].source)
+       
+        return render_to_string(self.meta.template, {
+            'self': value,
+            'source_len': source_len,
+        })
 
     class Meta:
         template = "blocks/basic_content_block.html"
@@ -147,7 +156,7 @@ class CoreStreamBlock(StreamBlock):
     # aligned_html = AlignedHTMLBlock(icon="code", label='Raw HTML')
     # document = DocumentChooserBlock(icon="doc-full-inverse")
     # embedded_video = EmbedBlock(icon="media")
-    two_column = TwoColumnBlock()
+    # two_column = TwoColumnBlock()
 
 class HomeStreamBlock(StreamBlock):
     number_count_up = NumberCountUpBlock(icon="order", label="Content and Number Counter Block")
