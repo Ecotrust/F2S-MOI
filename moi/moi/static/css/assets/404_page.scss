@@ -1,7 +1,7 @@
 body.template-404 {
     .404 {
-        section.section { 
-            background-color: $light-grey; 
-        }
+        text-align: center;
+        .sec-1 { background-color: $light-grey; }
+        #fp-nav { display: none; }
     }
 }
