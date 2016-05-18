@@ -58,5 +58,21 @@
       </div>
     {% endfor %}
   {% endfor %}
+
+  <div class="row three-circle">
+      <h2>Explore other data</h2>
+      {% with 'health education economy environment' as sectors %}
+       {% for sector in sectors.split %}
+         {% if sector != page.slug %}
+          <div class="col-lg-4 col-md-4 col-sm-4">
+              <a href="/{{ sector }}">
+                  <img class="img-responsive center-block" src="/media/original_images/{{ sector }}_circle.png">
+                  <div class="text-center"> {{ sector|upper }} </div>
+              </a>
+          </div>
+         {% endif %}
+       {% endfor %}
+      {% endwith %}
+  </div>
 </div>
 {% endblock %}

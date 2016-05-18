@@ -17,7 +17,6 @@ body.template-datapage {
     .body-content {
         color: $black;
 
-
         &.health {
             section.sec-1 {
                 background-color: $yellow;
@@ -235,6 +234,16 @@ body.template-datapage {
         color: $black;
         font-family: $lato;
         padding-bottom: 65px;
+
+        .three-circle { 
+            max-width: 850px;
+            margin: auto;
+            h2 {
+                font-family: $arbutus-slab;
+                text-align: center;
+            }
+            a > .text-center { font-weight: 600; }
+        }
 
         &.environment {
             .outcome-text,
