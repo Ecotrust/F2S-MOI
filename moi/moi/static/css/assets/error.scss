@@ -4,7 +4,7 @@ body.template-not-found {
         .sec-1 { background-color: $light-grey; }
         font-family: $arbutus-slab;
         h4 { padding-top: 15px; }
-        img { max-width: 300px; }
+        img.not-found { max-width: 300px; }
     }
     #fp-nav { display: none; }
 }

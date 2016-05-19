@@ -22,13 +22,13 @@ $( window ).load(function() {
         function createChart(val) {
             var pieColorArrays = [
                 //environment
-                ['#ba2226', '#c08477', '#e6d1ca'],
+                ['#ba2227', '#28A8E0', '#e6d1ca'],
                 //education
-                ['#185377', '#98a2b8', '#d1d4de'],
+                ['#185377', '#E82128', '#d1d4de'],
                 //health
-                ['#f6ab1b', '#fbca7a', '#feeacd'],
+                ['#f6ab1b', '#81B79C', '#feeacd'],
                 //economy
-                ['#83b841', '#b2ce87', '#e9f0dc']
+                ['#83b841', '#603A17', '#e9f0dc']
             ];
 
             var multiBarHorizontalColorArrays = [
