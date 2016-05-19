@@ -1,12 +1,14 @@
 {% extends "base.html" %}
+{% load static compress %}
 
-{% block body_class %}template-404{% endblock %}
+{% block body_class %}template-not-found{% endblock %}
 
 {% block content %}
-<div class="body-content 404">
+<div class="body-content not-found">
     <section class="section sec-1">
         <h2>Sorry, this page could not be found.</h2>
-        <img class="img-responsive center-block" src="media/original_images/404.png">
+        <h4>Please try using one of the links in our menu.</h4>
+        <img class="img-responsive center-block" data-no-retina src="/media/images/cafeteria_plate.original.png">
     </section>
 </div>
 {% endblock %}

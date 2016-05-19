@@ -1,0 +1,9 @@
+body.template-not-found {
+    .body-content {
+        text-align: center;
+        .sec-1 { background-color: $light-grey; }
+        font-family: $arbutus-slab;
+        h4 { padding-top: 15px; }
+    }
+    #fp-nav { display: none; }
+}
