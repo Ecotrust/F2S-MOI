@@ -12,7 +12,7 @@ body.template-datapage {
         z-index: 1000;
     }
 
-    footer#footer { border-top: 1px solid $black; }
+    /*footer#footer { border-top: 1px solid $black; }*/
 
     .body-content {
         color: $black;
@@ -171,7 +171,7 @@ body.template-datapage {
                 h4,h5 {
                     margin: 0px;
                     font-family: $lato;
-                    font-size: pt-px(12);
+                    font-size: pt-px(14);
                     letter-spacing: letter-spacing(100);
                     font-weight: 600;
                     text-transform: uppercase;
@@ -209,7 +209,7 @@ body.template-datapage {
                     margin-bottom: 20px;
                     padding: 10px;
                     text-align: left;
-                    p { 
+                    p {
                         color: $black;
                         font-size: pt-px(11);
                         max-width: 125px;
@@ -235,7 +235,7 @@ body.template-datapage {
         font-family: $lato;
         padding-bottom: 65px;
 
-        .three-circle { 
+        .three-circle {
             max-width: 850px;
             margin: auto;
             h2 {
@@ -623,13 +623,13 @@ body.template-datapage {
                 .pie-legend > div { font-size: 12px; }
             }
 
-            
+
             .link-viz {
                 .yes-container {
                     .yes-wrap { font-size: 50px; }
-                    .yes-link-wrap { 
+                    .yes-link-wrap {
                         font-size: 18px;
-                        margin: 0 2.5em 0 2.5em; 
+                        margin: 0 2.5em 0 2.5em;
                     }
                 }
             }
@@ -642,8 +642,8 @@ body.template-datapage {
                 ol {
                     margin-left: 35px;
                     padding-top: 15px;
-                    li { 
-                        padding-left: 30px; 
+                    li {
+                        padding-left: 30px;
                         font-size: pt-px(13);
                         margin-bottom: 20px;
                     }

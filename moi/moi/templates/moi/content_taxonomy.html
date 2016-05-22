@@ -2,8 +2,10 @@
 <div class="row">
     {% for sector in sectors %}
     <div class="text-center title">
-        {{ sector.title | richtext }}
-        <img class="img-responsive center-block" src="/media/original_images/about_{{ sector.display_title | striptags | lower }}.png" />
+        <a class="sector-link" href="/{{ sector.slug }}">
+            {{ sector.title | richtext }}
+            <img class="img-responsive center-block" src="/media/original_images/about_{{ sector.display_title | striptags | lower }}.png" />
+        </a>
 
         {% for outcome in outcomes %}
             {% if sector.pk == outcome.get_parent.pk %}

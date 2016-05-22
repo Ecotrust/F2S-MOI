@@ -1,5 +1,5 @@
 footer#footer {
-    background-image: url("grid_wht.png");
+    background-color: $white;
     color: $black;
     font-weight: 600;
 
@@ -46,21 +46,11 @@ footer#footer {
             }
         }
 
-        .info { padding-left: 50px; }
+        .info {
+            padding-left: 50px;
+            /*.rich-text { max-width: 450px; }*/
+        }
 
-        /*.menus {
-            .header-title { padding: 0; }
-            .menu {
-                font-family: $arbutus-slab;
-                font-size: pt-px(12);
-                line-height: line-spacing(12, 22);
-                letter-spacing: letter-spacing(100);
-                a {
-                    color: $black;
-                    &:hover { color: $blue; }
-                }
-            }
-        }*/
     }
 
     @media all and (-webkit-min-device-pixel-ratio: 1.5) {
@@ -96,10 +86,13 @@ footer#footer {
                 /* becomes first div */
                 display: table-header-group;
                 padding-bottom: 30px;
-                .header-title, .rich-text { 
+                .header-title, .rich-text {
                     padding-left: 25;
                 }
-                .rich-text { padding: 0 25px 25px 0; }
+                .rich-text {
+                    padding: 0 25px 25px 0;
+                    max-width: 100%;
+                }
             }
 
             .second-info { padding-left: 0; }

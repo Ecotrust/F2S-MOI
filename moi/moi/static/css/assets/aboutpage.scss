@@ -50,9 +50,9 @@ body.template-about {
 
     /** streamfields **/
     .block-basic_content {
-        &:first-child { 
+        &:first-child {
             background-image: url("grid_wht.png");
-            padding-top: 30px; 
+            padding-top: 30px;
             padding-bottom: 60px;
         }
 
@@ -86,6 +86,10 @@ body.template-about {
                 padding-top: 10px;
                 border-top: 1px solid black;
             }
+
+            a.sector-link { color: $black; }
+            a.sector-link:hover, a.sector-link:active { color: $blue; }
+
         }
 
         .rich-text {
