@@ -212,8 +212,7 @@ body.template-datapage {
                     p {
                         color: $black;
                         font-size: pt-px(11);
-                        max-width: 125px;
-                        word-break: break-all;
+                        max-width: 225px;
                         -webkit-column-count: auto;
                         -moz-column-count: auto;
                         column-count: auto;
@@ -221,6 +220,8 @@ body.template-datapage {
                     }
                     cursor: initial;
                 }
+
+                .ts-source, .ts-source-full { z-index: 1001; }
 
                 .table {
                     display: table;
@@ -557,7 +558,6 @@ body.template-datapage {
                     right: 0;
                     bottom: 95px;
                     max-width: 250px;
-                    z-index: 1001;
                 }
 
                 .ts-source {

@@ -62,10 +62,10 @@ class AlignedHTMLBlock(StructBlock):
 class BasicContentBlock(StructBlock):
     content = RichTextBlock(help_text="Add your text and/or image content above", label="Content Area")
     source = RichTextBlock(required=False, help_text="Display your source here")
-    
+
     def render(self, value):
         source_len = len(value['source'].source)
-       
+
         return render_to_string(self.meta.template, {
             'self': value,
             'source_len': source_len,
@@ -79,19 +79,19 @@ class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
     numbers = CharBlock(required=False, help_text="Enter the numbers you'd like to count up - seperated by a semicolon. Do not use commas for larger numbers. Ex: 4; 51000; 15", label="Numbers to count")
     colored_text = CharBlock(required=False, help_text="Enter the content you'd like to be a different color - each set of content is seperated by a semicolon")
-    source = CharBlock(required=False, help_text="Enter a source for the associated information.")
+    source = RichTextBlock(required=False, help_text="Enter a source for the associated information.")
 
     def render(self, value):
         num = value['numbers']
         current_context = value['content'].source
         colored = value['colored_text']
         source = value['source']
-            
+
         if colored:
             colored_list = colored.split("; ")
             #add color wrapper to identified content
             for color in colored_list:
-                color_span = "<span class='color-text'>%s</span>" % (color)  
+                color_span = "<span class='color-text'>%s</span>" % (color)
                 current_context = current_context.replace(color, color_span, 1)
 
         if num:
@@ -99,11 +99,11 @@ class NumberCountUpBlock(StructBlock):
             counter = randint(10, 500)
             # add count-up functionality to identified numbers
             for num in num_list:
-                counter += 1                    
-                html_span = "<span id='%s-count-%s' class='count-up'></span>" % (num, counter)                                                          
+                counter += 1
+                html_span = "<span id='%s-count-%s' class='count-up'></span>" % (num, counter)
                 current_context = current_context.replace(num, html_span, 1)
         else:
-            num_list = None          
+            num_list = None
 
         return render_to_string(self.meta.template, {
             'self': value,

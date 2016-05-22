@@ -11,6 +11,8 @@
         <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'css/favicon.ico' %}"/>
+
         {% load staticfiles %}
             <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}" />
             <link rel="stylesheet" href="{%static "animate.css/animate.min.css" %}" />
@@ -45,11 +47,11 @@
         <script src="{% static 'topojson/topojson.js' %}"></script>
         <script src="{% static 'js/chart.js' %}"></script>
         <script src="{% static 'js/districts.js' %}"></script>
-        <script src="{% static 'js/moi.js' %}"></script>        
+        <script src="{% static 'js/moi.js' %}"></script>
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
-        
+
         {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
           {% include "ga.html" %}
         {% endif %}
