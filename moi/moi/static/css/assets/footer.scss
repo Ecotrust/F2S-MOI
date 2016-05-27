@@ -6,7 +6,7 @@ footer#footer {
     .container-fluid { padding: 40px 35px 20px 35px; }
 
     .row {
-        margin: 20px 0 10px 0px;
+        margin: 20px 0 10px 10px;
 
         .header-title {
             font-family: $lato;
@@ -47,20 +47,28 @@ footer#footer {
         }
 
         .info {
-            padding-left: 50px;
-            /*.rich-text { max-width: 450px; }*/
+            padding: 0 50px 0 50px;
+            .rich-text, .header-title {
+                max-width: 450px;
+                margin: auto;
+            }
+        }
+
+        .second-info {
+            .rich-text, .header-title {
+                margin: auto;
+                max-width: 225px;
+            }
         }
 
     }
 
-/*    @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-        background-image: url('grid_wht@2x.png');
-    }*/
 
     @media screen and (max-width: 767px) {
         .row {
             display: table;
             padding: 0 15px 0 15px;
+            width: 100%;
 
             .logos {
                 border-right: none;
@@ -86,18 +94,11 @@ footer#footer {
                 /* becomes first div */
                 display: table-header-group;
                 padding-bottom: 30px;
-                .header-title, .rich-text {
-                    padding-left: 25;
-                }
-                .rich-text {
-                    padding: 0 25px 25px 0;
-                    max-width: 100%;
-                }
             }
 
             .second-info { padding-left: 0; }
 
-            .second-info, logos {
+            .second-info, .logos {
                 display: table;
                 margin: auto;
             }

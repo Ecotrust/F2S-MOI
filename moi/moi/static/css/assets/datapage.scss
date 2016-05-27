@@ -226,6 +226,13 @@ body.template-datapage {
                 .table {
                     display: table;
                 }
+
+                .rich-text {
+                    p {
+                        font-size: pt-px(15);
+                        padding-top: 5px;
+                    }
+                }
             }
         }
     }
@@ -325,7 +332,7 @@ body.template-datapage {
                   letter-spacing: letter-spacing(30);
                 }
 
-                .sector-anchor:before {
+                .sector-anchor:after {
                     display: block;
                     content: " ";
                     width: 0;

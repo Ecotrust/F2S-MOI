@@ -121,10 +121,6 @@ $('img.img-responsive').each(function(index, elm) {
            }
            $(this).attr('data-at2x', retinaPath);
         }
-        if (window.outerWidth >= 1367) {
-           var retina2x = $(this).attr('data-at2x');
-           $(this).attr('src', retina2x);
-        }
     }
 })
 
@@ -143,7 +139,7 @@ if ($('.economic-calculator').length) {
             $num.value = $num.value.slice(0, -1);
             if ($num.value === '') {
                 calcResult.value = '';
-            } 
+            }
         } else {
             var intVal = parseInt(this.id)
             $num.value = $num.value + intVal;
@@ -309,7 +305,9 @@ function fireCountWhenInView() {
         .each(function(index, elm) {
             $.each(countUpArray, function(index, val) {
                 if (elm === val.d) {
-                    val.start();
+                    setTimeout(function() {
+                        val.start();
+                    }, 500);
                 }
             })
         })
