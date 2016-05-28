@@ -84,7 +84,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
-    'moi.middleware.AuthRequiredMiddleware',
+    # middleware for splash page redirect when not authenticated
+    #'moi.middleware.AuthRequiredMiddleware',
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
