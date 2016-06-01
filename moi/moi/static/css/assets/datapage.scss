@@ -244,13 +244,17 @@ body.template-datapage {
         padding-bottom: 65px;
 
         .three-circle {
-            max-width: 850px;
+            max-width: 725px;
             margin: auto;
+            padding: 30px 0 35px 0;
             h2 {
                 font-family: $arbutus-slab;
                 text-align: center;
             }
-            a > .text-center { font-weight: 600; }
+            a {
+                text-decoration: none;
+                .text-center { font-weight: 600; }
+            }
         }
 
         &.environment {
