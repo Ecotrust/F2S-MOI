@@ -84,4 +84,11 @@
    #pull from VM
    vagrant rsync-pull
   ```
-   
+  
+### Deployment
+ * ssh into server
+ * `cd ~/webapps/f2smoi/F2S-MOI/` - puts you at the app root
+ * `git pull origin master` - or use fetch, etc - to grab code from github
+ * `python manage.py compress --force && python manage.py collectstatic` at `cd moi/` - grab css/js files
+ * `~/webapps/f2smoi/apache2/bin/restart` - restart server
+ 
