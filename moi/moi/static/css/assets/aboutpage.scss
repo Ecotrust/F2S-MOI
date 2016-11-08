@@ -51,7 +51,8 @@ body.template-about {
     /** streamfields **/
     .block-basic_content {
         &:first-child {
-            background-image: url("grid_wht.png");
+            // background-image: url("grid_wht.png");
+            background: #fff;
             padding-top: 30px;
             padding-bottom: 60px;
         }
