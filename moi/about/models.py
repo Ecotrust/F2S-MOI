@@ -11,9 +11,9 @@ class About(Page):
     parent_page_types = ['home.HomePage']
     body_content = StreamField(CoreStreamBlock(), blank=True, null=True, default=None)
 
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body_content'),
-    )
+    ]
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body_content'),
