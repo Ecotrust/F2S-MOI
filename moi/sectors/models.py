@@ -11,10 +11,10 @@ class Sector(Page):
     display_title = RichTextField(blank=True)
     body_content = StreamField(CoreStreamBlock(), blank=True, null=True, default=None)
 
-    search_fields = Page.search_fields + [
+    search_fields = Page.search_fields + (
             index.SearchField('display_title'),
             index.SearchField('body_content'),
-       ]
+       )
 
     content_panels = Page.content_panels + [
         FieldPanel('display_title'),

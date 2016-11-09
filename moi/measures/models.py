@@ -22,10 +22,10 @@ class CoreMeasure(Page, Orderable):
     display_title = RichTextField(blank=True)
     body_content = RichTextField(blank=True, null=True, default=None, verbose_name="Extra Content")
 
-    search_fields = Page.search_fields + [
+    search_fields = Page.search_fields + (
             index.SearchField('display_title'),
             index.SearchField('body_content'),
-       ]
+       )
 
     content_panels = Page.content_panels + [
         FieldPanel('display_title'),
