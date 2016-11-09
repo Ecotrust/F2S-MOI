@@ -4,8 +4,6 @@ import sys
 
 if __name__ == "__main__":
 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moi.settings")
-    # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moi.settings.dev")
-    # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moi.settings.production_template")
 
     from django.core.management import execute_from_command_line
 
