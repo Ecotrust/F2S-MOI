@@ -62,7 +62,7 @@ class HomePage(Page):
         index.SearchField('body_content'),
     )
 
-    content_panels = Page.content_panels + )
+    content_panels = Page.content_panels + (
         StreamFieldPanel('body_content')
         #InlinePanel('top_stories', label="Top Stories"),
     )
