@@ -28,12 +28,6 @@ body.template-about {
                 font-family: $arbutus-slab;
                 font-size: pt-px(13);
                 line-height: line-spacing(13, 20);
-                -webkit-column-count: 2;
-                -moz-column-count: 2;
-                column-count: 2;
-                -webkit-column-gap: 35px;
-                -moz-column-gap: 35px;
-                column-gap: 35px;
 
                 a {
                     font-family: $lato;
@@ -49,7 +43,8 @@ body.template-about {
     }
 
     /** streamfields **/
-    .block-basic_content {
+    .block-basic_content,
+    .block-large_text_content {
         &:first-child {
             // background-image: url("grid_wht.png");
             background: #fff;
@@ -57,9 +52,16 @@ body.template-about {
             padding-bottom: 60px;
         }
 
-        .basic-content { padding: 4em 4em 3em 3em }
-
+        .basic-content,
+        .large-text-content { padding: 4em 4em 3em 3em }
     }
+
+    .large-text-content {
+        .rich-text p {
+                font-size: pt-px(18);
+                line-height: 1.75;
+            }
+        }
 
     /** content_taxonomy.html **/
     .taxonomy {

@@ -1,0 +1,11 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="basic-content large-text-content">
+    {{ self.content }}
+    {% if source_len > 3 %}
+        <div class="ts-source">
+            <div class="ts-source-full"> {{ self.source }}</div>
+            <span>SOURCE</span>
+        </div>
+    {% endif %}
+</div>

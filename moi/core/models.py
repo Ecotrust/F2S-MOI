@@ -74,6 +74,21 @@ class BasicContentBlock(StructBlock):
     class Meta:
         template = "blocks/basic_content_block.html"
 
+class LargeTextContentBlock(StructBlock):
+    content = RichTextBlock(help_text="Add your text and/or image content above", label="Content Area")
+    source = RichTextBlock(required=False, help_text="Display your source here")
+
+    def render(self, value):
+        source_len = len(value['source'].source)
+
+        return render_to_string(self.meta.template, {
+            'self': value,
+            'source_len': source_len,
+        })
+
+    class Meta:
+        template = "blocks/large_text_content_block.html"
+
 
 class NumberCountUpBlock(StructBlock):
     content = RichTextBlock(help_text="Enter your main content above. Do not use commas for larger numbers.", label="Text")
@@ -152,6 +167,7 @@ class TwoColumnBlock(StructBlock):
 class CoreStreamBlock(StreamBlock):
     number_count_up = NumberCountUpBlock(icon="order", label="Content and Number Counter Block")
     basic_content = BasicContentBlock(icon="pilcrow", label="Basic Content Block")
+    large_text_content = LargeTextContentBlock(icon="pilcrow", label="Large Text Content Block")
     # aligned_image = ImageBlock(label="Aligned image", icon="image")
     # aligned_html = AlignedHTMLBlock(icon="code", label='Raw HTML')
     # document = DocumentChooserBlock(icon="doc-full-inverse")
