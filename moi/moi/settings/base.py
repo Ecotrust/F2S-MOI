@@ -183,14 +183,14 @@ COMPRESS_PRECOMPILERS = (
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
 
 BOWER_INSTALLED_APPS = (
-    'jquery',
+    'jquery#2.2.1',
     'bootstrap-sass#3.3.6',
     'font-awesome#4.5.0',
     'countUp.js',
     'isInViewport',
-    'jquery-slimscroll',
-    'retina.js',
-    'animate.css',
+    'jquery-slimscroll#1.3.8',
+    'retina.js#1.3.0',
+    'animate.css#3.5.1',
 
     # d3 and nvd3 need to explicitly set to the versions below
     # for the related django/python wrapper package to work

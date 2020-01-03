@@ -1,9 +1,10 @@
-wagtail
+django<1.11
+wagtail<1.8
 django-appconf
 psycopg2
 djangorestframework
 markdown
-django-filter
+django-filter<2.0
 
 libsass==0.10.1
 
